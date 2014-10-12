@@ -22,7 +22,7 @@ public class TestklasseJulian {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TestKlasse frame = new TestKlasse();
+					TestklasseJulian frame = new TestklasseJulian();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
