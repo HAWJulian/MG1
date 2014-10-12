@@ -59,6 +59,16 @@ public class TestklasseJulian {
 			}
 		}
 		values.displayCharacter('1', 0, 0, arrayClock);
+		values.displayCharacter('2', 0, 0, arrayClock);
+		values.displayCharacter('3', 0, 0, arrayClock);
+		values.displayCharacter('4', 0, 0, arrayClock);
+		values.displayCharacter('5', 0, 0, arrayClock);
+		values.displayCharacter('6', 0, 0, arrayClock);
+		values.displayCharacter('7', 0, 0, arrayClock);
+		values.displayCharacter('8', 0, 0, arrayClock);
+		values.displayCharacter('9', 0, 0, arrayClock);
+		values.displayCharacter('0', 0, 0, arrayClock);
+		
 		//Erzeuge eine neue Uhr, füge sie dam Frame hinzu und starte sie
 	/*	clock = new ClockPanel(300);
 		frame.add(clock);

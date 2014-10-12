@@ -39,15 +39,7 @@ public class ClockPanel extends JPanel implements Runnable{
 		return isMoving;
 	}
 	
-	public void setTargetDegreeH(float x)
-	{
-		targetDegreeH = x;
-	}
-	
-	public void setTargetDegreeM(float x)
-	{
-		targetDegreeM = x;
-	}
+
 	private void calculateDirection()
 	{
 		// 270 -> 10 clock ( -260)
@@ -185,7 +177,10 @@ public class ClockPanel extends JPanel implements Runnable{
 			else
 			{
 				degreeH--;
-				degreeH=degreeH%360;
+				if(degreeH == -1)
+				{
+					degreeH = 359;
+				}
 			}
 			
 		}
@@ -202,7 +197,10 @@ public class ClockPanel extends JPanel implements Runnable{
 			else
 			{
 				degreeM--;
-				degreeM=degreeM%360;
+				if(degreeM == -1)
+				{
+					degreeM = 359;
+				}
 			}
 		}
 		
