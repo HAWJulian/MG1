@@ -8,7 +8,6 @@ public class Values {
 
 	public void displayCharacter(char x, int startx, int starty,
 			ClockPanel[][] clocks) {
-		// Ziffer 1
 		switch (x) {
 		case '1':
 			// left
@@ -110,15 +109,78 @@ public class Values {
 			clocks[startx + 1][starty].setPointerDegree(180, 270);
 			clocks[startx + 1][starty + 1].setPointerDegree(180, 0);
 			clocks[startx + 1][starty + 2].setPointerDegree(270, 0);
+			break;
+		case 'a':
+			// left
+			clocks[startx][starty].setPointerDegree(180, 90);
+			clocks[startx][starty + 1].setPointerDegree(90, 0);
+			clocks[startx][starty + 2].setPointerDegree(0, 0);
+			// right
+			clocks[startx + 1][starty].setPointerDegree(180, 270);
+			clocks[startx + 1][starty + 1].setPointerDegree(270, 0);
+			clocks[startx + 1][starty + 2].setPointerDegree(0, 0);
+			break;
+		case 'c':
+			// left
+			clocks[startx][starty].setPointerDegree(180, 90);
+			clocks[startx][starty + 1].setPointerDegree(180, 0);
+			clocks[startx][starty + 2].setPointerDegree(90, 0);
+			// right
+			clocks[startx + 1][starty].setPointerDegree(270, 270);
+			clocks[startx + 1][starty + 1].setPointerDegree(def, def);
+			clocks[startx + 1][starty + 2].setPointerDegree(270, 270);
+			break;
+		case 'e':
+			// left
+			clocks[startx][starty].setPointerDegree(180, 90);
+			clocks[startx][starty + 1].setPointerDegree(90, 0);
+			clocks[startx][starty + 2].setPointerDegree(90, 0);
+			// right
+			clocks[startx + 1][starty].setPointerDegree(270, 270);
+			clocks[startx + 1][starty + 1].setPointerDegree(270, 270);
+			clocks[startx + 1][starty + 2].setPointerDegree(270, 270);
+			break;
+		case 'f':
+			// left
+			clocks[startx][starty].setPointerDegree(180, 90);
+			clocks[startx][starty + 1].setPointerDegree(90, 0);
+			clocks[startx][starty + 2].setPointerDegree(0, 0);
+			// right
+			clocks[startx + 1][starty].setPointerDegree(270, 270);
+			clocks[startx + 1][starty + 1].setPointerDegree(270, 270);
+			clocks[startx + 1][starty + 2].setPointerDegree(def, def);
+			break;
+		case 'g':
+			// left
+			clocks[startx][starty].setPointerDegree(180, 90);
+			clocks[startx][starty + 1].setPointerDegree(180, 0);
+			clocks[startx][starty + 2].setPointerDegree(90, 0);
+			// right
+			clocks[startx + 1][starty].setPointerDegree(270, 270);
+			clocks[startx + 1][starty + 1].setPointerDegree(180, 270);
+			clocks[startx + 1][starty + 2].setPointerDegree(270, 0);
+			break;
+		case 'h':
+			// left
+			clocks[startx][starty].setPointerDegree(180, 180);
+			clocks[startx][starty + 1].setPointerDegree(90, 0);
+			clocks[startx][starty + 2].setPointerDegree(0, 0);
+			// right
+			clocks[startx + 1][starty].setPointerDegree(180, 180);
+			clocks[startx + 1][starty + 1].setPointerDegree(270, 0);
+			clocks[startx + 1][starty + 2].setPointerDegree(0, 0);
+			break;
+		case 'j':
+			// left
+			clocks[startx][starty].setPointerDegree(90, 90);
+			clocks[startx][starty + 1].setPointerDegree(def, def);
+			clocks[startx][starty + 2].setPointerDegree(90, 0);
+			// right
+			clocks[startx + 1][starty].setPointerDegree(180, 270);
+			clocks[startx + 1][starty + 1].setPointerDegree(180, 270);
+			clocks[startx + 1][starty + 2].setPointerDegree(270, 0);
+			break;
 		}
 	}
 
-	// Ziffer 3
-	// Ziffer 4
-	// Ziffer 5
-	// Ziffer 6
-	// Ziffer 7
-	// Ziffer 8
-	// Ziffer 9
-	// Ziffer 0
 }
