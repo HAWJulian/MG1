@@ -36,6 +36,7 @@ public class ClockPanel extends JPanel implements Runnable{
 	//Setzt die Zielposition der Zeiger. true bei Erfolg false bei Misserfolg
 	public boolean setPointerDegree(int hour, int minute)
 	{
+		
 		if (isMoving)
 		{
 			//Die Zielposition der Zeiger kann nicht geändert werden während die Uhr am laufen ist
@@ -115,7 +116,7 @@ public class ClockPanel extends JPanel implements Runnable{
 		clock2.drawLine(center, center, zeigerMx, zeigerMy);
 		
 		//Stundenzeiger rendern
-		clock2.setColor(Color.BLACK);
+		clock2.setColor(Color.RED);
 		int zeigerHx = (int) ((center) + ((Math.sin(Math.toRadians(degreeH)) *radius /2))*0.75);
 		int zeigerHy = (int) ((center) - ((Math.cos(Math.toRadians(degreeH)) *radius /2))*0.75);
 		clock2.drawLine(center , center, zeigerHx, zeigerHy);
@@ -127,9 +128,11 @@ public class ClockPanel extends JPanel implements Runnable{
 		
 	private void calculatePointerPosition()
 	{
+		
 		//Wenn die Zeiger ihre Positionen erreicht haben wird die Bewegung der Uhren beendet
-		if (!(targetDegreeH == degreeH) && !(targetDegreeM == degreeM)) 
+		if (((targetDegreeH == degreeH) && (targetDegreeM == degreeM))) 
 		{
+			
 			isMoving = false;
 			return;
 			

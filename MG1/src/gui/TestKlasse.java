@@ -52,7 +52,7 @@ public class TestKlasse{
 				frame.add(arrayClock[i][j]);
 
 				arrayClock[i][j].setBounds(300*i, 300*j, 300, 300);
-				arrayClock[i][j].setPointerDegree(20*i, 20*i);
+			//	arrayClock[i][j].setPointerDegree(40*i, 40*i);
 				arrayClock[i][j].start();
 			}
 		}
