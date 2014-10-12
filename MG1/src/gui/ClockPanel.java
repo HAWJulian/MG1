@@ -20,7 +20,7 @@ public class ClockPanel extends JPanel implements Runnable{
 	
 	//aktuelle Gradzahl für die Position der Zeiger (H Stunde, M Minute)
 	private float degreeH , degreeM;
-	
+	//test
 	//Gibt an welche Gradzahl die Uhren erreichen sollen
 	private float targetDegreeH, targetDegreeM;
 	
