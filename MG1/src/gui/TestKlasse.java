@@ -41,6 +41,7 @@ public class TestKlasse{
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+		frame.setLayout(null);
 		
 		//Erzeugt ein Array von Uhren und startet sie
 		for (int i=0; i<2; i++)
@@ -51,6 +52,7 @@ public class TestKlasse{
 				frame.add(arrayClock[i][j]);
 
 				arrayClock[i][j].setBounds(300*i, 300*j, 300, 300);
+				arrayClock[i][j].setPointerDegree(20*i, 20*i);
 				arrayClock[i][j].start();
 			}
 		}
