@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 public class TestKlasse{
 
+	private ClockPanel[][] arrayClock;
 	private ClockPanel clock;
 	
 	private JPanel contentPane;
@@ -31,22 +32,33 @@ public class TestKlasse{
 	
 	public TestKlasse()
 	{
-		
+		arrayClock=new ClockPanel[2][3];
 		//Erzeuge Frame
 		frame = new JFrame();
-		frame.setSize(600, 620);
+		frame.setSize(600, 920);
 		frame.setTitle("test");
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		
-		
+		//Erzeugt ein Array von Uhren und startet sie
+		for (int i=0; i<2; i++)
+		{
+			for (int j=0; j<3; j++)
+			{
+				arrayClock[i][j] = new ClockPanel(300);
+				frame.add(arrayClock[i][j]);
+
+				arrayClock[i][j].setBounds(300*i, 300*j, 300, 300);
+				arrayClock[i][j].start();
+			}
+		}
 		//Erzeuge eine neue Uhr, füge sie dam Frame hinzu und starte sie
-		clock = new ClockPanel(600);
+	/*	clock = new ClockPanel(300);
 		frame.add(clock);
 		clock.setPointerDegree(70, 50);
-		clock.start();
+		clock.start(); */
 		
 	//	TestThread thread = new TestThread(clock);
 	//	thread.start();
