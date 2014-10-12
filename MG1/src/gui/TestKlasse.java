@@ -56,16 +56,7 @@ public class TestKlasse{
 				arrayClock[i][j].start();
 			}
 		}
-		//Erzeuge eine neue Uhr, füge sie dam Frame hinzu und starte sie
-	/*	clock = new ClockPanel(300);
-		frame.add(clock);
-		clock.setPointerDegree(70, 50);
-		clock.start(); */
-		
-	//	TestThread thread = new TestThread(clock);
-	//	thread.start();
-	//	System.out.println("test");
-		
+
 	}
 	
 	

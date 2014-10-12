@@ -68,16 +68,7 @@ public class TestklasseJulian {
 		values.displayCharacter('8', 0, 0, arrayClock);
 		values.displayCharacter('9', 0, 0, arrayClock);
 		values.displayCharacter('0', 0, 0, arrayClock);
-		
-		//Erzeuge eine neue Uhr, füge sie dam Frame hinzu und starte sie
-	/*	clock = new ClockPanel(300);
-		frame.add(clock);
-		clock.setPointerDegree(70, 50);
-		clock.start(); */
-		
-	//	TestThread thread = new TestThread(clock);
-	//	thread.start();
-	//	System.out.println("test");
+	
 		
 	}
 	
