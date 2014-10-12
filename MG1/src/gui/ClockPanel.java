@@ -32,6 +32,38 @@ public class ClockPanel extends JPanel implements Runnable{
 	//Gibt an ob die Uhr dabei ist sich zu bewegen
 	private boolean isMoving;
 	
+	//Gibt an ob die Zeiger sich mit oder gegen den Uhrzeigersinn drehen (H Stunde / M Minute) true = mit dem Uhrzeigersinn
+	private boolean directionH , directionM;
+	
+	
+	private void calculateDirection()
+	{
+		// 270 -> 10 clock ( -260)
+		// 10 -> 270 counter ( 260)
+		// 45 -> 180 clock (135)
+		// 180 -> 45 counter(-135)
+		if (((targetDegreeH - degreeH) > 180) || ((targetDegreeH - degreeH) > -180) && ((targetDegreeH - degreeH) < 0))
+		{
+			directionH = false;
+		}
+		
+		else
+		{
+			directionH = true;
+		}
+		
+		if (((targetDegreeM - degreeM) > 180) || ((targetDegreeM - degreeM) > -180) && ((targetDegreeM - degreeM) < 0))
+		{
+			directionM = false;
+		}
+		
+		else
+		{
+			directionM = true;
+		}
+		
+		
+	}
 
 	//Setzt die Zielposition der Zeiger. true bei Erfolg false bei Misserfolg
 	public boolean setPointerDegree(int hour, int minute)
@@ -47,7 +79,7 @@ public class ClockPanel extends JPanel implements Runnable{
 		{
 			targetDegreeH = hour;
 			targetDegreeM = minute;
-			
+			calculateDirection();
 			return true;
 		}
 	}
@@ -95,19 +127,10 @@ public class ClockPanel extends JPanel implements Runnable{
 		//Weißen Kreis im schwarzen Zeichnen. So bleibt nur noch ein schwarzer Rand übrig
 		clock.setColor(Color.WHITE);
 		clock.fillOval(30, 30, diameter-60, diameter-60);
-		
-		//Mitte der Uhr mit einem roten Kreis füllen
-		
-	//	clock.fillOval(center -5 , center -5, 20 ,20);
-		
-		
-		
-
-		
+	
 		//Objekte des Typs "Graphics" besitzen nicht die Möglichkeit die Dicke (Stroke) zu ändern. Daher wird das Objekt clock auf ein Objekt vom Typ Grahics2D gecastet
 		Graphics2D clock2 = (Graphics2D) clock;
 		clock2.setStroke(new BasicStroke(10));
-		
 		
 		//Minutenzeiger rendern
 		clock2.setColor(Color.BLACK);
@@ -116,7 +139,7 @@ public class ClockPanel extends JPanel implements Runnable{
 		clock2.drawLine(center, center, zeigerMx, zeigerMy);
 		
 		//Stundenzeiger rendern
-		clock2.setColor(Color.RED);
+		clock2.setColor(Color.GRAY);
 		int zeigerHx = (int) ((center) + ((Math.sin(Math.toRadians(degreeH)) *radius /2))*0.75);
 		int zeigerHy = (int) ((center) - ((Math.cos(Math.toRadians(degreeH)) *radius /2))*0.75);
 		clock2.drawLine(center , center, zeigerHx, zeigerHy);
@@ -137,19 +160,38 @@ public class ClockPanel extends JPanel implements Runnable{
 			return;
 			
 		}
-		//Wenn der Stundenzeiger seine Zielosition noch nicht erreicht wird er um ein Grad verschoben
+		//Wenn der Stundenzeiger seine Zielposition noch nicht erreicht wird er um ein Grad verschoben
 		if (!(targetDegreeH == degreeH ))
 		{
-			degreeH++;
-			degreeH=degreeH%360;
-			
+			//Wenn directionH true ist wird er nach rechts gedreht
+			if (directionH) 
+			{
+				degreeH++;
+				degreeH=degreeH%360;
+			}
+			//Ansonsten nach links
+			else
+			{
+				degreeH--;
+				degreeH=degreeH%360;
+			}
 			
 		}
 		//Selbes für Minutenzeiger
 		if (!(targetDegreeM == degreeM))
 		{
-			degreeM++;
-			degreeM=degreeM%360;
+			//Wenn directionM true ist wird er nach rechts gedreht
+			if (directionM)
+			{
+				degreeM++;
+				degreeM=degreeM%360;
+			}
+			//Ansonsten nach rechts
+			else
+			{
+				degreeM--;
+				degreeM=degreeM%360;
+			}
 		}
 		
 		
