@@ -7,8 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Project.Values;
+
 public class TestklasseJulian {
-	
+	private Values values = new Values();
 	private ClockPanel[][] arrayClock;
 	private ClockPanel clock;
 	
@@ -56,6 +58,7 @@ public class TestklasseJulian {
 				arrayClock[i][j].start();
 			}
 		}
+		values.displayCharacter('1', 0, 0, arrayClock);
 		//Erzeuge eine neue Uhr, füge sie dam Frame hinzu und starte sie
 	/*	clock = new ClockPanel(300);
 		frame.add(clock);
@@ -67,6 +70,8 @@ public class TestklasseJulian {
 	//	System.out.println("test");
 		
 	}
+	
+
 	
 	
 
