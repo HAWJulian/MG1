@@ -35,6 +35,10 @@ public class ClockPanel extends JPanel implements Runnable{
 	//Gibt an ob die Zeiger sich mit oder gegen den Uhrzeigersinn drehen (H Stunde / M Minute) true = mit dem Uhrzeigersinn
 	private boolean directionH , directionM;
 	
+	private boolean getIsMoving()
+	{
+		return isMoving;
+	}
 	
 	private void calculateDirection()
 	{
