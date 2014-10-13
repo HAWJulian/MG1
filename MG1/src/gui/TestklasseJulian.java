@@ -35,10 +35,13 @@ public class TestklasseJulian {
 	
 	public TestklasseJulian()
 	{
-		arrayClock=new ClockPanel[2][3];
+		int size = 200;
+		int columns = 8;
+		int rows = 3;
+		arrayClock=new ClockPanel[columns][rows];
 		//Erzeuge Frame
 		frame = new JFrame();
-		frame.setSize(2400, 920);
+		frame.setSize(columns * size, (rows * size) + 20);
 		frame.setTitle("test");
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
@@ -47,14 +50,14 @@ public class TestklasseJulian {
 		frame.setLayout(null);
 		
 		//Erzeugt ein Array von Uhren und startet sie
-		for (int i=0; i<2; i++)
+		for (int i=0; i<columns; i++)
 		{
-			for (int j=0; j<3; j++)
+			for (int j=0; j<rows; j++)
 			{
-				arrayClock[i][j] = new ClockPanel(300);
+				arrayClock[i][j] = new ClockPanel(size);
 				frame.add(arrayClock[i][j]);
 
-				arrayClock[i][j].setBounds(300*i, 300*j, 300, 300);
+				arrayClock[i][j].setBounds(size*i, size*j, size, size);
 			//	arrayClock[i][j].setPointerDegree(40*i, 40*i);
 				arrayClock[i][j].start();
 			}
@@ -65,6 +68,10 @@ public class TestklasseJulian {
 	private void displayTime() {
 		Time time = new Time();
 		values.displayCharacter(String.valueOf(time.getHours0()).charAt(0), 0, 0, arrayClock);
+		values.displayCharacter(String.valueOf(time.getHours1()).charAt(0), 2, 0, arrayClock);
+		values.displayCharacter(String.valueOf(time.getMinutes0()).charAt(0), 4, 0, arrayClock);
+		values.displayCharacter(String.valueOf(time.getMinutes1()).charAt(0), 6, 0, arrayClock);
+		
 		System.out.println((char) time.getHours0());
 		while (true) 
 		{
@@ -74,6 +81,9 @@ public class TestklasseJulian {
 				if(time.refreshTime())
 				{
 					values.displayCharacter(String.valueOf(time.getHours0()).charAt(0), 0, 0, arrayClock);
+					values.displayCharacter(String.valueOf(time.getHours1()).charAt(0), 2, 0, arrayClock);
+					values.displayCharacter(String.valueOf(time.getMinutes0()).charAt(0), 4, 0, arrayClock);
+					values.displayCharacter(String.valueOf(time.getMinutes1()).charAt(0), 6, 0, arrayClock);
 				}
 			} 
 			catch (InterruptedException e)
