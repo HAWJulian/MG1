@@ -69,23 +69,16 @@ public class ClockPanel extends JPanel implements Runnable{
 		
 	}
 
-	//Setzt die Zielposition der Zeiger. true bei Erfolg false bei Misserfolg
-	public boolean setPointerDegree(int hour, int minute)
+	//Setzt die Zielposition der Zeiger
+	public void setPointerDegree(int hour, int minute)
 	{
+		//Die Werte werden eingespeichert und die Drehrichtung berechnet
+	
+		targetDegreeH = hour;
+		targetDegreeM = minute;
+		calculateDirection();
 		
-		if (isMoving)
-		{
-			//Die Zielposition der Zeiger kann nicht geändert werden während die Uhr am laufen ist
-			return false;
-		}
-		//Wenn die Uhr nicht läuft werden die Werte eingespeichert
-		else
-		{
-			targetDegreeH = hour;
-			targetDegreeM = minute;
-			calculateDirection();
-			return true;
-		}
+		
 	}
 	//Konstruktor einer Uhr. Setzt den Durchmesser, das Zentrum der Uhr und die Startgradzahlen der Zeiger (180)
 	public ClockPanel(int size)
