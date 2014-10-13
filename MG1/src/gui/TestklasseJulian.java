@@ -58,6 +58,7 @@ public class TestklasseJulian {
 				arrayClock[i][j].start();
 			}
 		}
+		/*
 		values.displayCharacter('1', 0, 0, arrayClock);
 		values.displayCharacter('2', 0, 0, arrayClock);
 		values.displayCharacter('3', 0, 0, arrayClock);
@@ -69,12 +70,32 @@ public class TestklasseJulian {
 		values.displayCharacter('9', 0, 0, arrayClock);
 		values.displayCharacter('0', 0, 0, arrayClock);
 		values.displayCharacter('a', 0, 0, arrayClock);
+		values.displayCharacter('b', 0, 0, arrayClock);
 		values.displayCharacter('c', 0, 0, arrayClock);
+		values.displayCharacter('d', 0, 0, arrayClock);
 		values.displayCharacter('e', 0, 0, arrayClock);
 		values.displayCharacter('f', 0, 0, arrayClock);
 		values.displayCharacter('g', 0, 0, arrayClock);
 		values.displayCharacter('h', 0, 0, arrayClock);
+		values.displayCharacter('i', 0, 0, arrayClock);
 		values.displayCharacter('j', 0, 0, arrayClock);
+		values.displayCharacter('k', 0, 0, arrayClock);
+		values.displayCharacter('l', 0, 0, arrayClock);
+		values.displayCharacter('m', 0, 0, arrayClock);
+		values.displayCharacter('n', 0, 0, arrayClock);
+		values.displayCharacter('o', 0, 0, arrayClock);
+		values.displayCharacter('p', 0, 0, arrayClock);
+		values.displayCharacter('q', 0, 0, arrayClock);
+		values.displayCharacter('r', 0, 0, arrayClock);
+		values.displayCharacter('s', 0, 0, arrayClock);
+		values.displayCharacter('t', 0, 0, arrayClock);
+		values.displayCharacter('u', 0, 0, arrayClock);
+		*/
+		//values.displayCharacter('v', 0, 0, arrayClock);
+		values.displayCharacter('w', 0, 0, arrayClock);
+		values.displayCharacter('x', 0, 0, arrayClock);
+		values.displayCharacter('y', 0, 0, arrayClock);
+		values.displayCharacter('z', 0, 0, arrayClock);
 	
 		
 	}
