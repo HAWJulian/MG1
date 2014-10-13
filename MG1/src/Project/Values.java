@@ -291,8 +291,24 @@ public class Values {
 			clocks[startx + 1][starty + 2].setPointerDegree(315, 315);
 			break;
 		case 's':
+			// left
+			clocks[startx][starty].setPointerDegree(180, 90);
+			clocks[startx][starty + 1].setPointerDegree(90, 0);
+			clocks[startx][starty + 2].setPointerDegree(90, 90);
+			// right
+			clocks[startx + 1][starty].setPointerDegree(270, 270);
+			clocks[startx + 1][starty + 1].setPointerDegree(180, 270);
+			clocks[startx + 1][starty + 2].setPointerDegree(270, 0);
 			break;
 		case 't':
+			// left
+			clocks[startx][starty].setPointerDegree(180, 180);
+			clocks[startx][starty + 1].setPointerDegree(90, 0);
+			clocks[startx][starty + 2].setPointerDegree(90, 0);
+			// right
+			clocks[startx + 1][starty].setPointerDegree(def, def);
+			clocks[startx + 1][starty + 1].setPointerDegree(def, def);
+			clocks[startx + 1][starty + 2].setPointerDegree(270, 270);
 			break;
 		case 'u':
 			// left
@@ -304,7 +320,52 @@ public class Values {
 			clocks[startx + 1][starty + 1].setPointerDegree(180, 0);
 			clocks[startx + 1][starty + 2].setPointerDegree(270, 0);
 			break;
+		case 'v':
+			// left
+			clocks[startx][starty].setPointerDegree(180, 180);
+			clocks[startx][starty + 1].setPointerDegree(180, 0);
+			clocks[startx][starty + 2].setPointerDegree(135, 0);
+			// right
+			clocks[startx + 1][starty].setPointerDegree(180, 180);
+			clocks[startx + 1][starty + 1].setPointerDegree(180, 0);
+			clocks[startx + 1][starty + 2].setPointerDegree(225, 0);
+			break;
+		case 'w':
+			// left
+			clocks[startx][starty].setPointerDegree(180, 180);
+			clocks[startx][starty + 1].setPointerDegree(180, 0);
+			clocks[startx][starty + 2].setPointerDegree(45, 0);
+			// right
+			clocks[startx + 1][starty].setPointerDegree(180, 180);
+			clocks[startx + 1][starty + 1].setPointerDegree(180, 0);
+			clocks[startx + 1][starty + 2].setPointerDegree(315, 0);
+		case 'x':
+			// left
+			clocks[startx][starty].setPointerDegree(135, 135);
+			clocks[startx][starty + 1].setPointerDegree(def, def);
+			clocks[startx][starty + 2].setPointerDegree(def, def);
+			// right
+			clocks[startx + 1][starty].setPointerDegree(def, def);
+			clocks[startx + 1][starty + 1].setPointerDegree(def, def);
+			clocks[startx + 1][starty + 2].setPointerDegree(315, 315);
+		case 'y':
+			// left
+			clocks[startx][starty].setPointerDegree(180, 180);
+			clocks[startx][starty + 1].setPointerDegree(135, 0);
+			clocks[startx][starty + 2].setPointerDegree(45, 45);
+			// right
+			clocks[startx + 1][starty].setPointerDegree(180, 180);
+			clocks[startx + 1][starty + 1].setPointerDegree(225, 0);
+			clocks[startx + 1][starty + 2].setPointerDegree(def, def);
+		case 'z':
+			// left
+			clocks[startx][starty].setPointerDegree(90, 90);
+			clocks[startx][starty + 1].setPointerDegree(90, 90);
+			clocks[startx][starty + 2].setPointerDegree(90, 45);
+			// right
+			clocks[startx + 1][starty].setPointerDegree(180, 180);
+			clocks[startx + 1][starty + 1].setPointerDegree(180, 0);
+			clocks[startx + 1][starty + 2].setPointerDegree(225, 0);
 		}
 	}
-
 }
