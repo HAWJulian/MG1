@@ -42,16 +42,18 @@ public class Time extends TimerTask{
 	{
 		Calendar cal2 = Calendar.getInstance();
 		String refTime = sdf.format(cal2.getTime());
-		System.out.println(refTime);
+		//System.out.println(refTime);
 		refhours0 = Integer.parseInt(("" + refTime.charAt(0)));
 		refhours1 = Integer.parseInt(("" + refTime.charAt(1)));
 		refminutes0 = Integer.parseInt(("" + refTime.charAt(3)));
 		refminutes1 = Integer.parseInt(("" + refTime.charAt(4)));
 		refseconds = Integer.parseInt(("" + refTime.charAt(6) + "" + refTime.charAt(7)));
+		/*
 		System.out.println(refhours0);
 		System.out.println(refhours1);
 		System.out.println(refminutes0);
 		System.out.println(refminutes1);
+		*/
 		//System.out.println(refseconds);
 		if(refminutes1 != minutes1)
 		{
@@ -87,7 +89,7 @@ public class Time extends TimerTask{
 		//if refreshTime -> anzeige aktualisieren (todo)
 		if(refreshTime())
 		{
-			System.out.println("minutes and/or hours changed");
+			//System.out.println("minutes and/or hours changed");
 		}
 	}
 }
