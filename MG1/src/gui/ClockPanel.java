@@ -157,6 +157,10 @@ public class ClockPanel extends JPanel implements Runnable{
 			return;
 			
 		}
+		else
+		{
+			isMoving = true;
+		}
 		//Wenn der Stundenzeiger seine Zielposition noch nicht erreicht wird er um ein Grad verschoben
 		if (!(targetDegreeH == degreeH ))
 		{
