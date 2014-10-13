@@ -68,6 +68,13 @@ public class TestklasseJulian {
 		values.displayCharacter('8', 0, 0, arrayClock);
 		values.displayCharacter('9', 0, 0, arrayClock);
 		values.displayCharacter('0', 0, 0, arrayClock);
+		values.displayCharacter('a', 0, 0, arrayClock);
+		values.displayCharacter('c', 0, 0, arrayClock);
+		values.displayCharacter('e', 0, 0, arrayClock);
+		values.displayCharacter('f', 0, 0, arrayClock);
+		values.displayCharacter('g', 0, 0, arrayClock);
+		values.displayCharacter('h', 0, 0, arrayClock);
+		values.displayCharacter('j', 0, 0, arrayClock);
 	
 		
 	}

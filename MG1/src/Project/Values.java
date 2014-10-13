@@ -177,7 +177,7 @@ public class Values {
 			clocks[startx][starty + 2].setPointerDegree(90, 0);
 			// right
 			clocks[startx + 1][starty].setPointerDegree(180, 270);
-			clocks[startx + 1][starty + 1].setPointerDegree(180, 270);
+			clocks[startx + 1][starty + 1].setPointerDegree(180, 0);
 			clocks[startx + 1][starty + 2].setPointerDegree(270, 0);
 			break;
 		}
