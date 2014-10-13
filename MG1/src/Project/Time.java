@@ -4,49 +4,83 @@ import java.util.*;
 
 public class Time extends TimerTask{
 	Scanner scan = new Scanner(System.in);
-	int hours;
-	int minutes;
+	int hours0;
+	int hours1;
+	int minutes0;
+	int minutes1;
 	int seconds;
-	int refhours;
-	int refminutes;
+	
+	int refhours0;
+	int refhours1;
+	int refminutes0;
+	int refminutes1;
 	int refseconds;
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+	
+	public Time()
+	{
+		getCurrentTime();
+	}
 	
 	public void getCurrentTime()
 	{
 		Calendar cal = Calendar.getInstance();
 		String currentTime = sdf.format(cal.getTime());
 		System.out.println(currentTime);
-		hours = Integer.parseInt(("" + currentTime.charAt(0) + "" + currentTime.charAt(1)));
-		System.out.println(hours);
-		minutes = Integer.parseInt(("" + currentTime.charAt(3) + "" + currentTime.charAt(4)));
-		System.out.println(minutes);
+		hours0 = Integer.parseInt(("" + currentTime.charAt(0)));
+		hours1 = Integer.parseInt(("" + currentTime.charAt(1)));
+		System.out.println(hours0 + "" + hours1);
+		minutes0 = Integer.parseInt(("" + currentTime.charAt(3)));
+		minutes1 = Integer.parseInt(("" + currentTime.charAt(4)));
+		System.out.println(minutes0 + "" + minutes1);
 		seconds = Integer.parseInt(("" + currentTime.charAt(6) + "" + currentTime.charAt(7)));
 		System.out.println(seconds);	
 	}
 	
-	private boolean refreshTime()
+	public boolean refreshTime()
 	{
 		Calendar cal2 = Calendar.getInstance();
 		String refTime = sdf.format(cal2.getTime());
 		System.out.println(refTime);
-		refhours = Integer.parseInt(("" + refTime.charAt(0) + "" + refTime.charAt(1)));
-		refminutes = Integer.parseInt(("" + refTime.charAt(3) + "" + refTime.charAt(4)));
+		refhours0 = Integer.parseInt(("" + refTime.charAt(0)));
+		refhours1 = Integer.parseInt(("" + refTime.charAt(1)));
+		refminutes0 = Integer.parseInt(("" + refTime.charAt(3)));
+		refminutes1 = Integer.parseInt(("" + refTime.charAt(4)));
 		refseconds = Integer.parseInt(("" + refTime.charAt(6) + "" + refTime.charAt(7)));
-		System.out.println(refhours);
-		System.out.println(refminutes);
-		System.out.println(refseconds);
-		if(refminutes != minutes)
+		System.out.println(refhours0);
+		System.out.println(refhours1);
+		System.out.println(refminutes0);
+		System.out.println(refminutes1);
+		//System.out.println(refseconds);
+		if(refminutes1 != minutes1)
 		{
-			hours = refhours;
-			minutes = refminutes;
+			hours0 = refhours0;
+			hours1 = refhours1;
+			minutes0 = refminutes0;
+			minutes1 = refminutes1;
 			//System.out.println("time refreshed");
 			return true;
 		}
 		return false;
 	}
-
+	
+	public int getHours0()
+	{
+		return hours0;
+	}
+	public int getHours1()
+	{
+		return hours1;
+	}
+	public int getMinutes0()
+	{
+		return minutes0;
+	}
+	public int getMinutes1()
+	{
+		return minutes1;
+	}
 	@Override
 	public void run() 
 	{
