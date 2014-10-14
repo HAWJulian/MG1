@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import Project.Time;
 import Project.Values;
+import Project.Weather;
 
 public class TestklasseJulian {
 	private Values values = new Values();
@@ -17,6 +18,9 @@ public class TestklasseJulian {
 	
 	private JPanel contentPane;
 	private JFrame frame;
+	int size;
+	int columns;
+	int rows;
 	
 	public static void main(String[] args) {
 		
@@ -35,9 +39,9 @@ public class TestklasseJulian {
 	
 	public TestklasseJulian()
 	{
-		int size = 200;
-		int columns = 8;
-		int rows = 3;
+		size = 250;
+		columns = 8;
+		rows = 3;
 		arrayClock=new ClockPanel[columns][rows];
 		//Erzeuge Frame
 		frame = new JFrame();
@@ -63,9 +67,11 @@ public class TestklasseJulian {
 			}
 		}
 		displayTime();
+		//displayChars();
 	}
 	
-	private void displayTime() {
+	private void displayTime() 
+	{
 		Time time = new Time();
 		values.displayCharacter(String.valueOf(time.getHours0()).charAt(0), 0, 0, arrayClock);
 		values.displayCharacter(String.valueOf(time.getHours1()).charAt(0), 2, 0, arrayClock);
@@ -85,6 +91,10 @@ public class TestklasseJulian {
 					values.displayCharacter(String.valueOf(time.getMinutes0()).charAt(0), 4, 0, arrayClock);
 					values.displayCharacter(String.valueOf(time.getMinutes1()).charAt(0), 6, 0, arrayClock);
 				}
+				else
+				{
+					//test!
+				}
 			} 
 			catch (InterruptedException e)
 			{
@@ -94,10 +104,36 @@ public class TestklasseJulian {
 		}
 	}
 	
+	private void playAnimation1()
+	{
+		//step#1 move pointer in start position
+		values.startanimation1(rows, columns, arrayClock);
+		//step#2 rotate pointer (for a set amount of seconds)
+		//step#3 stop them column by column
+	}
+	
+	//shows current weather
+	private void displayWeather()
+	{
+		//create weather object
+		Weather w = new Weather();
+		//get fresh data
+		w.currentWeather("Hamburg");
+		//step#1 show weather (cloudy, sunny, etc.)
+		//display: w.getWeather()
+		//step#2 show temperature
+		//display w.getTemp()
+		//step#3 show humidity
+		//display w.getHumidity()
+		//step#4 show wind speed/direction
+		//display w.getWinddir()/w.getWinddegrees()/w.getWindspeed()
+	}
 	//testmethod
+	//displays every implemented character
 	private void displayChars()
 	{
-
+		//execute step by step with debugger, else make the thread sleep for ~2k ms after each call
+		//otherwise this will only display the last call.
 		values.displayCharacter('1', 0, 0, arrayClock);
 		values.displayCharacter('2', 0, 0, arrayClock);
 		values.displayCharacter('3', 0, 0, arrayClock);

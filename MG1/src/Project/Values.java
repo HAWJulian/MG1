@@ -372,4 +372,71 @@ public class Values {
 			break;
 		}
 	}
+	
+	//moves pointer for weather display
+	public void showWeather(String weather, int startx, int starty, ClockPanel[][] clocks)
+	{
+		//switch over weather
+		// TODO fill in every type of possible weather we can get from api
+		// TODO implement pointer position
+		switch(weather)
+		{
+		case "Wolkig":
+			break;
+		case "Sonnig":
+			break;
+		}
+	}
+	//moves pointer into position for animation1
+	public void startanimation1(int rows, int columns, ClockPanel[][] clocks)
+	{
+		if(rows%2 == 0 && columns%2 == 0)
+		{
+			for(int i=0; i<rows; i++)
+			{
+				for(int j=0; j< columns; j++)
+				{
+					if(i < (rows/2))
+					{
+						if(j < (columns/2))
+						{
+							//top left
+							clocks[j][i].setPointerDegree(0, 0);
+						}
+						else
+						{
+							//top right
+							clocks[j][i].setPointerDegree(90, 90);
+						}
+					}
+					else
+					{
+						if(j < (columns/2))
+						{
+							//bottom left
+							clocks[j][i].setPointerDegree(180, 180);
+						}
+						else
+						{
+							//bottom right
+							clocks[j][i].setPointerDegree(270, 270);
+						}
+					}
+				}
+			}
+			
+		}
+		//if rows or columns cant be devided by 2 with 0 rest, cant split screen in 4 parts 
+		//=> move every pointer of every clock in default position
+		else
+		{
+			for(int i=0; i<rows; i++)
+			{
+				for(int j=0; j<columns; j++)
+				{
+					clocks[j][i].setPointerDegree(def, def);
+				}
+			}
+		}
+	}
 }
