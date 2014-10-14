@@ -21,6 +21,7 @@ public class TestklasseJulian {
 	int size;
 	int columns;
 	int rows;
+	Weather w = new Weather();
 	
 	public static void main(String[] args) {
 		
@@ -39,9 +40,9 @@ public class TestklasseJulian {
 	
 	public TestklasseJulian()
 	{
-		size = 250;
-		columns = 8;
-		rows = 3;
+		size = 100;
+		columns = 16;
+		rows = 8;
 		arrayClock=new ClockPanel[columns][rows];
 		//Erzeuge Frame
 		frame = new JFrame();
@@ -66,10 +67,43 @@ public class TestklasseJulian {
 				arrayClock[i][j].start();
 			}
 		}
-		displayTime();
+		displayTimeHuge();
+		//displayTime();
 		//displayChars();
 	}
 	
+
+	private void displayTimeHuge()
+	{
+		Time time = new Time();
+		values.displayCharacterhuge(String.valueOf(time.getHours0()).charAt(0), 0, 1, arrayClock);
+		values.displayCharacterhuge(String.valueOf(time.getHours1()).charAt(0), 4, 1, arrayClock);
+		values.displayCharacterhuge(String.valueOf(time.getMinutes0()).charAt(0), 8, 1, arrayClock);
+		values.displayCharacterhuge(String.valueOf(time.getMinutes1()).charAt(0), 12, 1, arrayClock);
+		while (true) 
+		{
+			try 
+			{
+				Thread.sleep(1000);
+				if(time.refreshTime())
+				{
+					values.displayCharacterhuge(String.valueOf(time.getHours0()).charAt(0), 0, 1, arrayClock);
+					values.displayCharacterhuge(String.valueOf(time.getHours1()).charAt(0), 4, 1, arrayClock);
+					values.displayCharacterhuge(String.valueOf(time.getMinutes0()).charAt(0), 8, 1, arrayClock);
+					values.displayCharacterhuge(String.valueOf(time.getMinutes1()).charAt(0), 12, 1, arrayClock);
+				}
+				else
+				{
+					//test!
+				}
+			} 
+			catch (InterruptedException e)
+			{
+
+				e.printStackTrace();
+			}
+		}
+	}
 	private void displayTime() 
 	{
 		Time time = new Time();
@@ -77,8 +111,6 @@ public class TestklasseJulian {
 		values.displayCharacter(String.valueOf(time.getHours1()).charAt(0), 2, 0, arrayClock);
 		values.displayCharacter(String.valueOf(time.getMinutes0()).charAt(0), 4, 0, arrayClock);
 		values.displayCharacter(String.valueOf(time.getMinutes1()).charAt(0), 6, 0, arrayClock);
-		
-		System.out.println((char) time.getHours0());
 		while (true) 
 		{
 			try 
@@ -116,7 +148,6 @@ public class TestklasseJulian {
 	private void displayWeather()
 	{
 		//create weather object
-		Weather w = new Weather();
 		//get fresh data
 		w.currentWeather("Hamburg");
 		//step#1 show weather (cloudy, sunny, etc.)
