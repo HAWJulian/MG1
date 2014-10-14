@@ -67,9 +67,11 @@ public class TestklasseJulian {
 				arrayClock[i][j].start();
 			}
 		}
-		displayTimeHuge();
+		//displayTimeHuge();
 		//displayTime();
 		//displayChars();
+		//playAnimation1();
+		displayWeather();
 	}
 	
 
@@ -149,8 +151,9 @@ public class TestklasseJulian {
 	{
 		//create weather object
 		//get fresh data
-		w.currentWeather("Hamburg");
+		//w.currentWeather("Hamburg");
 		//step#1 show weather (cloudy, sunny, etc.)
+		//->values.showWeather(weather, startx, starty, clocks);
 		//display: w.getWeather()
 		//step#2 show temperature
 		//display w.getTemp()
@@ -158,6 +161,7 @@ public class TestklasseJulian {
 		//display w.getHumidity()
 		//step#4 show wind speed/direction
 		//display w.getWinddir()/w.getWinddegrees()/w.getWindspeed()
+		values.showWeather("wolkig", 0, 0, arrayClock);
 	}
 	//testmethod
 	//displays every implemented character
