@@ -9,7 +9,7 @@ import java.awt.Shape;
 import java.awt.Stroke;
 
 import javax.swing.JPanel;
-
+// TODO auf cpu optimieren
 public class ClockPanel extends JPanel implements Runnable{
 	
 	//Speichert das Zentrum der Uhr (da sie quadratisch ist wird nur ein Wert gespeichert
