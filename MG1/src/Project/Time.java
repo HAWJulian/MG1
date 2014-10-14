@@ -27,15 +27,15 @@ public class Time extends TimerTask{
 	{
 		Calendar cal = Calendar.getInstance();
 		String currentTime = sdf.format(cal.getTime());
-		System.out.println(currentTime);
+		//System.out.println(currentTime);
 		hours0 = Integer.parseInt(("" + currentTime.charAt(0)));
 		hours1 = Integer.parseInt(("" + currentTime.charAt(1)));
-		System.out.println(hours0 + "" + hours1);
+		//System.out.println(hours0 + "" + hours1);
 		minutes0 = Integer.parseInt(("" + currentTime.charAt(3)));
 		minutes1 = Integer.parseInt(("" + currentTime.charAt(4)));
-		System.out.println(minutes0 + "" + minutes1);
+		//System.out.println(minutes0 + "" + minutes1);
 		seconds = Integer.parseInt(("" + currentTime.charAt(6) + "" + currentTime.charAt(7)));
-		System.out.println(seconds);	
+		//System.out.println(seconds);	
 	}
 	
 	public boolean refreshTime()
