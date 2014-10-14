@@ -68,6 +68,15 @@ public class ClockPanel extends JPanel implements Runnable{
 		
 		
 	}
+	
+	public void forceRotation(int hour, int minute, boolean clockwiseH, boolean clockwiseM)
+	{
+		targetDegreeH = hour;
+		targetDegreeM = minute;
+		directionH = clockwiseH;
+		directionM = clockwiseM;
+		
+	}
 
 	//Setzt die Zielposition der Zeiger
 	public void setPointerDegree(int hour, int minute)
