@@ -372,4 +372,55 @@ public class Values {
 			break;
 		}
 	}
+	
+	//moves pointer into position for animation1
+	public void animation1(int rows, int columns, ClockPanel[][] clocks)
+	{
+		if(rows%2 == 0 && columns%2 == 0)
+		{
+			for(int i=0; i<rows; i++)
+			{
+				for(int j=0; j< columns; j++)
+				{
+					if(i < (rows/2))
+					{
+						if(j < (columns/2))
+						{
+							//top left
+							clocks[j][i].setPointerDegree(0, 0);
+						}
+						else
+						{
+							//top right
+							clocks[j][i].setPointerDegree(90, 90);
+						}
+					}
+					else
+					{
+						if(j < (columns/2))
+						{
+							//bottom left
+							clocks[j][i].setPointerDegree(180, 180);
+						}
+						else
+						{
+							//bottom right
+							clocks[j][i].setPointerDegree(270, 270);
+						}
+					}
+				}
+			}
+			
+		}
+		else
+		{
+			for(int i=0; i<rows; i++)
+			{
+				for(int j=0; j<columns; j++)
+				{
+					clocks[j][i].setPointerDegree(def, def);
+				}
+			}
+		}
+	}
 }
