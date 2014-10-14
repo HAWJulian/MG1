@@ -161,7 +161,7 @@ public class TestklasseJulian {
 		//display w.getHumidity()
 		//step#4 show wind speed/direction
 		//display w.getWinddir()/w.getWinddegrees()/w.getWindspeed()
-		values.showWeather("wolkig", 0, 0, arrayClock);
+		values.showWeather("regen", 0, 0, arrayClock);
 	}
 	//testmethod
 	//displays every implemented character

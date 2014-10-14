@@ -750,8 +750,57 @@ public class Values {
 			
 			clocks[startx+14][starty+5].setPointerDegree(180, 315);
 			clocks[startx+14][starty+6].setPointerDegree(270, 0);
-			
 			break;
+		case "regen":
+			clocks[startx+1][starty+5].setPointerDegree(180, 45);
+			clocks[startx+1][starty+6].setPointerDegree(90, 0);
+			
+			clocks[startx+2][starty+4].setPointerDegree(225, 90);
+			clocks[startx+2][starty+6].setPointerDegree(270, 90);
+			
+			clocks[startx+3][starty+3].setPointerDegree(225, 45);
+			clocks[startx+3][starty+4].setPointerDegree(135, 270);
+			clocks[startx+3][starty+6].setPointerDegree(270, 90);
+			
+			clocks[startx+4][starty+2].setPointerDegree(225, 90);
+			clocks[startx+4][starty+6].setPointerDegree(270, 90);
+			
+			clocks[startx+5][starty+2].setPointerDegree(135, 270);
+			clocks[startx+5][starty+6].setPointerDegree(270, 90);
+			
+			clocks[startx+6][starty+1].setPointerDegree(225, 45);
+			clocks[startx+6][starty+3].setPointerDegree(135, 315);
+			clocks[startx+6][starty+6].setPointerDegree(270, 90);
+			
+			clocks[startx+7][starty].setPointerDegree(225, 90);
+			clocks[startx+7][starty+6].setPointerDegree(270, 90);
+			
+			clocks[startx+8][starty].setPointerDegree(135, 270);
+			clocks[startx+8][starty+6].setPointerDegree(270, 90);
+			
+			clocks[startx+9][starty+1].setPointerDegree(315, 135);
+			clocks[startx+9][starty+3].setPointerDegree(225, 45);
+			clocks[startx+9][starty+6].setPointerDegree(270, 90);
+			
+			clocks[startx+10][starty+2].setPointerDegree(225, 90);
+			clocks[startx+10][starty+6].setPointerDegree(270, 90);
+			
+			clocks[startx+11][starty+2].setPointerDegree(135, 270);
+			clocks[startx+11][starty+6].setPointerDegree(270, 90);
+			
+			clocks[startx+12][starty+3].setPointerDegree(135, 315);
+			clocks[startx+12][starty+4].setPointerDegree(225, 90);
+			clocks[startx+12][starty+6].setPointerDegree(270, 90);
+			
+			clocks[startx+13][starty+4].setPointerDegree(135, 270);
+			clocks[startx+13][starty+6].setPointerDegree(270, 90);
+			
+			clocks[startx+14][starty+5].setPointerDegree(180, 315);
+			clocks[startx+14][starty+6].setPointerDegree(270, 0);
+			for(int i = startx+1; i < startx+14; i++)
+			{
+				clocks[i][starty+7].setPointerDegree(def, 45);
+			}
 		case "Sonnig":
 			break;
 		}
