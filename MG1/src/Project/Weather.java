@@ -4,16 +4,16 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 import java.text.*;
+
 //Test
-public class Weather
-{
-	//weather api allows up to 300 calls/day
-	//with holding a variable which counts down from 300
-	//and substracts 1 per call we keep track of the remaining calls
-	//we can do. 
-	//IMPORTANT! insert counter--; after every url call on api
+public class Weather {
+	// weather api allows up to 300 calls/day
+	// with holding a variable which counts down from 300
+	// and substracts 1 per call we keep track of the remaining calls
+	// we can do.
+	// IMPORTANT! insert counter--; after every url call on api
 	static int counter = 300;
-	//current weather variables
+	// current weather variables
 	String weather = "";
 	String city = "";
 	String country = "";
@@ -27,33 +27,55 @@ public class Weather
 	String currentTime = "";
 	Date currentDate;
 
-	public static void main(String[] args)
-	{
-		Weather w = new Weather();
-		w.currentWeather("Hamburg");
+	public String getWeather() {
+		return weather;
 	}
-	private void currentWeather(String citychoice)
-	{
+
+	public String getTemp() {
+		return temp;
+	}
+
+	public String getHumidity() {
+		return humidity;
+	}
+
+	public String getWinddir() {
+		return winddir;
+	}
+
+	public String getWinddegrees() {
+		return winddegrees;
+	}
+
+	public String getWindspeed() {
+		return windspeed;
+	}
+
+	public static void main(String[] args) {
+		// Weather w = new Weather();
+		// test call
+		// w.currentWeather("Hamburg");
+	}
+
+	public void currentWeather(String citychoice) {
 		Calendar cal = Calendar.getInstance();
 		currentTime = cal.getTime().toString();
 		currentDate = cal.getTime();
 		System.out.println(currentTime);
-		//todo: if all call on this day are used throw error
-		if (counter == 0)
-		{
+		// TODO: if all calls on this day are used throw error
+		if (counter == 0) {
 			return;
-		}
-		else
-		{
+		} else {
 			// throw error if connection was not possibru
-			try
-			{
+			try {
 				// api url;
 				// wunderground/api/<key>/<what>(currentweather)/<language>(german)/q/<location>(hamburg).<responseformat>(xml/json)
-				String uri = "http://api.wunderground.com/api/5648c04dcac0d5db/conditions/lang:DL/q/Germany/" + citychoice + ".xml";
+				String uri = "http://api.wunderground.com/api/5648c04dcac0d5db/conditions/lang:DL/q/Germany/"
+						+ citychoice + ".xml";
 				URL url = new URL(uri);
 				// connect to url
-				HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+				HttpURLConnection connection = (HttpURLConnection) url
+						.openConnection();
 				counter--;
 				// get xml
 				connection.setRequestMethod("GET");
@@ -66,8 +88,7 @@ public class Weather
 						new InputStreamReader(xml));
 				String line;
 				// buffer as long as lines are left
-				while ((line = reader.readLine()) != null)
-				{
+				while ((line = reader.readLine()) != null) {
 					out.append(line);
 				}
 				String output = out.toString();
@@ -124,29 +145,26 @@ public class Weather
 						+ "Luftfeuchtigkeit. Der Wind kommt aus " + winddir
 						+ "(" + winddegrees + "°) mit " + windspeed + "km/h.");
 				// Prints the string content read from input stream
-				System.out.println(output); 
+				System.out.println(output);
 				// close reader
 				reader.close();
 
-			}
-			catch (Exception e)
-			{
-				System.out.println("An error has occured. Possible mistakes: Wrong spelling of city, no internet connection ...");
+			} catch (Exception e) {
+				System.out
+						.println("An error has occured. Possible mistakes: Wrong spelling of city, no internet connection ...");
 			}
 		}
 	}
-	
-	private void weatherforecast()
-	{
-		//todo forecast
-		try
-		{
-			
-			//String forecast = "http://api.wunderground.com/api/5648c04dcac0d5db/forecast/lang:DL/q/Germany/
-		}
-		catch(Exception e)
-		{
-			System.out.println("An error has occured. (wrong spelling/connection issues etc.)");
+
+	private void weatherforecast() {
+		// todo forecast
+		try {
+
+			// String forecast =
+			// "http://api.wunderground.com/api/5648c04dcac0d5db/forecast/lang:DL/q/Germany/
+		} catch (Exception e) {
+			System.out
+					.println("An error has occured. (wrong spelling/connection issues etc.)");
 		}
 	}
 }
