@@ -5,7 +5,18 @@ import gui.ClockPanel;
 public class Values {
 	// default value (bottom left)
 	static int def = 225;
-
+	
+	//sets all clocks on default value
+	private void setdefault(ClockPanel[][] clocks)
+	{
+		for (int i = 0; i < clocks.length; i++)
+		{
+			for(int j = 0; j < clocks[0].length; j++)
+			{
+				clocks[i][j].setPointerDegree(def, def);
+			}
+		}
+	}
 	// numbers 4x6
 	public void displayCharacterhuge(char x, int startx, int starty,
 			ClockPanel[][] clocks) {
@@ -686,7 +697,12 @@ public class Values {
 			ClockPanel[][] clocks) {
 		// switch over weather
 		// TODO fill in every type of possible weather we can get from api
+		// wolkig, teils wolkig, bedeckt
+		// heiter
+		// regen, leichter regen, leichte regenschauer, leichter regen
+		// dichter nebel, schwacher dunst
 		// TODO implement pointer position
+		setdefault(clocks);
 		switch (weather) {
 		case "Wolkig":
 			break;
@@ -703,23 +719,22 @@ public class Values {
 					if (i < (rows / 2)) {
 						if (j < (columns / 2)) {
 							// top left
-							clocks[j][i].setPointerDegree(0, 0);
+							clocks[j][i].setPointerDegree(315, 315);
 						} else {
 							// top right
-							clocks[j][i].setPointerDegree(90, 90);
+							clocks[j][i].setPointerDegree(45, 45);
 						}
 					} else {
 						if (j < (columns / 2)) {
 							// bottom left
-							clocks[j][i].setPointerDegree(180, 180);
+							clocks[j][i].setPointerDegree(225, 225);
 						} else {
 							// bottom right
-							clocks[j][i].setPointerDegree(270, 270);
+							clocks[j][i].setPointerDegree(135, 135);
 						}
 					}
 				}
 			}
-
 		}
 		// if rows or columns cant be devided by 2 with 0 rest, cant split
 		// screen in 4 parts
