@@ -127,7 +127,7 @@ public class ClockPanel extends JPanel implements Runnable{
 	
 		//Objekte des Typs "Graphics" besitzen nicht die Möglichkeit die Dicke (Stroke) zu ändern. Daher wird das Objekt clock auf ein Objekt vom Typ Grahics2D gecastet
 		Graphics2D clock2 = (Graphics2D) clock;
-		clock2.setStroke(new BasicStroke(10));
+		clock2.setStroke(new BasicStroke(15));
 		
 		//Minutenzeiger rendern
 		clock2.setColor(Color.BLACK);
