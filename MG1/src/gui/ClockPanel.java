@@ -42,6 +42,7 @@ public class ClockPanel extends JPanel implements Runnable{
 
 	private void calculateDirection()
 	{
+		//test
 		// 270 -> 10 clock ( -260)
 		// 10 -> 270 counter ( 260)
 		// 45 -> 180 clock (135)
