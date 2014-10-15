@@ -149,6 +149,7 @@ public class TestklasseJulian {
 	//shows current weather
 	private void displayWeather()
 	{
+		int sleep = 12000;
 		//write "weather"
 		values.displayCharacter('w', 1, 3, arrayClock);
 		values.displayCharacter('e', 3, 3, arrayClock);
@@ -158,7 +159,7 @@ public class TestklasseJulian {
 		values.displayCharacter('e', 11, 3, arrayClock);
 		values.displayCharacter('r', 13, 3, arrayClock);
 		try {
-			Thread.sleep(8000);
+			Thread.sleep(sleep);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -168,7 +169,7 @@ public class TestklasseJulian {
 		//step#1 show weather (cloudy, sunny, etc.)
 		values.showWeather(w.getWeather().toLowerCase(), 0, 0, arrayClock);
 		try {
-			Thread.sleep(7000);
+			Thread.sleep(sleep);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -190,7 +191,7 @@ public class TestklasseJulian {
 		values.displayCharacter('r', 4, 4, arrayClock);
 		values.displayCharacter('e', 6, 4, arrayClock);
 		try {
-			Thread.sleep(8000);
+			Thread.sleep(sleep);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -219,7 +220,7 @@ public class TestklasseJulian {
 			values.setdefault(arrayClock);
 		}
 		try {
-			Thread.sleep(7000);
+			Thread.sleep(sleep);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -235,7 +236,7 @@ public class TestklasseJulian {
 		values.displayCharacter('t', 12, 3, arrayClock);
 		values.displayCharacter('y', 14, 3, arrayClock);
 		try {
-			Thread.sleep(8000);
+			Thread.sleep(sleep);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
