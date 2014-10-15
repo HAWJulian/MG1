@@ -52,9 +52,9 @@ public class Weather {
 	}
 
 	public static void main(String[] args) {
-		 Weather w = new Weather();
+		// Weather w = new Weather();
 		// test call
-		 w.currentWeather("Hamburg");
+		 //w.currentWeather("Hamburg");
 	}
 
 	public void currentWeather(String citychoice) {
