@@ -150,6 +150,7 @@ public class TestklasseJulian {
 	private void displayWeather()
 	{
 		w.currentWeather("Hamburg");
+		values.setdefault(arrayClock);
 		while(true)
 		{
 			int sleep = 12000;
