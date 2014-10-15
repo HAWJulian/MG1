@@ -7,7 +7,7 @@ public class Values {
 	static int def = 225;
 	
 	//sets all clocks on default value
-	private void setdefault(ClockPanel[][] clocks)
+	public void setdefault(ClockPanel[][] clocks)
 	{
 		for (int i = 0; i < clocks.length; i++)
 		{
@@ -319,6 +319,63 @@ public class Values {
 			clocks[startx + 3][starty + 2].setPointerDegree(180, 0);
 			clocks[startx + 3][starty + 3].setPointerDegree(180, 0);
 			clocks[startx + 3][starty + 4].setPointerDegree(180, 0);
+			clocks[startx + 3][starty + 5].setPointerDegree(270, 0);
+			break;
+		case '°':
+			clocks[startx][starty].setPointerDegree(180, 90);
+			clocks[startx][starty+1].setPointerDegree(90, 0);
+			clocks[startx+1][starty].setPointerDegree(180, 270);
+			clocks[startx+1][starty+1].setPointerDegree(270, 0);
+			break;
+		case '%':
+			clocks[startx][starty].setPointerDegree(180, 90);
+			clocks[startx][starty+1].setPointerDegree(90, 0);
+			clocks[startx][starty+3].setPointerDegree(180, 45);
+			clocks[startx][starty+4].setPointerDegree(45, 0);
+			
+			clocks[startx+1][starty].setPointerDegree(180, 270);
+			clocks[startx+1][starty+1].setPointerDegree(270, 0);
+			clocks[startx+1][starty+2].setPointerDegree(def, 45);
+			clocks[startx+1][starty+3].setPointerDegree(def, 45);
+			
+			clocks[startx+2][starty+1].setPointerDegree(def, 45);
+			clocks[startx+2][starty+2].setPointerDegree(def, 45);
+			clocks[startx+2][starty+3].setPointerDegree(180, 90);
+			clocks[startx+2][starty+4].setPointerDegree(90, 0);
+			
+			clocks[startx+3][starty+0].setPointerDegree(180, def);
+			clocks[startx+3][starty+1].setPointerDegree(def, 0);
+			clocks[startx+3][starty+3].setPointerDegree(180, 270);
+			clocks[startx+3][starty+4].setPointerDegree(270, 0);
+			break;
+		case 'C':
+			//left
+			clocks[startx][starty].setPointerDegree(180, 90);
+			clocks[startx][starty + 1].setPointerDegree(180, 0);
+			clocks[startx][starty + 2].setPointerDegree(180, 0);
+			clocks[startx][starty + 3].setPointerDegree(180, 0);
+			clocks[startx][starty + 4].setPointerDegree(180, 0);
+			clocks[startx][starty + 5].setPointerDegree(90, 0);
+			//middle left
+			clocks[startx + 1][starty].setPointerDegree(270, 90);
+			clocks[startx + 1][starty + 1].setPointerDegree(180, 90);
+			clocks[startx + 1][starty + 2].setPointerDegree(180, 0);
+			clocks[startx + 1][starty + 3].setPointerDegree(180, 0);
+			clocks[startx + 1][starty + 4].setPointerDegree(90, 0);
+			clocks[startx + 1][starty + 5].setPointerDegree(270, 90);
+			//middle right
+			clocks[startx + 2][starty].setPointerDegree(270, 90);
+			clocks[startx + 2][starty + 1].setPointerDegree(270, 90);
+			clocks[startx + 2][starty + 2].setPointerDegree(def, def);
+			clocks[startx + 2][starty + 3].setPointerDegree(def, def);
+			clocks[startx + 2][starty + 4].setPointerDegree(270, 90);
+			clocks[startx + 2][starty + 5].setPointerDegree(270, 90);
+			//right
+			clocks[startx + 3][starty].setPointerDegree(180, 270);
+			clocks[startx + 3][starty + 1].setPointerDegree(270, 0);
+			clocks[startx + 3][starty + 2].setPointerDegree(def, def);
+			clocks[startx + 3][starty + 3].setPointerDegree(def, def);
+			clocks[startx + 3][starty + 4].setPointerDegree(270, 180);
 			clocks[startx + 3][starty + 5].setPointerDegree(270, 0);
 			break;
 		}
@@ -704,12 +761,15 @@ public class Values {
 		// TODO implement pointer position
 		setdefault(clocks);
 		switch (weather) {
+		case "teils wolkig":
 		case "wolkig":
 			drawcloud(startx, starty, clocks);
 			break;
+		case "leichter regen":
 		case "regen":
 			drawcloud(startx, starty, clocks);
 			drawrain(startx, starty, clocks);
+			break;
 		case "gewitter":
 			drawcloud(startx, starty, clocks);
 			drawrain(startx, starty, clocks);
