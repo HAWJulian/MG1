@@ -715,7 +715,74 @@ public class Values {
 			drawrain(startx, starty, clocks);
 			drawlightning(startx, starty, clocks);
 			break;
+		case "sonne":
+			startanimation1(clocks[0].length, clocks.length,clocks);
+			drawsun(startx, starty, clocks);
 		}
+	}
+	//draws sun
+	private void drawsun(int startx, int starty, ClockPanel[][] clocks)
+	{
+		for(int i = 0; i < 5; i++)
+		{
+			for(int j = 3; j < 5; j++)
+			{
+				clocks[i][j].setPointerDegree(270, 90);
+			}
+		}
+		for(int i = 11; i < 16; i ++)
+		{
+			for(int j = 3; j < 5; j++)
+			{
+				clocks[i][j].setPointerDegree(270, 90);
+			}
+		}
+		clocks[2][0].setPointerDegree(135, 315);
+		clocks[2][7].setPointerDegree(225, 45);
+		
+		clocks[3][1].setPointerDegree(135, 315);
+		clocks[3][6].setPointerDegree(225, 45);
+		
+		clocks[4][2].setPointerDegree(135, 315);
+		clocks[4][5].setPointerDegree(225, 45);
+		
+		clocks[5][0].setPointerDegree(135, 315);
+		clocks[5][3].setPointerDegree(180, 45);
+		clocks[5][4].setPointerDegree(135, 0);
+		clocks[5][7].setPointerDegree(225, 45);
+		
+		clocks[6][1].setPointerDegree(135, 315);
+		clocks[6][2].setPointerDegree(225, 45);
+		clocks[6][5].setPointerDegree(135, 315);
+		clocks[6][6].setPointerDegree(225, 45);
+		
+		clocks[7][0].setPointerDegree(180, 0);
+		clocks[7][1].setPointerDegree(225, 90);
+		clocks[7][6].setPointerDegree(90, 315);
+		clocks[7][7].setPointerDegree(180, 0);
+		
+		clocks[8][0].setPointerDegree(180, 0);
+		clocks[8][1].setPointerDegree(135, 270);
+		clocks[8][6].setPointerDegree(270, 45);
+		clocks[8][7].setPointerDegree(180, 0);
+		
+		clocks[9][1].setPointerDegree(225, 45);
+		clocks[9][2].setPointerDegree(135, 315);
+		clocks[9][5].setPointerDegree(225, 45);
+		clocks[9][6].setPointerDegree(135, 315);
+		
+		clocks[10][0].setPointerDegree(225, 45);
+		clocks[10][2].setPointerDegree(225, 45);
+		clocks[10][3].setPointerDegree(180, 315);
+		clocks[10][4].setPointerDegree(225, 0);
+		clocks[10][5].setPointerDegree(135, 315);
+		clocks[10][7].setPointerDegree(135, 315);
+		
+		clocks[11][1].setPointerDegree(225, 45);
+		clocks[11][6].setPointerDegree(135, 315);
+		
+		clocks[12][0].setPointerDegree(225, 45);
+		clocks[12][7].setPointerDegree(135, 315);
 	}
 	//draws lightning
 	private void drawlightning (int startx, int starty, ClockPanel[][] clocks)
