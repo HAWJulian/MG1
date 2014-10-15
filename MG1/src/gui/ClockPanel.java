@@ -146,7 +146,7 @@ public class ClockPanel extends JPanel implements Runnable{
 		clock2.drawLine(center, center, zeigerMx, zeigerMy);
 		
 		//Stundenzeiger rendern
-		clock2.setColor(Color.GRAY);
+		clock2.setColor(Color.BLACK);
 		int zeigerHx = (int) ((center) + ((Math.sin(Math.toRadians(degreeH)) *radius /2))*1.00);
 		int zeigerHy = (int) ((center) - ((Math.cos(Math.toRadians(degreeH)) *radius /2))*1.00);
 		clock2.drawLine(center , center, zeigerHx, zeigerHy);
