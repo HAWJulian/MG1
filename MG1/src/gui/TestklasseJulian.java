@@ -149,19 +149,116 @@ public class TestklasseJulian {
 	//shows current weather
 	private void displayWeather()
 	{
-		//create weather object
-		//get fresh data
-		//w.currentWeather("Hamburg");
+		//write "weather"
+		values.displayCharacter('w', 1, 3, arrayClock);
+		values.displayCharacter('e', 3, 3, arrayClock);
+		values.displayCharacter('a', 5, 3, arrayClock);
+		values.displayCharacter('t', 7, 3, arrayClock);
+		values.displayCharacter('h', 9, 3, arrayClock);
+		values.displayCharacter('e', 11, 3, arrayClock);
+		values.displayCharacter('r', 13, 3, arrayClock);
+		try {
+			Thread.sleep(8000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		values.setdefault(arrayClock);
+		//get current weather
+		w.currentWeather("Hamburg");
 		//step#1 show weather (cloudy, sunny, etc.)
-		//->values.showWeather(weather, startx, starty, clocks);
-		//display: w.getWeather()
+		values.showWeather(w.getWeather().toLowerCase(), 0, 0, arrayClock);
+		try {
+			Thread.sleep(7000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		values.setdefault(arrayClock);
+		
 		//step#2 show temperature
-		//display w.getTemp()
+		//tempera-
+		//ture
+		values.displayCharacter('t', 0, 1, arrayClock);
+		values.displayCharacter('e', 2, 1, arrayClock);
+		values.displayCharacter('m', 4, 1, arrayClock);
+		values.displayCharacter('p', 6, 1, arrayClock);
+		values.displayCharacter('e', 8, 1, arrayClock);
+		values.displayCharacter('r', 10, 1, arrayClock);
+		values.displayCharacter('a', 12, 1, arrayClock);
+		values.displayCharacter('-', 14, 1, arrayClock);
+		values.displayCharacter('t', 0, 4, arrayClock);
+		values.displayCharacter('u', 2, 4, arrayClock);
+		values.displayCharacter('r', 4, 4, arrayClock);
+		values.displayCharacter('e', 6, 4, arrayClock);
+		try {
+			Thread.sleep(8000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		values.setdefault(arrayClock);
+		//get length of temperaturr
+		int templength = w.getTemp().length();
+		if (templength == 1)
+		{
+			values.displayCharacterhuge(w.getTemp().charAt(0), 2, 1, arrayClock);
+			values.displayCharacterhuge('°', 6, 1, arrayClock);
+			values.displayCharacterhuge('C', 8, 1, arrayClock);
+		}
+		else if(templength == 2 || templength == 3)
+		{
+			if(templength == 3)
+			{
+				values.displayCharacterhuge('°', 0, 3, arrayClock);
+			}
+			values.displayCharacterhuge(w.getTemp().charAt(0), 2, 1, arrayClock);
+			values.displayCharacterhuge(w.getTemp().charAt(1), 6, 1, arrayClock);
+			values.displayCharacterhuge('°', 10, 1, arrayClock);
+			values.displayCharacterhuge('C', 12, 1, arrayClock);
+		}
+		else
+		{
+			values.setdefault(arrayClock);
+		}
+		try {
+			Thread.sleep(7000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		values.setdefault(arrayClock);
+		
 		//step#3 show humidity
+		values.displayCharacter('h', 0, 3, arrayClock);
+		values.displayCharacter('u', 2, 3, arrayClock);
+		values.displayCharacter('m', 4, 3, arrayClock);
+		values.displayCharacter('i', 6, 3, arrayClock);
+		values.displayCharacter('d', 8, 3, arrayClock);
+		values.displayCharacter('i', 10, 3, arrayClock);
+		values.displayCharacter('t', 12, 3, arrayClock);
+		values.displayCharacter('y', 14, 3, arrayClock);
+		try {
+			Thread.sleep(8000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		values.setdefault(arrayClock);
+		
+		int humlength = w.getHumidity().length();
+		if(humlength == 2 || humlength == 3)
+		{	
+			values.displayCharacterhuge(w.getHumidity().charAt(humlength-2), 6, 1, arrayClock);
+			values.displayCharacterhuge('%', 10, 2, arrayClock);
+			if(humlength == 3)
+			{
+				values.displayCharacterhuge(w.getHumidity().charAt(0), 2, 1, arrayClock);
+			}
+		}
+		else
+		{
+			values.setdefault(arrayClock);
+		}
 		//display w.getHumidity()
 		//step#4 show wind speed/direction
 		//display w.getWinddir()/w.getWinddegrees()/w.getWindspeed()
-		values.showWeather("sonne", 0, 0, arrayClock);
 	}
 	//testmethod
 	//displays every implemented character

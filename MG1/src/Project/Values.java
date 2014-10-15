@@ -385,6 +385,10 @@ public class Values {
 	public void displayCharacter(char x, int startx, int starty,
 			ClockPanel[][] clocks) {
 		switch (x) {
+		case '-':
+			clocks[startx][starty+1].setPointerDegree(90, 90);
+			clocks[startx+1][starty+1].setPointerDegree(270, 270);
+			break;
 		case '1':
 			// left
 			clocks[startx][starty].setPointerDegree(def, def);
