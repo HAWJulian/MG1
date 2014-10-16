@@ -100,6 +100,8 @@ public class Clock extends JPanel implements Runnable{
 		center = diameter/2;
 		degreeH = 180;
 		degreeM = 180;
+		ticks=0;
+		tickrate=1;
 		
 	}
 	
