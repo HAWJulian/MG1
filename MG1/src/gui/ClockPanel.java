@@ -36,8 +36,7 @@ public class ClockPanel extends JFrame implements Runnable {
 		this.columns = columns;
 		this.diameter = diameter;
 		
-		setSize(columns*diameter+10 , rows*diameter+10 );
-		System.out.println(rows*diameter+10);
+		setSize(columns*diameter+10 , rows*diameter+40 );
 		setTitle("ClockCeption");
 		setLocationRelativeTo(null);
 		setResizable(false);
