@@ -22,7 +22,7 @@ public class TestKlasse{
 				try {
 					ClockPanel frame = new ClockPanel(8 , 16 ,100);
 					frame.start();
-					frame.displayTimeHuge();
+					frame.setDisplay('W');
 					
 				
 				} catch (Exception e) {
