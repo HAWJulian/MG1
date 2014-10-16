@@ -5,12 +5,16 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.Shape;
-import java.awt.Stroke;
 
 import javax.swing.JPanel;
 // TODO auf cpu optimieren
 public class Clock extends JPanel implements Runnable{
+	
+	//Variable die speichert wie viele ticks seit dem letzten render vergangen sind
+	private int ticks;
+	
+	//Speichert ab nach wie vielen ticks gerendert werden soll
+	private int tickrate;
 	
 	//Speichert das Zentrum der Uhr (da sie quadratisch ist wird nur ein Wert gespeichert
 	private int center;
@@ -99,13 +103,26 @@ public class Clock extends JPanel implements Runnable{
 		
 	}
 	
-	private void initClock()
+	public void initClock()
 	{
 		screen = createVolatileImage(diameter, diameter);
 		screen = createImage(diameter, diameter);
 		
 	}
+	
+	public void tick()
+	{
+		if (ticks==tickrate)
+		{
+			ticks=0;
+			calculatePointerPosition();
+		}
+		render(clock);
+		ticks++;
+	}
 	//Startet die Uhr (Rendern und Bewegung)
+	//ClockPanel benutzen - ClockPanel.start
+	@Deprecated
 	public void start()
 	{
 		initClock();
@@ -126,7 +143,7 @@ public class Clock extends JPanel implements Runnable{
 		//Hintergrundfarbe des Panels auf weiß setzen
 		clock.setColor(Color.WHITE);
 		clock.fillRect(0, 0, diameter, diameter);
-		/*
+		
 		//Großen (gefüllten) schwarzen Kreis malen
 		clock.setColor(Color.BLACK);
 		clock.fillOval(20 ,20, diameter-30 ,  diameter-30);
@@ -134,7 +151,7 @@ public class Clock extends JPanel implements Runnable{
 		//Weißen Kreis im schwarzen Zeichnen. So bleibt nur noch ein schwarzer Rand übrig
 		clock.setColor(Color.WHITE);
 		clock.fillOval(i+3, i+3, diameter-36, diameter-36);
-		*/
+		
 		//Objekte des Typs "Graphics" besitzen nicht die Möglichkeit die Dicke (Stroke) zu ändern. Daher wird das Objekt clock auf ein Objekt vom Typ Grahics2D gecastet
 		Graphics2D clock2 = (Graphics2D) clock;
 		clock2.setStroke(new BasicStroke(10));
@@ -216,7 +233,8 @@ public class Clock extends JPanel implements Runnable{
 	}
 	
 	//Dauerschleife, Uhr rendern => neue Positionen für die Uhr berechen => 20ms schlafen legen => von vorne
-	@Override
+	//Clockpanel benutzen
+	@Deprecated
 	public void run() {
 		while (true)
 		{
