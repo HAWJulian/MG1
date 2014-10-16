@@ -107,7 +107,9 @@ public class ClockPanel extends JFrame implements Runnable {
 		case 'C':
 			displayChars();
 			break;
-
+		case 'A':
+			playAnimation1();
+			break;
 		default:
 			clocksToDefault();
 			break;
@@ -117,13 +119,7 @@ public class ClockPanel extends JFrame implements Runnable {
 	//Setzt alle Zeiger auf "default Stellung" (180°)
 	private void clocksToDefault()
 	{
-		for (int i=0; i<columns; i++)
-		{
-			for (int j=0 ; j<rows; j++)
-			{
-				clocks[i][j].setPointerDegree(180, 180);
-			}
-		}
+		values.setdefault(clocks);
 	}
 	
 	
@@ -131,10 +127,7 @@ public class ClockPanel extends JFrame implements Runnable {
 	private void displayTimeHuge()
 	{
 		Time time = new Time();
-		values.displayCharacterhuge(String.valueOf(time.getHours0()).charAt(0), 0, 1, clocks);
-		values.displayCharacterhuge(String.valueOf(time.getHours1()).charAt(0), 4, 1, clocks);
-		values.displayCharacterhuge(String.valueOf(time.getMinutes0()).charAt(0), 8, 1, clocks);
-		values.displayCharacterhuge(String.valueOf(time.getMinutes1()).charAt(0), 12, 1, clocks);
+		displayTimeHugehelper(time);
 		while (true) 
 		{
 			try 
@@ -142,10 +135,7 @@ public class ClockPanel extends JFrame implements Runnable {
 				Thread.sleep(1000);
 				if(time.refreshTime())
 				{
-					values.displayCharacterhuge(String.valueOf(time.getHours0()).charAt(0), 0, 1, clocks);
-					values.displayCharacterhuge(String.valueOf(time.getHours1()).charAt(0), 4, 1, clocks);
-					values.displayCharacterhuge(String.valueOf(time.getMinutes0()).charAt(0), 8, 1, clocks);
-					values.displayCharacterhuge(String.valueOf(time.getMinutes1()).charAt(0), 12, 1, clocks);
+					displayTimeHugehelper(time);
 				}
 				else
 				{
@@ -158,6 +148,14 @@ public class ClockPanel extends JFrame implements Runnable {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	private void displayTimeHugehelper(Time time)
+	{
+		values.displayCharacterhuge(String.valueOf(time.getHours0()).charAt(0), 0, 1, clocks);
+		values.displayCharacterhuge(String.valueOf(time.getHours1()).charAt(0), 4, 1, clocks);
+		values.displayCharacterhuge(String.valueOf(time.getMinutes0()).charAt(0), 8, 1, clocks);
+		values.displayCharacterhuge(String.valueOf(time.getMinutes1()).charAt(0), 12, 1, clocks);
 	}
 	//Zeit in klein darstellen. Julian
 	private void displayTime() 
@@ -400,6 +398,15 @@ public class ClockPanel extends JFrame implements Runnable {
 		values.displayCharacter('z', 0, 0, clocks);
 	}
 	
+	private void playAnimation1()
+	{
+		//step#1 move pointer in start position
+		values.startanimation1(rows, columns, clocks);
+		sleep(5000);
+		values.setall(720, 720, clocks);
+		//step#2 rotate pointer (for a set amount of seconds)
+		//step#3 stop them column by column
+	}
 	private void sleep(int duration)
 	{
 		try {
