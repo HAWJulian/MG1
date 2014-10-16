@@ -1,13 +1,13 @@
 package Project;
 
-import gui.ClockPanel;
+import gui.Clock;
 
 public class Values {
 	// default value (bottom left)
 	static int def = 225;
 	
 	//sets all clocks on default value
-	public void setdefault(ClockPanel[][] clocks)
+	public void setdefault(Clock[][] clocks)
 	{
 		for (int i = 0; i < clocks.length; i++)
 		{
@@ -18,7 +18,7 @@ public class Values {
 		}
 	}
 	
-	public void setall(int hours, int minutes, ClockPanel[][] clocks)
+	public void setall(int hours, int minutes, Clock[][] clocks)
 	{
 		for (int i = 0; i < clocks.length; i++)
 		{
@@ -30,7 +30,7 @@ public class Values {
 	}
 	// numbers 4x6
 	public void displayCharacterhuge(char x, int startx, int starty,
-			ClockPanel[][] clocks) {
+			Clock[][] clocks) {
 		switch(x) {
 		case '1':
 			//left
@@ -394,7 +394,7 @@ public class Values {
 
 	// character 2x3
 	public void displayCharacter(char x, int startx, int starty,
-			ClockPanel[][] clocks) {
+			Clock[][] clocks) {
 		switch (x) {
 		case '-':
 			clocks[startx][starty+1].setPointerDegree(90, 90);
@@ -766,7 +766,7 @@ public class Values {
 
 	// moves pointer for weather display
 	public void showWeather(String weather, int startx, int starty,
-			ClockPanel[][] clocks) {
+			Clock[][] clocks) {
 		// switch over weather
 		// TODO fill in every type of possible weather we can get from api
 		// wolkig, teils wolkig, bedeckt
@@ -796,7 +796,7 @@ public class Values {
 		}
 	}
 	//draws sun
-	private void drawsun(int startx, int starty, ClockPanel[][] clocks)
+	private void drawsun(int startx, int starty, Clock[][] clocks)
 	{
 		for(int i = 0; i < 5; i++)
 		{
@@ -860,7 +860,7 @@ public class Values {
 		clocks[12][7].setPointerDegree(135, 315);
 	}
 	//draws lightning
-	private void drawlightning (int startx, int starty, ClockPanel[][] clocks)
+	private void drawlightning (int startx, int starty, Clock[][] clocks)
 	{
 		clocks[startx][starty+2].setPointerDegree(180, 180);
 		clocks[startx][starty+3].setPointerDegree(90, 0);
@@ -883,7 +883,7 @@ public class Values {
 		clocks[startx+15][starty+1].setPointerDegree(225, 270);
 	}
 	//draws cloud
-	private void drawcloud (int startx, int starty, ClockPanel[][] clocks)
+	private void drawcloud (int startx, int starty, Clock[][] clocks)
 	{
 		clocks[startx+1][starty+5].setPointerDegree(180, 45);
 		clocks[startx+1][starty+6].setPointerDegree(90, 0);
@@ -932,7 +932,7 @@ public class Values {
 		clocks[startx+14][starty+6].setPointerDegree(270, 0);
 	}
 	//draws rain
-	private void drawrain(int startx, int starty, ClockPanel[][] clocks)
+	private void drawrain(int startx, int starty, Clock[][] clocks)
 	{
 		for(int i = startx+1; i < startx+14; i++)
 		{
@@ -940,7 +940,7 @@ public class Values {
 		}
 	}
 	// moves pointer into position for animation1
-	public void startanimation1(int rows, int columns, ClockPanel[][] clocks) {
+	public void startanimation1(int rows, int columns, Clock[][] clocks) {
 		if (rows % 2 == 0 && columns % 2 == 0) {
 			for (int i = 0; i < rows; i++) {
 				for (int j = 0; j < columns; j++) {

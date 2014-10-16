@@ -9,8 +9,8 @@ import javax.swing.border.EmptyBorder;
 
 public class TestKlasse{
 
-	private ClockPanel[][] arrayClock;
-	private ClockPanel clock;
+	private Clock[][] arrayClock;
+	private Clock clock;
 	
 	private JPanel contentPane;
 	private JFrame frame;
@@ -32,7 +32,7 @@ public class TestKlasse{
 	
 	public TestKlasse()
 	{
-		arrayClock=new ClockPanel[2][3];
+		arrayClock=new Clock[2][3];
 		//Erzeuge Frame
 		frame = new JFrame();
 		frame.setSize(600, 920);
@@ -48,7 +48,7 @@ public class TestKlasse{
 		{
 			for (int j=0; j<3; j++)
 			{
-				arrayClock[i][j] = new ClockPanel(300);
+				arrayClock[i][j] = new Clock(300);
 				frame.add(arrayClock[i][j]);
 
 				arrayClock[i][j].setBounds(300*i, 300*j, 300, 300);

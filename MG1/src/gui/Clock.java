@@ -10,7 +10,7 @@ import java.awt.Stroke;
 
 import javax.swing.JPanel;
 // TODO auf cpu optimieren
-public class ClockPanel extends JPanel implements Runnable{
+public class Clock extends JPanel implements Runnable{
 	
 	//Speichert das Zentrum der Uhr (da sie quadratisch ist wird nur ein Wert gespeichert
 	private int center;
@@ -90,7 +90,7 @@ public class ClockPanel extends JPanel implements Runnable{
 		
 	}
 	//Konstruktor einer Uhr. Setzt den Durchmesser, das Zentrum der Uhr und die Startgradzahlen der Zeiger (180)
-	public ClockPanel(int size)
+	public Clock(int size)
 	{
 		diameter = size;
 		center = diameter/2;

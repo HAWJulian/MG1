@@ -13,8 +13,8 @@ import Project.Weather;
 
 public class TestklasseJulian {
 	private Values values = new Values();
-	private ClockPanel[][] arrayClock;
-	private ClockPanel clock;
+	private Clock[][] arrayClock;
+	private Clock clock;
 	
 	private JPanel contentPane;
 	private JFrame frame;
@@ -43,7 +43,7 @@ public class TestklasseJulian {
 		size = 100;
 		columns = 16;
 		rows = 8;
-		arrayClock=new ClockPanel[columns][rows];
+		arrayClock=new Clock[columns][rows];
 		//Erzeuge Frame
 		frame = new JFrame();
 		frame.setSize(columns * size, (rows * size) + 20);
@@ -59,7 +59,7 @@ public class TestklasseJulian {
 		{
 			for (int j=0; j<rows; j++)
 			{
-				arrayClock[i][j] = new ClockPanel(size);
+				arrayClock[i][j] = new Clock(size);
 				frame.add(arrayClock[i][j]);
 
 				arrayClock[i][j].setBounds(size*i, size*j, size, size);
@@ -67,11 +67,11 @@ public class TestklasseJulian {
 				arrayClock[i][j].start();
 			}
 		}
-		displayTimeHuge();
+		//displayTimeHuge();
 		//displayTime();
 		//displayChars();
 		//playAnimation1();
-		//displayWeather();
+		displayWeather();
 	}
 	
 
@@ -156,7 +156,7 @@ public class TestklasseJulian {
 		{
 			int sleep = 12000;
 			// write "weather"
-			/*
+			
 			values.displayCharacter('w', 1, 3, arrayClock);
 			values.displayCharacter('e', 3, 3, arrayClock);
 			values.displayCharacter('a', 5, 3, arrayClock);
@@ -250,7 +250,7 @@ public class TestklasseJulian {
 			}
 			
 			sleep(sleep);
-			*/
+			
 			values.setdefault(arrayClock);
 			
 			values.displayCharacter('w', 4, 3, arrayClock);
