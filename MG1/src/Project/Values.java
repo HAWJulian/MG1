@@ -975,4 +975,29 @@ public class Values {
 			}
 		}
 	}
+	
+	public void rotateClockCounter(int rows, int columns, Clock[][] clocks)
+	{
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < columns; j++) {
+				if (i < (rows / 2)) {
+					if (j < (columns / 2)) {
+						// top left
+						clocks[j][i].forceRotation(720, 720, true, false);
+					} else {
+						// top right
+						clocks[j][i].forceRotation(720, 720, true, false);
+					}
+				} else {
+					if (j < (columns / 2)) {
+						// bottom left
+						clocks[j][i].forceRotation(720, 720, true, false);
+					} else {
+						// bottom right
+						clocks[j][i].forceRotation(720, 720, true, false);
+					}
+				}
+			}
+		}
+	}
 }
