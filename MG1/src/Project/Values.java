@@ -17,6 +17,17 @@ public class Values {
 			}
 		}
 	}
+	
+	public void setall(int hours, int minutes, ClockPanel[][] clocks)
+	{
+		for (int i = 0; i < clocks.length; i++)
+		{
+			for(int j = 0; j < clocks[0].length; j++)
+			{
+				clocks[i][j].setPointerDegree(hours, minutes);
+			}
+		}
+	}
 	// numbers 4x6
 	public void displayCharacterhuge(char x, int startx, int starty,
 			ClockPanel[][] clocks) {
@@ -527,7 +538,7 @@ public class Values {
 			clocks[startx][starty + 2].setPointerDegree(90, 0);
 			// right
 			clocks[startx + 1][starty].setPointerDegree(180, 180);
-			clocks[startx + 1][starty + 1].setPointerDegree(180, 270);
+			clocks[startx + 1][starty + 1].setPointerDegree(180, 0);
 			clocks[startx + 1][starty + 2].setPointerDegree(270, 0);
 			break;
 		case 'e':
