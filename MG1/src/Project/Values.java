@@ -975,6 +975,34 @@ public class Values {
 		}
 	}
 	
+	public void startanimation2(int rows, int columns, Clock[][] clocks)
+	{
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < columns; j++) {
+				clocks[j][i].setPointerDegree(270, 90);
+			}
+		}
+	}
+
+	public void rotateClocks(int rows, int columns, Clock[][] clocks)
+	{
+		for(int j = 0; j < columns; j++)
+		{
+			for (int i = 0; i < rows; i++)
+			{
+				clocks[j][i].forceRotation(720, 720, false, false);
+			}
+			try
+			{
+				Thread.sleep(100);
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+	}
 	public void rotateClockCounter(int rows, int columns, Clock[][] clocks)
 	{
 		for (int i = 0; i < rows; i++) {

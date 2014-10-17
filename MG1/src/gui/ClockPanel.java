@@ -133,6 +133,9 @@ public class ClockPanel extends JFrame implements Runnable
 		case 'A':
 			playAnimation1();
 			break;
+		case 'B':
+			playAnimation2();
+			break;
 		default:
 			clocksToDefault();
 			break;
@@ -501,6 +504,13 @@ public class ClockPanel extends JFrame implements Runnable
 		values.rotateClockCounter(rows, columns, clocks);
 		// step#2 rotate pointer (for a set amount of seconds)
 		// step#3 stop them column by column
+	}
+	
+	private void playAnimation2()
+	{
+		values.startanimation2(rows, columns, clocks);
+		sleep(3600);
+		values.rotateClocks(rows, columns, clocks);
 	}
 
 	private void sleep(int duration)
