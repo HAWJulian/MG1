@@ -29,6 +29,7 @@ public class ClockPanel extends JFrame implements Runnable
 	// darzustellenden Objekten in Gradzahl der Zeiger zuständig ist
 	private Values values = new Values();
 
+
 	public Clock[][] getClocks()
 	{
 		return clocks;
@@ -137,6 +138,8 @@ public class ClockPanel extends JFrame implements Runnable
 			break;
 		}
 	}
+	
+	
 
 	// Setzt alle Zeiger auf "default Stellung" (180°)
 	private void clocksToDefault()
@@ -481,6 +484,13 @@ public class ClockPanel extends JFrame implements Runnable
 		values.displayCharacter('x', 0, 0, clocks);
 		values.displayCharacter('y', 0, 0, clocks);
 		values.displayCharacter('z', 0, 0, clocks);
+	}
+	
+	
+	//Sprichtdie Uhr an PosX PosY an und sagt ihr, dass ihre Zeiger sich um degreeH und degreeM grad drehen sollenb
+	public void rotateForMoreThen360Degrees(int degreeH, int degreeM, int posX, int posY)
+	{
+		clocks[posX][posY].rotateForMoreThen360Degrees(degreeH, degreeM);
 	}
 
 	private void playAnimation1()

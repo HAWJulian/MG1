@@ -38,6 +38,8 @@ public class Clock extends JPanel implements Runnable{
 	//Gibt an ob die Zeiger sich mit oder gegen den Uhrzeigersinn drehen (H Stunde / M Minute) true = mit dem Uhrzeigersinn
 	private boolean directionH , directionM;
 	
+	private int randomVariable1, randomVariable2;
+	
 	public boolean getIsMoving()
 	{
 		return isMoving;
@@ -105,18 +107,56 @@ public class Clock extends JPanel implements Runnable{
 		targetDegreeH = hour;
 		targetDegreeM = minute;
 		calculateDirection();
+	}
+	
+	public void rotateForMoreThen360Degrees(int degreesH, int degreesM)
+	{
+		randomVariable1=degreesH/360;
+		randomVariable2=degreesM/360;
+		System.out.println(randomVariable1);
+		if (directionH)
+		{
+			targetDegreeH += degreesH%360;
+			targetDegreeH= targetDegreeH%360;
+		}
+		else
+		{
+			targetDegreeH-=degreesH%360;
+			if (targetDegreeH<0)
+			{
+				targetDegreeH+=360;
+			}
+		}
+		if (directionM)
+		{
+			targetDegreeM += degreesM%360;
+			targetDegreeM= targetDegreeM%360;
+		}
+		else
+		{
+			targetDegreeM-=degreesM%360;
+			if (targetDegreeM<0)
+			{
+				targetDegreeM+=360;
+			}
+		}
+		
 		
 		
 	}
 	//Konstruktor einer Uhr. Setzt den Durchmesser, das Zentrum der Uhr und die Startgradzahlen der Zeiger (180)
 	public Clock(int size)
 	{
+		targetDegreeH=180;
+		targetDegreeM=180;
 		diameter = size;
 		center = diameter/2;
 		degreeH = 180;
 		degreeM = 180;
 		ticks=0;
 		tickrate=1;
+		directionH=true;
+		directionM=true;
 		
 	}
 	
@@ -196,9 +236,26 @@ public class Clock extends JPanel implements Runnable{
 		//Wenn die Zeiger ihre Positionen erreicht haben wird die Bewegung der Uhren beendet
 		if (((targetDegreeH == degreeH) && (targetDegreeM == degreeM))) 
 		{
-			
-			isMoving = false;
-			return;
+			if (randomVariable1==0 && randomVariable2==0)
+			{
+				isMoving = false;
+				return;	
+			}
+			else
+			{
+				if (randomVariable1>0)
+				{
+					degreeH++;
+					degreeH=degreeH%360;
+					randomVariable1--;
+				}
+				if (randomVariable2>0)
+				{
+					degreeM++;
+					degreeM=degreeM%360;
+					randomVariable2--;
+				}
+			}
 			
 		}
 		else
