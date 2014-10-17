@@ -56,7 +56,10 @@ public class Weather {
 		// test call
 		 //w.currentWeather("Hamburg");
 	}
-
+	public void setTemp(String tepera)
+	{
+		temp = tepera;
+	}
 	public void currentWeather(String citychoice) {
 		Calendar cal = Calendar.getInstance();
 		currentTime = cal.getTime().toString();

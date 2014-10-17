@@ -774,7 +774,6 @@ public class Values {
 		// regen, leichter regen, leichte regenschauer, leichter regen
 		// dichter nebel, schwacher dunst
 		// TODO implement pointer position
-		setdefault(clocks);
 		switch (weather) {
 		case "teils wolkig":
 		case "wolkig":

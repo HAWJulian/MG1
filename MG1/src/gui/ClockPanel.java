@@ -6,38 +6,41 @@ import Project.Time;
 import Project.Values;
 import Project.Weather;
 
-public class ClockPanel extends JFrame implements Runnable {
-	
-	//Hält den Frame der Uhren
-	
+public class ClockPanel extends JFrame implements Runnable
+{
+
+	// Hält den Frame der Uhren
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 4636687551480582977L;
 
-	//Hält alle Uhren
+	// Hält alle Uhren
 	private Clock[][] clocks;
-	
-	//Hält die Informationen über den Frame, Anzahl der Zeilen, Spalten und den Durchmesser einer Uhr
+
+	// Hält die Informationen über den Frame, Anzahl der Zeilen, Spalten und den
+	// Durchmesser einer Uhr
 	private int rows;
 	private int columns;
 	private int diameter;
-	
-	//Erzeugt ein Objekt vom Typ values, welches für die Übersetzung von darzustellenden Objekten in Gradzahl der Zeiger zuständig ist
+
+	// Erzeugt ein Objekt vom Typ values, welches für die Übersetzung von
+	// darzustellenden Objekten in Gradzahl der Zeiger zuständig ist
 	private Values values = new Values();
-	
+
 	public Clock[][] getClocks()
 	{
 		return clocks;
 	}
-	
+
 	public ClockPanel(int rows, int columns, int diameter)
 	{
 		this.rows = rows;
 		this.columns = columns;
 		this.diameter = diameter;
-		
-		setSize(columns*diameter+10 , rows*diameter+40 );
+
+		setSize(columns * diameter + 10, rows * diameter + 40);
 		setTitle("ClockCeption");
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -45,59 +48,62 @@ public class ClockPanel extends JFrame implements Runnable {
 		setVisible(true);
 		setLayout(null);
 		clocks = new Clock[columns][rows];
-		for (int i=0; i<columns; i++)
+		for (int i = 0; i < columns; i++)
 		{
-			for (int j=0; j<rows; j++)
+			for (int j = 0; j < rows; j++)
 			{
 				clocks[i][j] = new Clock(diameter);
 				add(clocks[i][j]);
 
-				clocks[i][j].setBounds(diameter*i, diameter*j, diameter, diameter);
+				clocks[i][j].setBounds(diameter * i, diameter * j, diameter,
+						diameter);
 				clocks[i][j].initClock();
 			}
 		}
-		
+
 	}
-	
-	//Startet das Clockpanel
+
+	// Startet das Clockpanel
 	public void start()
 	{
 		Thread th = new Thread(this);
 		th.start();
 	}
 
-
-
 	@Override
-	public void run() {
+	public void run()
+	{
 		while (true)
 		{
-			for (int i=0; i<columns; i++)
+			for (int i = 0; i < columns; i++)
 			{
-				for (int j=0; j<rows; j++)
+				for (int j = 0; j < rows; j++)
 				{
 					clocks[i][j].tick();
 				}
 			}
-			try {
+			try
+			{
 				Thread.sleep(10);
-			} catch (InterruptedException e) {
+			}
+			catch (InterruptedException e)
+			{
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
-	
-	
-	
-	//Sagt dem Panel was es darstellen soll. Übergeben wird ein char welcher ein Kürzel ist.
-	public void setDisplay (char selector)
+
+	// Sagt dem Panel was es darstellen soll. Übergeben wird ein char welcher
+	// ein Kürzel ist.
+	public void setDisplay(char selector)
 	{
-		switch (selector) {
+		switch (selector)
+		{
 		case 'T':
 			displayTimeHuge();
 			break;
-			//"Small" kleine Darstellung der Zeit
+		// "Small" kleine Darstellung der Zeit
 		case 'S':
 			displayTime();
 			break;
@@ -115,33 +121,32 @@ public class ClockPanel extends JFrame implements Runnable {
 			break;
 		}
 	}
-	
-	//Setzt alle Zeiger auf "default Stellung" (180°)
+
+	// Setzt alle Zeiger auf "default Stellung" (180°)
 	private void clocksToDefault()
 	{
 		values.setdefault(clocks);
 	}
-	
-	
-	//Stellt die aktuelle Uhrzeit in großen Zahlen dar, Methode von Julian
+
+	// Stellt die aktuelle Uhrzeit in großen Zahlen dar, Methode von Julian
 	private void displayTimeHuge()
 	{
 		Time time = new Time();
 		displayTimeHugehelper(time);
-		while (true) 
+		while (true)
 		{
-			try 
+			try
 			{
 				Thread.sleep(1000);
-				if(time.refreshTime())
+				if (time.refreshTime())
 				{
 					displayTimeHugehelper(time);
 				}
 				else
 				{
-					//test!
+					// test!
 				}
-			} 
+			}
 			catch (InterruptedException e)
 			{
 
@@ -149,39 +154,52 @@ public class ClockPanel extends JFrame implements Runnable {
 			}
 		}
 	}
-	
+
 	private void displayTimeHugehelper(Time time)
 	{
-		values.displayCharacterhuge(String.valueOf(time.getHours0()).charAt(0), 0, 1, clocks);
-		values.displayCharacterhuge(String.valueOf(time.getHours1()).charAt(0), 4, 1, clocks);
-		values.displayCharacterhuge(String.valueOf(time.getMinutes0()).charAt(0), 8, 1, clocks);
-		values.displayCharacterhuge(String.valueOf(time.getMinutes1()).charAt(0), 12, 1, clocks);
+		values.displayCharacterhuge(String.valueOf(time.getHours0()).charAt(0),
+				0, 1, clocks);
+		values.displayCharacterhuge(String.valueOf(time.getHours1()).charAt(0),
+				4, 1, clocks);
+		values.displayCharacterhuge(String.valueOf(time.getMinutes0())
+				.charAt(0), 8, 1, clocks);
+		values.displayCharacterhuge(String.valueOf(time.getMinutes1())
+				.charAt(0), 12, 1, clocks);
 	}
-	//Zeit in klein darstellen. Julian
-	private void displayTime() 
+
+	// Zeit in klein darstellen. Julian
+	private void displayTime()
 	{
 		Time time = new Time();
-		values.displayCharacter(String.valueOf(time.getHours0()).charAt(0), 0, 0, clocks);
-		values.displayCharacter(String.valueOf(time.getHours1()).charAt(0), 2, 0, clocks);
-		values.displayCharacter(String.valueOf(time.getMinutes0()).charAt(0), 4, 0, clocks);
-		values.displayCharacter(String.valueOf(time.getMinutes1()).charAt(0), 6, 0, clocks);
-		while (true) 
+		values.displayCharacter(String.valueOf(time.getHours0()).charAt(0), 0,
+				0, clocks);
+		values.displayCharacter(String.valueOf(time.getHours1()).charAt(0), 2,
+				0, clocks);
+		values.displayCharacter(String.valueOf(time.getMinutes0()).charAt(0),
+				4, 0, clocks);
+		values.displayCharacter(String.valueOf(time.getMinutes1()).charAt(0),
+				6, 0, clocks);
+		while (true)
 		{
-			try 
+			try
 			{
 				Thread.sleep(1000);
-				if(time.refreshTime())
+				if (time.refreshTime())
 				{
-					values.displayCharacter(String.valueOf(time.getHours0()).charAt(0), 0, 0, clocks);
-					values.displayCharacter(String.valueOf(time.getHours1()).charAt(0), 2, 0, clocks);
-					values.displayCharacter(String.valueOf(time.getMinutes0()).charAt(0), 4, 0, clocks);
-					values.displayCharacter(String.valueOf(time.getMinutes1()).charAt(0), 6, 0, clocks);
+					values.displayCharacter(String.valueOf(time.getHours0())
+							.charAt(0), 0, 0, clocks);
+					values.displayCharacter(String.valueOf(time.getHours1())
+							.charAt(0), 2, 0, clocks);
+					values.displayCharacter(String.valueOf(time.getMinutes0())
+							.charAt(0), 4, 0, clocks);
+					values.displayCharacter(String.valueOf(time.getMinutes1())
+							.charAt(0), 6, 0, clocks);
 				}
 				else
 				{
-					//test!
+					// test!
 				}
-			} 
+			}
 			catch (InterruptedException e)
 			{
 
@@ -189,121 +207,31 @@ public class ClockPanel extends JFrame implements Runnable {
 			}
 		}
 	}
-	//Stellt das Wetter dar. Methode von Julian
+
+	// Stellt das Wetter dar. Methode von Julian
 	private void displayWeather()
 	{
 		Weather w = new Weather();
-		//api call (get current weather of (city)
+		// api call (get current weather of (city)
 		w.currentWeather("Hamburg");
 		values.setdefault(clocks);
-		while(true)
+		while (true)
 		{
-			int sleep = 12000;
-			// write "weather"
-			
-			values.displayCharacter('w', 1, 3, clocks);
-			values.displayCharacter('e', 3, 3, clocks);
-			values.displayCharacter('a', 5, 3, clocks);
-			values.displayCharacter('t', 7, 3, clocks);
-			values.displayCharacter('h', 9, 3, clocks);
-			values.displayCharacter('e', 11, 3, clocks);
-			values.displayCharacter('r', 13, 3, clocks);
-			try {
-				Thread.sleep(sleep);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			values.setdefault(clocks);
-			// get current weather
-			// step#1 show weather (cloudy, sunny, etc.)
-			values.showWeather(w.getWeather().toLowerCase(), 0, 0, clocks);
-			try {
-				Thread.sleep(sleep);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			values.setdefault(clocks);
-
+			int sleep = 6000;
+			// step#1 show conditions	
+			displayConditions(w, sleep);
 			// step#2 show temperature
-			// tempera-
-			// ture
-			values.displayCharacter('t', 0, 1, clocks);
-			values.displayCharacter('e', 2, 1, clocks);
-			values.displayCharacter('m', 4, 1, clocks);
-			values.displayCharacter('p', 6, 1, clocks);
-			values.displayCharacter('e', 8, 1, clocks);
-			values.displayCharacter('r', 10, 1, clocks);
-			values.displayCharacter('a', 12, 1, clocks);
-			values.displayCharacter('-', 14, 1, clocks);
-			values.displayCharacter('t', 0, 4, clocks);
-			values.displayCharacter('u', 2, 4, clocks);
-			values.displayCharacter('r', 4, 4, clocks);
-			values.displayCharacter('e', 6, 4, clocks);
-			try {
-				Thread.sleep(sleep);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			values.setdefault(clocks);
-			// get length of temperaturr
-			int templength = w.getTemp().length();
-			if (templength == 1) {
-				values.displayCharacterhuge(w.getTemp().charAt(0), 2, 1,
-						clocks);
-				values.displayCharacterhuge('°', 6, 1, clocks);
-				values.displayCharacterhuge('C', 8, 1, clocks);
-			} else if (templength == 2 || templength == 3) {
-				if (templength == 3) {
-					values.displayCharacterhuge('°', 0, 3, clocks);
-				}
-				values.displayCharacterhuge(w.getTemp().charAt(0), 2, 1,
-						clocks);
-				values.displayCharacterhuge(w.getTemp().charAt(1), 6, 1,
-						clocks);
-				values.displayCharacterhuge('°', 10, 1, clocks);
-				values.displayCharacterhuge('C', 12, 1, clocks);
-			} else {
-				values.setdefault(clocks);
-			}
-			sleep(sleep);
-			values.setdefault(clocks);
-			
+			displayTemperature(w, sleep);
 			// step#3 show humidity
-			values.displayCharacter('h', 0, 3, clocks);
-			values.displayCharacter('u', 2, 3, clocks);
-			values.displayCharacter('m', 4, 3, clocks);
-			values.displayCharacter('i', 6, 3, clocks);
-			values.displayCharacter('d', 8, 3, clocks);
-			values.displayCharacter('i', 10, 3, clocks);
-			values.displayCharacter('t', 12, 3, clocks);
-			values.displayCharacter('y', 14, 3, clocks);
-			sleep(sleep);
-			values.setdefault(clocks);
+			displayHumidity(w, sleep);
 
-			int humlength = w.getHumidity().length();
-			if (humlength == 2 || humlength == 3) {
-				values.displayCharacterhuge(
-						w.getHumidity().charAt(humlength - 2), 6, 1, clocks);
-				values.displayCharacterhuge('%', 10, 2, clocks);
-				if (humlength == 3) {
-					values.displayCharacterhuge(w.getHumidity().charAt(0), 2,
-							1, clocks);
-				}
-			} else {
-				values.setdefault(clocks);
-			}
-			
-			sleep(sleep);
-			
-			values.setdefault(clocks);
-			
 			values.displayCharacter('w', 4, 3, clocks);
 			values.displayCharacter('i', 6, 3, clocks);
 			values.displayCharacter('n', 8, 3, clocks);
 			values.displayCharacter('d', 10, 3, clocks);
 			sleep(sleep);
 			values.setdefault(clocks);
-			//step#4 show wind (direction/speed)
+			// step#4 show wind (direction/speed)
 			int degreehelper = Integer.parseInt(w.getWinddegrees());
 			if (degreehelper > 180)
 			{
@@ -318,12 +246,13 @@ public class ClockPanel extends JFrame implements Runnable {
 			values.displayCharacter('s', 7, 5, clocks);
 			values.displayCharacter('w', 0, 3, clocks);
 			values.displayCharacter('e', 14, 3, clocks);
-			sleep(7500);
-			for(int wind = 0; wind <= 20; wind++)
+			sleep(3000);
+			for (int wind = 0; wind <= 20; wind++)
 			{
-				
-				if (wind % 2 == 0) {
-					values.setall(degreehelper+10,degreehelper+10, clocks);
+
+				if (wind % 2 == 0)
+				{
+					values.setall(degreehelper + 10, degreehelper + 10, clocks);
 					values.displayCharacter('n', 7, 0, clocks);
 					values.displayCharacter('s', 7, 5, clocks);
 					values.displayCharacter('w', 0, 3, clocks);
@@ -331,15 +260,15 @@ public class ClockPanel extends JFrame implements Runnable {
 				}
 				else
 				{
-					values.setall(degreehelper-10,degreehelper-10, clocks);
+					values.setall(degreehelper - 10, degreehelper - 10, clocks);
 					values.displayCharacter('n', 7, 0, clocks);
 					values.displayCharacter('s', 7, 5, clocks);
 					values.displayCharacter('w', 0, 3, clocks);
 					values.displayCharacter('e', 14, 3, clocks);
 				}
-				sleep(500);
+				sleep(350);
 			}
-			values.setall(degreehelper,degreehelper, clocks);
+			values.setall(degreehelper, degreehelper, clocks);
 			values.displayCharacter('n', 7, 0, clocks);
 			values.displayCharacter('s', 7, 5, clocks);
 			values.displayCharacter('w', 0, 3, clocks);
@@ -348,18 +277,158 @@ public class ClockPanel extends JFrame implements Runnable {
 
 			values.setdefault(clocks);
 		}
-		
-		//display w.getHumidity()
-		//step#4 show wind speed/direction
-		//display w.getWinddir()/w.getWinddegrees()/w.getWindspeed()
+
+		// display w.getHumidity()
+		// step#4 show wind speed/direction
+		// display w.getWinddir()/w.getWinddegrees()/w.getWindspeed()
 	}
-	
-	//Only used for testing issues. Patrick
+	private void displayTemperature(Weather w, int sleep)
+	{
+		values.displayCharacter('t', 0, 1, clocks);
+		values.displayCharacter('e', 2, 1, clocks);
+		values.displayCharacter('m', 4, 1, clocks);
+		values.displayCharacter('p', 6, 1, clocks);
+		values.displayCharacter('e', 8, 1, clocks);
+		values.displayCharacter('r', 10, 1, clocks);
+		values.displayCharacter('a', 12, 1, clocks);
+		values.displayCharacter('-', 14, 1, clocks);
+		values.displayCharacter('t', 0, 4, clocks);
+		values.displayCharacter('u', 2, 4, clocks);
+		values.displayCharacter('r', 4, 4, clocks);
+		values.displayCharacter('e', 6, 4, clocks);
+		sleep(sleep);
+		values.setdefault(clocks);
+		// get length of temperature
+		int templength = w.getTemp().length();
+		//temp is negative
+		if(w.getTemp().charAt(0) == '-')
+		{
+			if(templength == 2)
+			{
+				values.displayCharacterhuge('°', 2, 3, clocks);
+				values.displayCharacterhuge(w.getTemp().charAt(1), 4, 1, clocks);
+				values.displayCharacterhuge('°', 8, 1, clocks);
+				values.displayCharacterhuge('C', 10, 1, clocks);
+			}
+			else if(templength == 3)
+			{
+				values.displayCharacterhuge('°', 0, 3, clocks);
+				values.displayCharacterhuge(w.getTemp().charAt(1), 2, 1, clocks);
+				values.displayCharacterhuge(w.getTemp().charAt(2), 6, 1, clocks);
+				values.displayCharacterhuge('°', 10, 1, clocks);
+				values.displayCharacterhuge('C', 12, 1, clocks);
+			}
+		}
+		//temp is positive
+		else
+		{
+			if(templength == 1)
+			{
+				values.displayCharacterhuge(w.getTemp().charAt(0), 3, 1, clocks);
+				values.displayCharacterhuge('°', 7, 1, clocks);
+				values.displayCharacterhuge('C', 9, 1, clocks);
+			}
+			else if(templength == 2)
+			{
+				values.displayCharacterhuge(w.getTemp().charAt(0), 1, 1, clocks);
+				values.displayCharacterhuge(w.getTemp().charAt(1), 5, 1, clocks);
+				values.displayCharacterhuge('°', 9, 1, clocks);
+				values.displayCharacterhuge('C', 11, 1, clocks);
+			}
+		}
+		/*
+		if (templength == 1)
+		{
+			values.displayCharacterhuge(w.getTemp().charAt(0), 2, 1, clocks);
+			values.displayCharacterhuge('°', 6, 1, clocks);
+			values.displayCharacterhuge('C', 8, 1, clocks);
+		}
+		else if (templength == 2 || templength == 3)
+		{
+			int x = 0;
+			if (templength == 3)
+			{
+				
+				x++;
+			}
+			values.displayCharacterhuge(w.getTemp().charAt(x), 2, 1, clocks);
+			values.displayCharacterhuge(w.getTemp().charAt(x+1), 6, 1, clocks);
+			values.displayCharacterhuge('°', 10, 1, clocks);
+			values.displayCharacterhuge('C', 12, 1, clocks);
+		}
+		else
+		{
+			values.setdefault(clocks);
+		}
+		*/
+		sleep(sleep);
+		values.setdefault(clocks);
+	}
+	private void displayHumidity(Weather w, int sleep)
+	{
+		values.displayCharacter('h', 0, 3, clocks);
+		values.displayCharacter('u', 2, 3, clocks);
+		values.displayCharacter('m', 4, 3, clocks);
+		values.displayCharacter('i', 6, 3, clocks);
+		values.displayCharacter('d', 8, 3, clocks);
+		values.displayCharacter('i', 10, 3, clocks);
+		values.displayCharacter('t', 12, 3, clocks);
+		values.displayCharacter('y', 14, 3, clocks);
+		sleep(sleep);
+		values.setdefault(clocks);
+		int humlength = w.getHumidity().length();
+		if (humlength == 2 || humlength == 3)
+		{
+			values.displayCharacterhuge(w.getHumidity().charAt(humlength - 2),
+					6, 1, clocks);
+			values.displayCharacterhuge('%', 10, 2, clocks);
+			if (humlength == 3)
+			{
+				values.displayCharacterhuge(w.getHumidity().charAt(0), 2, 1,
+						clocks);
+			}
+		}
+		else if (humlength == 4)
+		{
+			values.displayCharacterhuge('1', 0, 1, clocks);
+			values.displayCharacterhuge('0', 4, 1, clocks);
+			values.displayCharacterhuge('0', 8, 1, clocks);
+			values.displayCharacterhuge('%', 12, 2, clocks);
+		}
+		else
+		{
+			values.setdefault(clocks);
+		}
+
+		sleep(sleep);
+
+		values.setdefault(clocks);
+	}
+	private void displayConditions(Weather w, int sleep)
+	{
+		values.displayCharacter('w', 1, 3, clocks);
+		values.displayCharacter('e', 3, 3, clocks);
+		values.displayCharacter('a', 5, 3, clocks);
+		values.displayCharacter('t', 7, 3, clocks);
+		values.displayCharacter('h', 9, 3, clocks);
+		values.displayCharacter('e', 11, 3, clocks);
+		values.displayCharacter('r', 13, 3, clocks);
+		sleep(sleep);
+		values.setall(270, 270, clocks);
+		// get current weather
+		// step#1 show weather (cloudy, sunny, etc.)
+		values.showWeather(w.getWeather().toLowerCase(), 0, 0, clocks);
+		sleep(sleep);
+		values.setdefault(clocks);
+
+	}
+	// Only used for testing issues. Patrick
 	@Deprecated
 	private void displayChars()
 	{
-		//execute step by step with debugger, else make the thread sleep for ~2k ms after each call
-		//otherwise this will only display the last call.
+		// execute step by step with debugger, else make the thread sleep for
+		// ~2k ms after each call
+		// otherwise this will only display the last call.
 		values.displayCharacter('1', 0, 0, clocks);
 		values.displayCharacter('2', 0, 0, clocks);
 		values.displayCharacter('3', 0, 0, clocks);
@@ -397,28 +466,27 @@ public class ClockPanel extends JFrame implements Runnable {
 		values.displayCharacter('y', 0, 0, clocks);
 		values.displayCharacter('z', 0, 0, clocks);
 	}
-	
+
 	private void playAnimation1()
 	{
-		//step#1 move pointer in start position
+		// step#1 move pointer in start position
 		values.startanimation1(rows, columns, clocks);
-		
-		
-		sleep(5000);
+		sleep(3600);
 		values.rotateClockCounter(rows, columns, clocks);
-		//step#2 rotate pointer (for a set amount of seconds)
-		//step#3 stop them column by column
+		// step#2 rotate pointer (for a set amount of seconds)
+		// step#3 stop them column by column
 	}
+
 	private void sleep(int duration)
 	{
-		try {
+		try
+		{
 			Thread.sleep(duration);
-		} catch (InterruptedException e) {
+		}
+		catch (InterruptedException e)
+		{
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
+
 }
