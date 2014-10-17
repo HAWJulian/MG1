@@ -43,6 +43,14 @@ public class Clock extends JPanel implements Runnable{
 		return isMoving;
 	}
 	
+	
+	//Setzt die Geschwindigkeit mit der die Uhr sich dreht. Standard tickrate ist 1, was bedeutet, dass die Uhr sich mit jedem tick um 1 Grad bewegt.
+	public void setTickrate(int tickrate)
+	{
+		this.tickrate = tickrate;
+		ticks=0;
+	}
+	
 
 	private void calculateDirection()
 	{

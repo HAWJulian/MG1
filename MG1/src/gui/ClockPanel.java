@@ -56,7 +56,6 @@ public class ClockPanel extends JFrame implements Runnable {
 				clocks[i][j].initClock();
 			}
 		}
-		
 	}
 	
 	//Startet das Clockpanel
@@ -84,8 +83,24 @@ public class ClockPanel extends JFrame implements Runnable {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+		}	
+	}
+	
+	public void setTickrate(int tickrate, int posX, int posY)
+	{
+		clocks[posX][posY].setTickrate(tickrate);
+	}
+	
+	//Setzt die tickraten aller Uhren auf 1
+	public void resetTickrate()
+	{
+		for (int i=0; i<columns; i++)
+		{
+			for (int j=0; j<rows; j++)
+			{
+				clocks[i][j].setTickrate(1);
+			}
 		}
-		
 	}
 	
 	
