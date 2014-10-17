@@ -89,6 +89,13 @@ public class Clock extends JPanel implements Runnable{
 		directionM = clockwiseM;
 		
 	}
+	
+	//Setzt die Zielposition ohne die Rotationsrichtung zu ändern
+	public void setDegree (int hour , int minute)
+	{
+		targetDegreeH = hour;
+		targetDegreeM = minute;
+	}
 
 	//Setzt die Zielposition der Zeiger
 	public void setPointerDegree(int hour, int minute)
