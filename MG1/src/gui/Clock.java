@@ -83,6 +83,121 @@ public class Clock extends JPanel implements Runnable{
 		
 	}
 	
+	private void calculatePointerPosition()
+	{
+		
+		//Wenn die Zeiger ihre Positionen erreicht haben wird die Bewegung der Uhren beendet
+		if (((targetDegreeH == degreeH) && (targetDegreeM == degreeM))) 
+		{
+			if (randomVariable1==0 && randomVariable2==0)
+			{
+				isMoving = false;
+				return;	
+			}
+			else
+			{
+				
+				if (randomVariable2>0)
+				{
+					degreeM++;
+					degreeM=degreeM%360;
+					randomVariable2--;
+				}
+			}
+			
+		}
+		else
+		{
+			isMoving = true;
+		}
+		//Wenn der Stundenzeiger seine Zielposition noch nicht erreicht wird er um ein Grad verschoben
+		if (!(targetDegreeH == degreeH ))
+		{
+			//Wenn directionH true ist wird er nach rechts gedreht
+			if (directionH) 
+			{
+				degreeH++;
+				degreeH=degreeH%360;
+			}
+			//Ansonsten nach links
+			else
+			{
+				degreeH--;
+				if(degreeH == -1)
+				{
+					degreeH = 359;
+				}
+			}
+			
+		}
+		else
+		{
+			if (randomVariable1>0)
+			{
+				randomVariable1--;
+				if (directionH)
+				{
+					degreeH++;
+					degreeH=degreeH%360;
+					
+				}
+				else
+				{
+					degreeH--;
+					if (degreeH<0)
+					{
+						degreeH=359;
+					}
+					
+				}
+			}
+		}
+		//Selbes für Minutenzeiger
+		if (!(targetDegreeM == degreeM))
+		{
+			//Wenn directionM true ist wird er nach rechts gedreht
+			if (directionM)
+			{
+				degreeM++;
+				degreeM=degreeM%360;
+			}
+			//Ansonsten nach rechts
+			else
+			{
+				degreeM--;
+				if(degreeM == -1)
+				{
+					degreeM = 359;
+				}
+			}
+		}
+		
+		else
+		{
+			if (randomVariable2>0)
+			{
+				randomVariable2--;
+				if (directionM)
+				{
+					degreeM++;
+					degreeM=degreeM%360;
+					
+				}
+				else
+				{
+					degreeM--;
+					if (degreeM<0)
+					{
+						degreeM=359;
+					}
+					
+				}
+			}
+		}
+		
+	}
+
+
 	public void forceRotation(int hour, int minute, boolean clockwiseH, boolean clockwiseM)
 	{
 		targetDegreeH = hour;
@@ -115,7 +230,7 @@ public class Clock extends JPanel implements Runnable{
 		this.directionM = directionM;
 		randomVariable1=degreesH/360;
 		randomVariable2=degreesM/360;
-		System.out.println(randomVariable1);
+		System.out.println("PENIS");
 		if (directionH)
 		{
 			targetDegreeH += degreesH%360;
@@ -216,7 +331,7 @@ public class Clock extends JPanel implements Runnable{
 		clock2.setStroke(new BasicStroke(10));
 		
 		//Minutenzeiger rendern
-		clock2.setColor(Color.BLACK);
+		clock2.setColor(Color.RED);
 		int zeigerMx = (int) ((center) + (Math.sin(Math.toRadians(degreeM)) *radius /2)*1.20);
 		int zeigerMy = (int) ((center) - (Math.cos(Math.toRadians(degreeM)) *radius /2)*1.20);
 		clock2.drawLine(center, center, zeigerMx, zeigerMy);
@@ -232,82 +347,6 @@ public class Clock extends JPanel implements Runnable{
 		clock.drawImage(screen , 0 , 0 ,null);
 	}	
 		
-	private void calculatePointerPosition()
-	{
-		
-		//Wenn die Zeiger ihre Positionen erreicht haben wird die Bewegung der Uhren beendet
-		if (((targetDegreeH == degreeH) && (targetDegreeM == degreeM))) 
-		{
-			if (randomVariable1==0 && randomVariable2==0)
-			{
-				isMoving = false;
-				return;	
-			}
-			else
-			{
-				if (randomVariable1>0)
-				{
-					degreeH++;
-					degreeH=degreeH%360;
-					randomVariable1--;
-				}
-				if (randomVariable2>0)
-				{
-					degreeM++;
-					degreeM=degreeM%360;
-					randomVariable2--;
-				}
-			}
-			
-		}
-		else
-		{
-			isMoving = true;
-		}
-		//Wenn der Stundenzeiger seine Zielposition noch nicht erreicht wird er um ein Grad verschoben
-		if (!(targetDegreeH == degreeH ))
-		{
-			//Wenn directionH true ist wird er nach rechts gedreht
-			if (directionH) 
-			{
-				degreeH++;
-				degreeH=degreeH%360;
-			}
-			//Ansonsten nach links
-			else
-			{
-				degreeH--;
-				if(degreeH == -1)
-				{
-					degreeH = 359;
-				}
-			}
-			
-		}
-		//Selbes für Minutenzeiger
-		if (!(targetDegreeM == degreeM))
-		{
-			//Wenn directionM true ist wird er nach rechts gedreht
-			if (directionM)
-			{
-				degreeM++;
-				degreeM=degreeM%360;
-			}
-			//Ansonsten nach rechts
-			else
-			{
-				degreeM--;
-				if(degreeM == -1)
-				{
-					degreeM = 359;
-				}
-			}
-		}
-		
-		
-		
-	}
-	
 	//Dauerschleife, Uhr rendern => neue Positionen für die Uhr berechen => 20ms schlafen legen => von vorne
 	//Clockpanel benutzen
 	@Deprecated
