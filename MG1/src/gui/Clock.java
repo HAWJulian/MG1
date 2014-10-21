@@ -109,7 +109,7 @@ public class Clock extends JPanel implements Runnable{
 		calculateDirection();
 	}
 	
-	public void rotateForMoreThen360Degrees(int degreesH, int degreesM)
+	public void rotateForMoreThan360Degrees(int degreesH, int degreesM)
 	{
 		randomVariable1=degreesH/360;
 		randomVariable2=degreesM/360;
