@@ -490,12 +490,7 @@ public class ClockPanel extends JFrame implements Runnable
 	}
 	
 	
-	//Sprichtdie Uhr an PosX PosY an und sagt ihr, dass ihre Zeiger sich um degreeH und degreeM grad drehen sollenb
-	public void rotateForMoreThen360Degrees(int degreeH, int degreeM, int posX, int posY)
-	{
-		clocks[posX][posY].rotateForMoreThan360Degrees(degreeH, degreeM);
-	}
-
+	
 	private void playAnimation1()
 	{
 		// step#1 move pointer in start position
