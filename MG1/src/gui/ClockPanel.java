@@ -136,6 +136,9 @@ public class ClockPanel extends JFrame implements Runnable
 		case 'B':
 			playAnimation2();
 			break;
+		case 'D':
+			playAnimation3();
+			break;
 		default:
 			clocksToDefault();
 			break;
@@ -260,6 +263,10 @@ public class ClockPanel extends JFrame implements Runnable
 			{
 				degreehelper -= 180;
 			}
+			else if(degreehelper == 180)
+			{
+				degreehelper = 0;
+			}
 			else
 			{
 				degreehelper += 180;
@@ -307,7 +314,31 @@ public class ClockPanel extends JFrame implements Runnable
 			values.displayCharacter('d', 11, 3, clocks);
 			sleep(sleep);
 			values.setdefault(clocks);
-			//int windspeed = w.getWindspeed();
+			String windspeed = w.getWindspeed();
+			if(windspeed.length() == 1)
+			{
+				values.displayCharacterhuge(windspeed.charAt(0), 4, 1, clocks);
+				values.drawKMH(8, 1, clocks);
+			}
+			else if(windspeed.length() == 2)
+			{
+				values.displayCharacterhuge(windspeed.charAt(0), 2, 1, clocks);
+				values.displayCharacterhuge(windspeed.charAt(1), 6, 1, clocks);
+				values.drawKMH(10, 1, clocks);
+			}
+			else if(windspeed.length() == 3)
+			{
+				values.displayCharacterhuge(windspeed.charAt(0), 0, 1, clocks);
+				values.displayCharacterhuge(windspeed.charAt(1), 4, 1, clocks);
+				values.displayCharacterhuge(windspeed.charAt(2), 8, 1, clocks);
+				values.drawKMH(12, 1, clocks);
+			}
+			else
+			{
+				values.setdefault(clocks);
+			}
+			sleep(sleep);
+			values.setdefault(clocks);
 		}
 		// display w.getHumidity()
 		// step#4 show wind speed/direction
@@ -521,6 +552,13 @@ public class ClockPanel extends JFrame implements Runnable
 		values.startanimation2(rows, columns, clocks);
 		sleep(3600);
 		values.rotateClocks(rows, columns, clocks);
+	}
+	
+	private void playAnimation3()
+	{
+		values.startanimation3(rows, columns, clocks);
+		sleep(3000);
+		values.animation3(rows, columns, clocks);
 	}
 
 	private void sleep(int duration)

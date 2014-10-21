@@ -321,7 +321,7 @@ public class Clock extends JPanel implements Runnable{
 		clock2.setStroke(new BasicStroke(10));
 		
 		//Minutenzeiger rendern
-		clock2.setColor(Color.RED);
+		clock2.setColor(Color.BLACK);
 		int zeigerMx = (int) ((center) + (Math.sin(Math.toRadians(degreeM)) *radius /2)*1.20);
 		int zeigerMy = (int) ((center) - (Math.cos(Math.toRadians(degreeM)) *radius /2)*1.20);
 		clock2.drawLine(center, center, zeigerMx, zeigerMy);

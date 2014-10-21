@@ -823,6 +823,16 @@ public class Values {
 			break;
 		}
 	}
+	public void drawKMH(int startx, int starty, Clock[][] clocks)
+	{
+		displayCharacter('k', startx, starty-1, clocks);
+		clocks[startx][starty+5].setPointerDegree(45, 45);
+		displayCharacter('m', startx+2, starty-1, clocks);
+		clocks[startx+1][starty+4].setPointerDegree(225, 45);
+		clocks[startx+2][starty+3].setPointerDegree(225, 45);
+		clocks[startx+3][starty+2].setPointerDegree(225, 225);
+		displayCharacter('h', startx+2, starty+4, clocks);
+	}
 	//draws sun
 	private void drawsun(int startx, int starty, Clock[][] clocks)
 	{
@@ -1012,7 +1022,116 @@ public class Values {
 			}
 		}
 	}
-
+	
+	public void startanimation3(int rows, int columns, Clock[][] clocks)
+	{
+		for(int i = 0; i < rows; i++)
+		{
+			for(int j = 0; j < columns; j++)
+			{
+				if(i == 2)
+				{
+					if(j%2 == 0)
+					{
+						clocks[j][i].setPointerDegree(135, 90);
+					}
+					else
+					{
+						clocks[j][i].setPointerDegree(135, 270);
+					}
+				}
+				else if(i == 3)
+				{
+					clocks[j][i].setPointerDegree(135, 315);
+				}
+				else if(i == 4)
+				{
+					clocks[j][i].setPointerDegree(225, 315);
+				}
+				else if(i == 5)
+				{
+					clocks[j][i].setPointerDegree(225, 45);
+				}
+				else if(i == 6)
+				{
+					if(j%2 == 0)
+					{
+						clocks[j][i].setPointerDegree(90, 45);
+					}
+					else
+					{
+						clocks[j][i].setPointerDegree(270, 45);
+					}
+				}
+			}
+		}
+	}
+	public void animation3(int rows, int columns, Clock[][] clocks)
+	{
+		for(int x = 0; x < 100; x++)
+		{
+			for(int j = 0; j < columns; j++)
+			{
+				if(j%2 == 0)
+				{
+					clocks[j][2].setPointerDegree(135, 270);
+				}
+				else
+				{
+					clocks[j][2].setPointerDegree(135, 90);
+				}
+			}
+			for(int j = 0; j < columns; j++)
+			{
+				if(j%2 == 0)
+				{
+					clocks[j][6].setPointerDegree(270, 45);
+				}
+				else
+				{
+					clocks[j][6].setPointerDegree(90, 45);
+				}
+			}
+			try
+			{
+				Thread.sleep(5000);
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+			for(int j = 0; j < columns; j++)
+			{
+				if(j%2 == 0)
+				{
+					clocks[j][2].setPointerDegree(135, 90);
+				}
+				else
+				{
+					clocks[j][2].setPointerDegree(135, 270);
+				}
+			}
+			for(int j = 0; j < columns; j++)
+			{
+				if(j%2 == 0)
+				{
+					clocks[j][6].setPointerDegree(90, 45);
+				}
+				else
+				{
+					clocks[j][6].setPointerDegree(270, 45);
+				}
+			}
+			try
+			{
+				Thread.sleep(5000);
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
 	public void rotateClocks(int rows, int columns, Clock[][] clocks)
 	{
 		for(int j = 0; j < columns; j++)
