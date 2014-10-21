@@ -297,10 +297,17 @@ public class ClockPanel extends JFrame implements Runnable
 			values.displayCharacter('w', 0, 3, clocks);
 			values.displayCharacter('e', 14, 3, clocks);
 			sleep(sleep);
-
+			values.setdefault(clocks);
+			
+			//speed
+			values.displayCharacter('s', 3, 3, clocks);
+			values.displayCharacter('p', 5, 3, clocks);
+			values.displayCharacter('e', 7, 3, clocks);
+			values.displayCharacter('e', 9, 3, clocks);
+			values.displayCharacter('d', 11, 3, clocks);
+			sleep(sleep);
 			values.setdefault(clocks);
 		}
-
 		// display w.getHumidity()
 		// step#4 show wind speed/direction
 		// display w.getWinddir()/w.getWinddegrees()/w.getWindspeed()
