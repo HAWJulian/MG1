@@ -703,15 +703,24 @@ public class Values {
 			clocks[startx + 1][starty + 2].setPointerDegree(270, 0);
 			break;
 		case 't':
+			// new t
 			// left
-			clocks[startx][starty].setPointerDegree(180, 180);
-			clocks[startx][starty + 1].setPointerDegree(90, 0);
-			clocks[startx][starty + 2].setPointerDegree(90, 0);
+			clocks[startx][starty].setPointerDegree(270, 90);
+			clocks[startx][starty + 1].setPointerDegree(180, 0);
+			clocks[startx][starty + 2].setPointerDegree(0, 0);
 			// right
-			clocks[startx + 1][starty].setPointerDegree(def, def);
+			clocks[startx + 1][starty].setPointerDegree(270, 270);
 			clocks[startx + 1][starty + 1].setPointerDegree(def, def);
-			clocks[startx + 1][starty + 2].setPointerDegree(270, 270);
+			clocks[startx + 1][starty + 2].setPointerDegree(def, def);
 			break;
+			/*
+			 * // left clocks[startx][starty].setPointerDegree(180, 180);
+			 * clocks[startx][starty + 1].setPointerDegree(90, 0);
+			 * clocks[startx][starty + 2].setPointerDegree(90, 0); // right
+			 * clocks[startx + 1][starty].setPointerDegree(def, def);
+			 * clocks[startx + 1][starty + 1].setPointerDegree(def, def);
+			 * clocks[startx + 1][starty + 2].setPointerDegree(270, 270); break;
+			 */
 		case 'u':
 			// left
 			clocks[startx][starty].setPointerDegree(180, 180);
