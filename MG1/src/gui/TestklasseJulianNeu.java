@@ -13,9 +13,9 @@ public class TestklasseJulianNeu
 		{
 			public void run()
 			{
-				ClockPanel frame = new ClockPanel(8, 16, 100);
+				ClockPanel frame = new ClockPanel(8, 16, 120);
 				frame.start();
-				frame.setDisplay('B');
+				frame.setDisplay('A');
 			}
 
 		});

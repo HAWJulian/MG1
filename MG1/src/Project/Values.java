@@ -772,13 +772,18 @@ public class Values {
 		// wolkig, teils wolkig, bedeckt
 		// heiter
 		// regen, leichter regen, leichte regenschauer, leichter regen
-		// dichter nebel, schwacher dunst
+		// dichter nebel, schwacher dunst, leichter nebel
 		// TODO implement pointer position
 		switch (weather) {
+		case "dichter nebel":
+		case "schwacher dunst":
+		case "leichter nebel":
+			break;
 		case "teils wolkig":
 		case "wolkig":
 			drawcloud(startx, starty, clocks);
 			break;
+		case "leichte regenschauer":
 		case "leichter regen":
 		case "regen":
 			drawcloud(startx, starty, clocks);
@@ -792,6 +797,10 @@ public class Values {
 		case "sonne":
 			startanimation1(clocks[0].length, clocks.length,clocks);
 			drawsun(startx, starty, clocks);
+			break;
+		default:
+			setdefault(clocks);
+			break;
 		}
 	}
 	//draws sun

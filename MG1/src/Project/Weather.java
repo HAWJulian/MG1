@@ -3,7 +3,6 @@ package Project;
 import java.io.*;
 import java.net.*;
 import java.util.*;
-import java.text.*;
 
 //Test
 public class Weather {
@@ -159,6 +158,7 @@ public class Weather {
 		}
 	}
 	// TODO implement weatherforecast??
+	/*
 	private void weatherforecast() {
 		try {
 
@@ -169,4 +169,5 @@ public class Weather {
 					.println("An error has occured. (wrong spelling/connection issues etc.)");
 		}
 	}
+	*/
 }
