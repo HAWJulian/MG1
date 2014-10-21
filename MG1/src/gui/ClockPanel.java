@@ -246,12 +246,13 @@ public class ClockPanel extends JFrame implements Runnable
 			displayTemperature(w, sleep);
 			// step#3 show humidity
 			displayHumidity(w, sleep);
-
+			
 			values.displayCharacter('w', 4, 3, clocks);
 			values.displayCharacter('i', 6, 3, clocks);
 			values.displayCharacter('n', 8, 3, clocks);
 			values.displayCharacter('d', 10, 3, clocks);
 			sleep(sleep);
+			
 			values.setdefault(clocks);
 			// step#4 show wind (direction/speed)
 			int degreehelper = Integer.parseInt(w.getWinddegrees());
@@ -306,6 +307,7 @@ public class ClockPanel extends JFrame implements Runnable
 	}
 	private void displayTemperature(Weather w, int sleep)
 	{
+		
 		values.displayCharacter('t', 0, 1, clocks);
 		values.displayCharacter('e', 2, 1, clocks);
 		values.displayCharacter('m', 4, 1, clocks);
@@ -319,6 +321,7 @@ public class ClockPanel extends JFrame implements Runnable
 		values.displayCharacter('r', 4, 4, clocks);
 		values.displayCharacter('e', 6, 4, clocks);
 		sleep(sleep);
+		
 		values.setdefault(clocks);
 		// get length of temperature
 		int templength = w.getTemp().length();
@@ -388,6 +391,7 @@ public class ClockPanel extends JFrame implements Runnable
 	}
 	private void displayHumidity(Weather w, int sleep)
 	{
+		
 		values.displayCharacter('h', 0, 3, clocks);
 		values.displayCharacter('u', 2, 3, clocks);
 		values.displayCharacter('m', 4, 3, clocks);
@@ -397,6 +401,7 @@ public class ClockPanel extends JFrame implements Runnable
 		values.displayCharacter('t', 12, 3, clocks);
 		values.displayCharacter('y', 14, 3, clocks);
 		sleep(sleep);
+		
 		values.setdefault(clocks);
 		int humlength = w.getHumidity().length();
 		if (humlength == 2 || humlength == 3)
@@ -428,6 +433,7 @@ public class ClockPanel extends JFrame implements Runnable
 	}
 	private void displayConditions(Weather w, int sleep)
 	{
+		
 		values.displayCharacter('w', 1, 3, clocks);
 		values.displayCharacter('e', 3, 3, clocks);
 		values.displayCharacter('a', 5, 3, clocks);
@@ -436,6 +442,7 @@ public class ClockPanel extends JFrame implements Runnable
 		values.displayCharacter('e', 11, 3, clocks);
 		values.displayCharacter('r', 13, 3, clocks);
 		sleep(sleep);
+		
 		values.setall(270, 270, clocks);
 		// get current weather
 		// step#1 show weather (cloudy, sunny, etc.)
