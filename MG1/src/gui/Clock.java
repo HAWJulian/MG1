@@ -94,16 +94,7 @@ public class Clock extends JPanel implements Runnable{
 				isMoving = false;
 				return;	
 			}
-			else
-			{
-				
-				if (randomVariable2>0)
-				{
-					degreeM++;
-					degreeM=degreeM%360;
-					randomVariable2--;
-				}
-			}
+			
 			
 		}
 		else
@@ -230,7 +221,6 @@ public class Clock extends JPanel implements Runnable{
 		this.directionM = directionM;
 		randomVariable1=degreesH/360;
 		randomVariable2=degreesM/360;
-		System.out.println("PENIS");
 		if (directionH)
 		{
 			targetDegreeH += degreesH%360;

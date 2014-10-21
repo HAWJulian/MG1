@@ -510,7 +510,7 @@ public class ClockPanel extends JFrame implements Runnable
 	{
 		// step#1 move pointer in start position
 		values.startanimation1(rows, columns, clocks);
-		sleep(3600);
+		sleep(6000);
 		values.rotateover360(720, 720, true, false, clocks);
 		// step#2 rotate pointer (for a set amount of seconds)
 		// step#3 stop them column by column
