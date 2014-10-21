@@ -17,12 +17,18 @@ public class Values {
 			}
 		}
 	}
-	//Sprichtdie Uhr an PosX PosY an und sagt ihr, dass ihre Zeiger sich um degreeH und degreeM grad drehen sollenb
-	public void rotateForMoreThen360Degrees(int degreeH, int degreeM, int posX, int posY, Clock[][] clocks)
+	
+	public void rotateover360(int degreeH, int degreeM, boolean dirH, boolean dirM, Clock[][] clocks)
 	{
-		clocks[posX][posY].rotateForMoreThan360Degrees(degreeH, degreeM);
+		for (int i = 0; i < clocks.length; i++)
+		{
+			for(int j = 0; j < clocks[0].length; j++)
+			{
+				clocks[i][j].rotateForMoreThan360Degrees(degreeH, degreeM, dirH, dirM);
+			}
+		}
 	}
-
+	
 	public void setall(int hours, int minutes, Clock[][] clocks)
 	{
 		for (int i = 0; i < clocks.length; i++)
