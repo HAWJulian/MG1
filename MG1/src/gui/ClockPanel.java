@@ -242,7 +242,7 @@ public class ClockPanel extends JFrame implements Runnable
 		values.setdefault(clocks);
 		while (true)
 		{
-			int sleep = 6000;
+			int sleep = 9000;
 			// step#1 show conditions	
 			displayConditions(w, sleep);
 			// step#2 show temperature
