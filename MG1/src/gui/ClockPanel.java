@@ -145,7 +145,23 @@ public class ClockPanel extends JFrame implements Runnable
 		}
 	}
 	
-	
+	//checkt ob alle uhren stehen
+	// true = alle uhren stehen
+	//
+	public boolean checkIfNoClocksRotates()
+	{
+		for(int i = 0; i < rows; i++)
+		{
+			for(int j = 0; j < columns; j++)
+			{
+				if(clocks[j][i].getIsMoving())
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 
 	// Setzt alle Zeiger auf "default Stellung" (180°)
 	private void clocksToDefault()
@@ -552,6 +568,10 @@ public class ClockPanel extends JFrame implements Runnable
 		values.startanimation2(rows, columns, clocks);
 		sleep(3600);
 		values.rotateClocks(rows, columns, clocks);
+		while(true)
+		{
+			System.out.println(checkIfNoClocksRotates());
+		}
 	}
 	
 	private void playAnimation3()

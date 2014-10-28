@@ -1138,7 +1138,7 @@ public class Values {
 		{
 			for (int i = 0; i < rows; i++)
 			{
-				clocks[j][i].forceRotation(720, 720, false, false);
+				clocks[j][i].rotateForMoreThan360Degrees(720, 720, true, true);
 			}
 			try
 			{
