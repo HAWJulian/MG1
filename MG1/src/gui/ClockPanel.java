@@ -260,11 +260,11 @@ public class ClockPanel extends JFrame implements Runnable
 		{
 			int sleep = 9000;
 			// step#1 show conditions	
-			displayConditions(w, sleep);
+			//displayConditions(w, sleep);
 			// step#2 show temperature
-			displayTemperature(w, sleep);
+			//displayTemperature(w, sleep);
 			// step#3 show humidity
-			displayHumidity(w, sleep);
+			//displayHumidity(w, sleep);
 			
 			values.displayCharacter('w', 4, 3, clocks);
 			values.displayCharacter('i', 6, 3, clocks);
@@ -292,7 +292,11 @@ public class ClockPanel extends JFrame implements Runnable
 			values.displayCharacter('s', 7, 5, clocks);
 			values.displayCharacter('w', 0, 3, clocks);
 			values.displayCharacter('e', 14, 3, clocks);
-			sleep(3000);
+			sleep(50);
+			while(!checkIfNoClocksRotates())
+			{
+				sleep(200);
+			}
 			for (int wind = 0; wind <= 20; wind++)
 			{
 

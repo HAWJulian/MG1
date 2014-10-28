@@ -814,6 +814,7 @@ public class Values {
 			drawrain(startx, starty, clocks);
 			drawlightning(startx, starty, clocks);
 			break;
+		case "heiter":
 		case "sonne":
 			startanimation1(clocks[0].length, clocks.length,clocks);
 			drawsun(startx, starty, clocks);
