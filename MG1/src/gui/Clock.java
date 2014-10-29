@@ -211,6 +211,7 @@ public class Clock extends JPanel implements Runnable{
 	{
 		targetDegreeH = hour;
 		targetDegreeM = minute;
+		randomVariable1 = randomVariable2 = 0;
 	}
 
 	//Setzt die Zielposition der Zeiger
@@ -220,6 +221,7 @@ public class Clock extends JPanel implements Runnable{
 	
 		targetDegreeH = hour;
 		targetDegreeM = minute;
+		randomVariable1 = randomVariable2 = 0;
 		calculateDirection();
 	}
 	
