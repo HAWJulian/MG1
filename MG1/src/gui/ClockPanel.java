@@ -585,7 +585,7 @@ public class ClockPanel extends JFrame implements Runnable
 		int y = 400;
 		//start position
 		values.startanimation2(rows, columns, clocks);
-		this.sleep(10000);
+		sleep(3600);
 		//rotate (atm = 720°)
 		values.rotateClocks(rows, columns, clocks);
 		Time time = new Time();
