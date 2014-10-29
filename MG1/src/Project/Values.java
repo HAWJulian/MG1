@@ -39,6 +39,42 @@ public class Values {
 			}
 		}
 	}
+	//number 4x6 for display animation -> clock
+	public void displayAnimationCharacter(int x, int column, Clock[][] clocks)
+	{
+		switch(x)
+		{
+		case '1':
+			switch(column)
+			{
+			case'1':
+			clocks[column][1].forceRotation(def, def, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(def, def, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(def, def, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(def, def, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(def, def, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(def, def, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case '2':
+			clocks[column][1].forceRotation(180, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(90, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());	
+			break;
+			case '3':
+			clocks[column][1].forceRotation(180, 270, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());	
+			}
+		break;
+			
+		}
+	}
 	// numbers 4x6
 	public void displayCharacterhuge(char x, int startx, int starty,
 			Clock[][] clocks) {

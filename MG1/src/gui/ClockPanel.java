@@ -162,6 +162,18 @@ public class ClockPanel extends JFrame implements Runnable
 		}
 		return true;
 	}
+	
+	public boolean checkIfColumnXNotRotates(int x)
+	{
+		for(int i = 0; i < rows; i++)
+		{
+			if(clocks[x][i].getIsMoving())
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 
 	// Setzt alle Zeiger auf "default Stellung" (180°)
 	private void clocksToDefault()
@@ -260,11 +272,11 @@ public class ClockPanel extends JFrame implements Runnable
 		{
 			int sleep = 9000;
 			// step#1 show conditions	
-			//displayConditions(w, sleep);
+			displayConditions(w, sleep);
 			// step#2 show temperature
-			//displayTemperature(w, sleep);
+			displayTemperature(w, sleep);
 			// step#3 show humidity
-			//displayHumidity(w, sleep);
+			displayHumidity(w, sleep);
 			
 			values.displayCharacter('w', 4, 3, clocks);
 			values.displayCharacter('i', 6, 3, clocks);
@@ -572,9 +584,35 @@ public class ClockPanel extends JFrame implements Runnable
 		values.startanimation2(rows, columns, clocks);
 		sleep(3600);
 		values.rotateClocks(rows, columns, clocks);
+		Time time = new Time();
 		while(true)
 		{
-			System.out.println(checkIfNoClocksRotates());
+			for(int i = 0; i < columns; i ++)
+			{
+				if(checkIfColumnXNotRotates(i))
+				{
+					if(i < 4)
+					{
+						values.displayAnimationCharacter(time.getHours0(), i, clocks);
+					}
+					else if(i < 8)
+					{
+						values.displayAnimationCharacter(time.getHours1(), i, clocks);
+					}
+					else if(i < 12)
+					{
+						values.displayAnimationCharacter(time.getMinutes0(), i, clocks);
+					}
+					else
+					{
+						values.displayAnimationCharacter(time.getMinutes1(), i, clocks);
+					}
+				}
+			}
+			if(checkIfNoClocksRotates())
+			{
+				break;
+			}
 		}
 	}
 	
