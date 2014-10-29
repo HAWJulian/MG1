@@ -85,7 +85,7 @@ public class ClockPanel extends JFrame implements Runnable
 			}
 			try
 			{
-				Thread.sleep(50);
+				Thread.sleep(20);
 			}
 			catch (InterruptedException e)
 			{
