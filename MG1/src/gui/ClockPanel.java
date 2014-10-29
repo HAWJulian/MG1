@@ -581,33 +581,46 @@ public class ClockPanel extends JFrame implements Runnable
 	
 	private void playAnimation2()
 	{
+		int y = 400;
+		//start position
 		values.startanimation2(rows, columns, clocks);
 		sleep(3600);
+		//rotate (atm = 720°)
 		values.rotateClocks(rows, columns, clocks);
 		Time time = new Time();
 		while(true)
 		{
 			for(int i = 0; i < columns; i ++)
 			{
-				if(checkIfColumnXNotRotates(i))
+				//display no#1
+				if (i < 4)
 				{
-					if(i < 4)
-					{
-						values.displayAnimationCharacter(time.getHours0(), i, clocks);
-					}
-					else if(i < 8)
-					{
-						values.displayAnimationCharacter(time.getHours1(), i, clocks);
-					}
-					else if(i < 12)
-					{
-						values.displayAnimationCharacter(time.getMinutes0(), i, clocks);
-					}
-					else
-					{
-						values.displayAnimationCharacter(time.getMinutes1(), i, clocks);
-					}
+					values.displayAnimationCharacter(time.getHours0(), i,
+							clocks);
+					sleep(y);
 				}
+				//display no#2
+				else if (i < 8)
+				{
+					values.displayAnimationCharacter(time.getHours1(), i,
+							clocks);
+					sleep(y);
+				}
+				//display no#3
+				else if (i < 12)
+				{
+					values.displayAnimationCharacter(time.getMinutes0(), i,
+							clocks);
+					sleep(y);
+				}
+				//display no#4
+				else
+				{
+					values.displayAnimationCharacter(time.getMinutes1(), i,
+							clocks);
+					sleep(y);
+				}
+	
 			}
 			if(checkIfNoClocksRotates())
 			{
