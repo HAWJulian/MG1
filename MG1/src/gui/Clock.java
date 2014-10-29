@@ -203,6 +203,7 @@ public class Clock extends JPanel implements Runnable{
 		targetDegreeM = minute;
 		directionH = clockwiseH;
 		directionM = clockwiseM;
+		randomVariable1 = randomVariable2 = 0;
 		
 	}
 	
