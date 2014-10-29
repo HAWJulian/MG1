@@ -85,7 +85,7 @@ public class ClockPanel extends JFrame implements Runnable
 			}
 			try
 			{
-				Thread.sleep(10);
+				Thread.sleep(50);
 			}
 			catch (InterruptedException e)
 			{
@@ -113,6 +113,7 @@ public class ClockPanel extends JFrame implements Runnable
 
 	// Sagt dem Panel was es darstellen soll. Übergeben wird ein char welcher
 	// ein Kürzel ist.
+	//
 	public void setDisplay(char selector)
 	{
 		switch (selector)
@@ -584,7 +585,7 @@ public class ClockPanel extends JFrame implements Runnable
 		int y = 400;
 		//start position
 		values.startanimation2(rows, columns, clocks);
-		sleep(3600);
+		this.sleep(10000);
 		//rotate (atm = 720°)
 		values.rotateClocks(rows, columns, clocks);
 		Time time = new Time();
