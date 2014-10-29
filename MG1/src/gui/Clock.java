@@ -196,13 +196,14 @@ public class Clock extends JPanel implements Runnable{
 		
 	}
 
-
+	// force rotation
 	public void forceRotation(int hour, int minute, boolean clockwiseH, boolean clockwiseM)
 	{
 		targetDegreeH = hour;
 		targetDegreeM = minute;
 		directionH = clockwiseH;
 		directionM = clockwiseM;
+		
 		randomVariable1 = randomVariable2 = 0;
 		
 	}
