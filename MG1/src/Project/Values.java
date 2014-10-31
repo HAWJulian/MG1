@@ -119,20 +119,302 @@ public class Values {
 			}	
 		break;
 		case 3:
+			
+			switch(column%4)
+			{
+			case 0:
+			clocks[column][1].forceRotation(180, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(90, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 90, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(90, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 90, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(90, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 1:
+			clocks[column][1].forceRotation(270, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(270, 90, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(270, 90, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(270, 90, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(270, 90, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 90, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());	
+			break;
+			case 2:
+			clocks[column][1].forceRotation(270, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 270, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(270, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 270, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(270, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 90, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 3:
+			clocks[column][1].forceRotation(180, 270, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			}	
 		break;
+
 		case 4:
+			switch(column%4)
+			{
+			case 0:
+			clocks[column][1].forceRotation(180, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(90, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(def, def, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(def, def, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 1:
+			clocks[column][1].forceRotation(180, 270, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(90, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(270, 90, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(def, def, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(def, def, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());	
+			break;			
+			case 2:
+			clocks[column][1].forceRotation(180, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(270, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 270, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(90, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 3:
+			clocks[column][1].forceRotation(180, 270, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			}	
 		break;
 		case 5:
+			switch(column%4)
+			{
+			case 0:
+			clocks[column][1].forceRotation(180, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(90, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 90, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(90, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 1:
+			clocks[column][1].forceRotation(270, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 90, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(90, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(270, 90, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(270, 90, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 90, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());	
+			break;
+			case 2:
+			clocks[column][1].forceRotation(270, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(270, 90, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(270, 90, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 270, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(270, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 90, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 3:
+			clocks[column][1].forceRotation(180, 270, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(270, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 270, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			}	
 		break;
 		case 6:
+			switch(column%4)
+			{
+			case 0:
+			clocks[column][1].forceRotation(180, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(90, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 1:
+			clocks[column][1].forceRotation(270, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 90, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(90, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 90, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(90, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 90, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());	
+			break;
+			case 2:
+			clocks[column][1].forceRotation(270, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(270, 90, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(270, 90, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 270, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(270, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 90, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 3:
+			clocks[column][1].forceRotation(180, 270, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(270, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 270, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			}
 		break;
 		case 7:
+			switch(column%4)
+			{
+			case 0:
+			clocks[column][1].forceRotation(180, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(90, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(def, def, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(def, def, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(def, def, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(def, def, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 1:
+			clocks[column][1].forceRotation(270, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(270, 90, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(def, def, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(def, def, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(def, def, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(def, def, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());	
+			break;
+			case 2:
+			clocks[column][1].forceRotation(270, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 270, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(90, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 3:
+			clocks[column][1].forceRotation(180, 270, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			}
 		break;
 		case 8:
+			switch(column%4)
+			{
+			case 0:
+			clocks[column][1].forceRotation(180, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(90, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 1:
+			clocks[column][1].forceRotation(270, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 90, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(90, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 90, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(90, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 90, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());	
+			break;
+			case 2:
+			clocks[column][1].forceRotation(270, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 270, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(270, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 270, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(270, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 90, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 3:
+			clocks[column][1].forceRotation(180, 270, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			}
 		break;
 		case 9:
+			switch(column%4)
+			{
+			case 0:
+			clocks[column][1].forceRotation(180, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(90, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 90, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(90, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 1:
+			clocks[column][1].forceRotation(270, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 90, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(90, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(270, 90, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(270, 90, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 90, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());	
+			break;
+			case 2:
+			clocks[column][1].forceRotation(270, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 270, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(270, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 270, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(270, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 90, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 3:
+			clocks[column][1].forceRotation(180, 270, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			}
 		break;
 		case 0:
+			switch(column%4)
+			{
+			case 0:
+			clocks[column][1].forceRotation(180, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(90, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 1:
+			clocks[column][1].forceRotation(270, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 90, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(90, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 90, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());	
+			break;
+			case 2:
+			clocks[column][1].forceRotation(270, 90, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 270, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(270, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 90, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			case 3:
+			clocks[column][1].forceRotation(180, 270, clocks[column][1].getDirectionH(), clocks[column][1].getDirectionM());
+			clocks[column][2].forceRotation(180, 0, clocks[column][2].getDirectionH(), clocks[column][2].getDirectionM());
+			clocks[column][3].forceRotation(180, 0, clocks[column][3].getDirectionH(), clocks[column][3].getDirectionM());
+			clocks[column][4].forceRotation(180, 0, clocks[column][4].getDirectionH(), clocks[column][4].getDirectionM());
+			clocks[column][5].forceRotation(180, 0, clocks[column][5].getDirectionH(), clocks[column][5].getDirectionM());
+			clocks[column][6].forceRotation(270, 0, clocks[column][6].getDirectionH(), clocks[column][6].getDirectionM());
+			break;
+			}
 		break;
 		}
 	}
