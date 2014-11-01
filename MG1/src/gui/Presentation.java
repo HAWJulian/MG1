@@ -2,6 +2,7 @@ package gui;
 
 public class Presentation implements Runnable{
 
+	//Diese Klasse soll am Ende diesein die unsere Präsentation für MG1 kontrolliert. Looking forward!
 	
 	private ClockPanel panel;
 	@Override
