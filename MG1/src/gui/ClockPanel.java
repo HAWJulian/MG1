@@ -18,6 +18,11 @@ public class ClockPanel extends JFrame implements Runnable
 
 	// Hält alle Uhren
 	private Clock[][] clocks;
+	
+	
+	// Eine Variable die benutzt wird um while true Schleifen zu brechen.
+	//Diese Variable auf true zu setzen beendet die aktuelle Schleife
+	private boolean loopbreaker;
 
 	// Hält die Informationen über den Frame, Anzahl der Zeilen, Spalten und den
 	// Durchmesser einer Uhr
@@ -40,6 +45,7 @@ public class ClockPanel extends JFrame implements Runnable
 		this.rows = rows;
 		this.columns = columns;
 		this.diameter = diameter;
+		this.loopbreaker =false;
 
 		setSize(columns * diameter + 10, rows * diameter + 40);
 		setTitle("ClockCeption");
@@ -146,6 +152,12 @@ public class ClockPanel extends JFrame implements Runnable
 		}
 	}
 	
+	
+	public void breakLoop()
+	{
+		loopbreaker = true;
+	}
+	
 	//checkt ob alle uhren stehen
 	// true = alle uhren stehen
 	//
@@ -189,6 +201,11 @@ public class ClockPanel extends JFrame implements Runnable
 		displayTimeHugehelper(time);
 		while (true)
 		{
+			if (loopbreaker)
+			{
+				loopbreaker = false;
+				break;
+			}
 			try
 			{
 				Thread.sleep(1000);
@@ -235,6 +252,11 @@ public class ClockPanel extends JFrame implements Runnable
 				6, 0, clocks);
 		while (true)
 		{
+			if (loopbreaker)
+			{
+				loopbreaker =false;
+				break;
+			}
 			try
 			{
 				Thread.sleep(1000);
@@ -270,7 +292,13 @@ public class ClockPanel extends JFrame implements Runnable
 		w.currentWeather("Hamburg");
 		values.setdefault(clocks);
 		while (true)
+			
 		{
+			if (loopbreaker)
+			{
+				loopbreaker = false;
+				break;
+			}
 			int sleep = 9000;
 			// step#1 show conditions	
 			displayConditions(w, sleep);
@@ -524,7 +552,6 @@ public class ClockPanel extends JFrame implements Runnable
 
 	}
 	// Only used for testing issues. Patrick
-	@Deprecated
 	private void displayChars()
 	{
 		// execute step by step with debugger, else make the thread sleep for
@@ -566,6 +593,11 @@ public class ClockPanel extends JFrame implements Runnable
 		values.displayCharacter('x', 0, 0, clocks);
 		values.displayCharacter('y', 0, 0, clocks);
 		values.displayCharacter('z', 0, 0, clocks);
+	}
+	
+	public boolean isLoopBroken()
+	{
+		return !loopbreaker;
 	}
 	
 	
