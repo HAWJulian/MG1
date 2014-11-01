@@ -22,8 +22,8 @@ public class TestKlasse{
 				try {
 					ClockPanel frame = new ClockPanel(8 , 16 ,100);
 					frame.start();
-					frame.setTickrate(10, 1, 0);
-					frame.setDisplay('A');
+					Presentation presi = new Presentation(frame);
+					presi.run();
 					
 				
 				} catch (Exception e) {
