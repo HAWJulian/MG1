@@ -14,12 +14,16 @@ public class MotorSteuerung {
 	int degreeH;
 	boolean directionM;
 	boolean directionH;
-	Clock targetClock;
 	
-	public void setDegrees(ClockPanel[][] clocks) {
-		targetClock = clocks[0][0];
+	public void setDegrees(Clock[][] clocks) {
+		degreeM = (int) clocks[0][0].getTargetDegreeM();
+		degreeH = (int) clocks[0][0].getTargetDegreeH();
 	}
 	
+	public void setDirection(Clock[][] clocks) {
+		directionM = clocks[0][0].getDirectionM();
+		directionH = clocks[0][0].getDirectionH();
+	}
 	
 	//Sende/Empfange Arduino Daten
 	private void ArduinoCommunication()
