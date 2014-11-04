@@ -15,7 +15,7 @@ public class TestKlasse{
 	private JPanel contentPane;
 	private ClockPanel frame;
 	private Values values = new Values();
-	
+	//Test
 	public static void main(String[] args) {
 		
 		EventQueue.invokeLater(new Runnable() {
