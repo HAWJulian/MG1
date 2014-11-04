@@ -28,8 +28,8 @@ public class TestKlasse{
 					Thread.sleep(5000);
 					frame.changeAmountOfClocks(8, 16, 120);
 					
-					//frame2.dispatchEvent(new WindowEvent (frame2, WindowEvent.WINDOW_CLOSING));
-				/*	ClockPanel frame2 = new ClockPanel(8 , 16 ,120);
+				/*	frame2.dispatchEvent(new WindowEvent (frame2, WindowEvent.WINDOW_CLOSING));
+					ClockPanel frame2 = new ClockPanel(8 , 16 ,120);
 
 					frame2.start(); */
 					Presentation presi = new Presentation(frame);
