@@ -75,7 +75,10 @@ public class MotorSteuerung implements Runnable{
 	public void run()
 	{
 		// TODO Auto-generated method stub
-		refresh(clocks2);
+		while(true)
+		{
+			refresh(clocks2);
+		}
 		
 	}
     
