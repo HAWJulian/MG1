@@ -6,7 +6,7 @@ import jssc.SerialPortException;
 
 import java.util.Scanner;
 
-public class MotorSteuerung implements Runnable{
+public class MotorSteuerung {
 	
 	static Scanner scanner = new Scanner(System.in);
 	
@@ -66,20 +66,5 @@ public class MotorSteuerung implements Runnable{
 			System.out.println(ex);
 		}
 	}
-	public void start()
-	{
-		Thread th = new Thread(this);
-		th.start();
-	}
-	@Override
-	public void run()
-	{
-		// TODO Auto-generated method stub
-		while(true)
-		{
-			refresh(clocks2);
-		}
-		
-	}
-    
+
 }

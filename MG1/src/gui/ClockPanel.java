@@ -2,6 +2,7 @@ package gui;
 
 import javax.swing.JFrame;
 
+import Motor.MotorSteuerung;
 import Project.Time;
 import Project.Values;
 import Project.Weather;
@@ -29,7 +30,7 @@ public class ClockPanel extends JFrame implements Runnable
 	private int rows;
 	private int columns;
 	private int diameter;
-
+	private MotorSteuerung ms;
 	// Erzeugt ein Objekt vom Typ values, welches für die Übersetzung von
 	// darzustellenden Objekten in Gradzahl der Zeiger zuständig ist
 	private Values values = new Values();
@@ -80,6 +81,7 @@ public class ClockPanel extends JFrame implements Runnable
 	public ClockPanel(int rows, int columns, int diameter)
 	{
 		initPanel(rows, columns, diameter);
+		ms = new MotorSteuerung(this.getClocks());
 	}
 
 	// Startet das Clockpanel
@@ -94,6 +96,7 @@ public class ClockPanel extends JFrame implements Runnable
 	{
 		while (true)
 		{
+			ms.refresh(clocks);
 			for (int i = 0; i < columns; i++)
 			{
 				for (int j = 0; j < rows; j++)
