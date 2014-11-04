@@ -1,13 +1,25 @@
 package Motor;
 
+import gui.*;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 
 import java.util.Scanner;
 
 public class MotorSteuerung {
-//
+	
 	static Scanner scanner = new Scanner(System.in);
+	
+	int degreeM;
+	int degreeH;
+	boolean directionM;
+	boolean directionH;
+	Clock targetClock;
+	
+	public void setDegrees(ClockPanel[][] clocks) {
+		targetClock = clocks[0][0];
+	}
+	
 	
 	//Sende/Empfange Arduino Daten
 	private void ArduinoCommunication()
