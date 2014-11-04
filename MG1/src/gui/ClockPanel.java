@@ -39,8 +39,15 @@ public class ClockPanel extends JFrame implements Runnable
 	{
 		return clocks;
 	}
-
-	public ClockPanel(int rows, int columns, int diameter)
+	
+	public void changeAmountOfClocks(int targetRows, int targetColumns, int targetDiameter)
+	{
+		initPanel(targetRows, targetColumns, targetDiameter);
+		start();
+		
+	}
+	
+	private void initPanel(int rows, int columns, int diameter)
 	{
 		this.rows = rows;
 		this.columns = columns;
@@ -68,6 +75,11 @@ public class ClockPanel extends JFrame implements Runnable
 			}
 		}
 
+	}
+
+	public ClockPanel(int rows, int columns, int diameter)
+	{
+		initPanel(rows, columns, diameter);
 	}
 
 	// Startet das Clockpanel

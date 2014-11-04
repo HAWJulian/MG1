@@ -26,12 +26,13 @@ public class TestKlasse{
 					frame.start();
 					frame.setDisplay('S');
 					Thread.sleep(5000);
-
+					frame.changeAmountOfClocks(8, 16, 120);
+					
 					//frame2.dispatchEvent(new WindowEvent (frame2, WindowEvent.WINDOW_CLOSING));
-					ClockPanel frame2 = new ClockPanel(8 , 16 ,120);
+				/*	ClockPanel frame2 = new ClockPanel(8 , 16 ,120);
 
-					frame2.start();
-					Presentation presi = new Presentation(frame2);
+					frame2.start(); */
+					Presentation presi = new Presentation(frame);
 					presi.run();
 					
 				
