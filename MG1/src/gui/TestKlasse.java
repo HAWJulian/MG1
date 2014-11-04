@@ -15,7 +15,7 @@ public class TestKlasse{
 	private JPanel contentPane;
 	private ClockPanel frame;
 	private Values values = new Values();
-	
+	//Test
 	public static void main(String[] args) {
 		
 		EventQueue.invokeLater(new Runnable() {
@@ -26,12 +26,13 @@ public class TestKlasse{
 					frame.start();
 					frame.setDisplay('S');
 					Thread.sleep(5000);
-
-					//frame2.dispatchEvent(new WindowEvent (frame2, WindowEvent.WINDOW_CLOSING));
+					frame.changeAmountOfClocks(8, 16, 120);
+					
+				/*	frame2.dispatchEvent(new WindowEvent (frame2, WindowEvent.WINDOW_CLOSING));
 					ClockPanel frame2 = new ClockPanel(8 , 16 ,120);
 
-					frame2.start();
-					Presentation presi = new Presentation(frame2);
+					frame2.start(); */
+					Presentation presi = new Presentation(frame);
 					presi.run();
 					
 				
