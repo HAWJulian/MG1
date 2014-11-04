@@ -6,7 +6,7 @@ import jssc.SerialPortException;
 
 import java.util.Scanner;
 
-public class MotorSteuerung {
+public class MotorSteuerung implements Runnable{
 	
 	static Scanner scanner = new Scanner(System.in);
 	
@@ -14,21 +14,27 @@ public class MotorSteuerung {
 	int degreeH;
 	boolean directionM;
 	boolean directionH;
+	Clock[][] clocks2;
 	
-	private void setDegrees(Clock[][] clocks) {
-		degreeM = (int) clocks[0][0].getTargetDegreeM();
-		degreeH = (int) clocks[0][0].getTargetDegreeH();
+	public MotorSteuerung(Clock[][] clocks)
+	{
+		clocks2 = clocks;
+	}
+	
+	private void setDegrees(Clock[][] clocks2) {
+		degreeM = (int) clocks2[0][0].getTargetDegreeM();
+		degreeH = (int) clocks2[0][0].getTargetDegreeH();
 	}
 	
 	private void setDirection(Clock[][] clocks) {
-		directionM = clocks[0][0].getDirectionM();
-		directionH = clocks[0][0].getDirectionH();
+		directionM = clocks2[0][0].getDirectionM();
+		directionH = clocks2[0][0].getDirectionH();
 	}
 	
-	public void refresh(Clock[][] clocks)
+	public void refresh(Clock[][] clocks2)
 	{
-		setDegrees(clocks);
-		setDirection(clocks);
+		setDegrees(clocks2);
+		setDirection(clocks2);
 	}
 	//Sende/Empfange Arduino Daten
 	private void ArduinoCommunication()
@@ -59,6 +65,14 @@ public class MotorSteuerung {
 		{
 			System.out.println(ex);
 		}
+	}
+
+	@Override
+	public void run()
+	{
+		// TODO Auto-generated method stub
+		refresh(clocks2);
+		
 	}
     
 }

@@ -2,6 +2,8 @@ package gui;
 
 import java.awt.EventQueue;
 
+import Motor.MotorSteuerung;
+
 public class TestklasseJulianNeu
 {
 	private ClockPanel frame;
@@ -15,6 +17,8 @@ public class TestklasseJulianNeu
 			{
 				ClockPanel frame = new ClockPanel(8, 16, 120);
 				frame.start();
+				MotorSteuerung ms = new MotorSteuerung(frame.getClocks());
+				ms.run();
 				frame.setDisplay('A');
 			}
 
