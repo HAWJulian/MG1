@@ -604,25 +604,36 @@ public class ClockPanel extends JFrame implements Runnable
 	
 	private void playAnimation1()
 	{
+		int y = 1000;
 		// step#1 move pointer in start position
 		values.startanimation1(rows, columns, clocks);
 		sleep(6000);
-		values.rotateover360(720, 720, true, false, clocks);
-		// step#2 rotate pointer (for a set amount of seconds)
+		// step#2 rotate pointer (for a set amount of degree)
+		values.rotateover360(20000, 20000, true, false, clocks);
+		sleep(6000);
 		// step#3 stop them column by column
+		stopAniCbyC(y);
+		
 	}
 	
 	private void playAnimation2()
 	{
-		int y = 400;
+		int y = 1000;
 		//start position
 		values.startanimation2(rows, columns, clocks);
 		sleep(3600);
 		//rotate (atm = 720°)
 		values.rotateClocks(rows, columns, clocks);
-		Time time = new Time();
+		stopAniCbyC(y);
+		
+	}
+	// method to stop any display/animatioin to morph into display time huge, 
+	// stoping it column by column - waiting y ms after each column
+	private void stopAniCbyC(int y)
+	{
 		while(true)
 		{
+			Time time = new Time();
 			for(int i = 0; i < columns; i ++)
 			{
 				//display no#1
