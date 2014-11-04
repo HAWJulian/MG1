@@ -281,6 +281,8 @@ public class ClockPanel extends JFrame implements Runnable
 
 				e.printStackTrace();
 			}
+			//TEST!
+			break;
 		}
 	}
 

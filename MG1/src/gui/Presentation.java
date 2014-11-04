@@ -7,9 +7,7 @@ public class Presentation implements Runnable{
 	private ClockPanel panel;
 	@Override
 	public void run() {
-		panel.setDisplay('S');
-		panel.breakLoop();
-		sleep(10000);
+
 		panel.setDisplay('T');
 		panel.breakLoop();
 		
