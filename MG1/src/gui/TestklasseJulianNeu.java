@@ -18,7 +18,7 @@ public class TestklasseJulianNeu
 				ClockPanel frame = new ClockPanel(8, 16, 120);
 				frame.start();
 				MotorSteuerung ms = new MotorSteuerung(frame.getClocks());
-				ms.run();
+				ms.start();
 				frame.setDisplay('A');
 			}
 
