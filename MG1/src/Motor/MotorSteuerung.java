@@ -66,7 +66,11 @@ public class MotorSteuerung implements Runnable{
 			System.out.println(ex);
 		}
 	}
-
+	public void start()
+	{
+		Thread th = new Thread(this);
+		th.start();
+	}
 	@Override
 	public void run()
 	{
