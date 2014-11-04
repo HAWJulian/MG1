@@ -21,7 +21,7 @@ public class TestKlasse{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ClockPanel frame = new ClockPanel(3, 8, 150);
+					ClockPanel frame = new ClockPanel(3, 8, 120);
 					frame.start();
 					frame.setDisplay('S');
 					Thread.sleep(5000);
