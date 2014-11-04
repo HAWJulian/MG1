@@ -6,7 +6,7 @@ import jssc.SerialPortException;
 import java.util.Scanner;
 
 public class MotorSteuerung {
-
+//
 	static Scanner scanner = new Scanner(System.in);
 	
 	//Sende/Empfange Arduino Daten
