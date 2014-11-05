@@ -10,6 +10,8 @@ import Project.Weather;
 public class ClockPanel extends JFrame implements Runnable
 {
 
+	
+	private Thread th;
 	// Hält den Frame der Uhren
 
 	/**
@@ -43,6 +45,7 @@ public class ClockPanel extends JFrame implements Runnable
 	//Vergrößert verkleinert das Panel
 	public void changeAmountOfClocks(int targetRows, int targetColumns, int targetDiameter)
 	{
+		th.stop();
 		initPanel(targetRows, targetColumns, targetDiameter);
 		start();
 		
@@ -50,11 +53,7 @@ public class ClockPanel extends JFrame implements Runnable
 	
 	private void initPanel(int rows, int columns, int diameter)
 	{
-		this.rows = rows;
-		this.columns = columns;
-		this.diameter = diameter;
-		this.loopbreaker =false;
-
+		
 		setSize(columns * diameter + 10, rows * diameter + 40);
 		setTitle("ClockCeption");
 		setLocationRelativeTo(null);
@@ -75,8 +74,15 @@ public class ClockPanel extends JFrame implements Runnable
 				clocks[i][j].initClock();
 			}
 		}
+		
+		this.rows = rows;
+		this.columns = columns;
+		this.diameter = diameter;
+		this.loopbreaker =false;
+
 
 	}
+
 
 	public ClockPanel(int rows, int columns, int diameter)
 	{
@@ -87,7 +93,7 @@ public class ClockPanel extends JFrame implements Runnable
 	// Startet das Clockpanel
 	public void start()
 	{
-		Thread th = new Thread(this);
+		th = new Thread(this);
 		th.start();
 	}
 
