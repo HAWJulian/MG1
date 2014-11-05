@@ -635,7 +635,7 @@ public class ClockPanel extends JFrame implements Runnable
 	
 	private void playAnimation2()
 	{
-		int y = 1000;
+		int y = 100;
 		//start position
 		values.startanimation2(rows, columns, clocks);
 		sleep(3600);

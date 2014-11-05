@@ -1184,6 +1184,7 @@ public class Values {
 			break;
 		case "leichte regenschauer":
 		case "leichter regen":
+		case "leichtes nieseln":
 		case "regen":
 			drawcloud(startx, starty, clocks);
 			drawrain(startx, starty, clocks);
@@ -1522,7 +1523,7 @@ public class Values {
 			}
 			try
 			{
-				Thread.sleep(150);
+				Thread.sleep(200);
 			}
 			catch (InterruptedException e)
 			{
