@@ -167,6 +167,9 @@ public class ClockPanel extends JFrame implements Runnable
 		case 'D':
 			playAnimation3();
 			break;
+		case 'E':
+			playAnimation4();
+			break;
 		default:
 			clocksToDefault();
 			break;
@@ -702,7 +705,13 @@ public class ClockPanel extends JFrame implements Runnable
 		sleep(3000);
 		values.animation3(rows, columns, clocks);
 	}
-
+	
+	private void playAnimation4()
+	{
+		values.startanimation4(rows, columns, clocks);
+		sleep(4000);
+		values.animation4(rows, columns, clocks);
+	}
 	private void sleep(int duration)
 	{
 		try

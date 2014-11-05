@@ -1556,4 +1556,58 @@ public class Values {
 			}
 		}
 	}
+	
+	//only implemented for clockpanel size 16x8
+	public void startanimation4(int rows, int columns, Clock[][] clocks)
+	{
+		int y = 20;
+		//ring#1
+		clocks[7][3].setPointerDegree(def-y, 45+y);
+		clocks[7][4].setPointerDegree(135-y, 315+y);
+		clocks[8][3].setPointerDegree(315-y, 135+y);
+		clocks[8][4].setPointerDegree(def+y, 45-y);
+		//ring#2
+		clocks[6][3].setPointerDegree(180, 45);
+		clocks[6][4].setPointerDegree(135, 0);
+		clocks[7][2].setPointerDegree(def, 90);
+		clocks[7][5].setPointerDegree(315, 90);
+		clocks[8][2].setPointerDegree(135, 270);
+		clocks[8][5].setPointerDegree(270, 45);
+		clocks[9][3].setPointerDegree(180, 315);
+		clocks[9][4].setPointerDegree(def, 0);
+		//ring#3
+		clocks[6][2].setPointerDegree(def-y,  45+y);
+		clocks[6][5].setPointerDegree(135-y,  315+y);
+		clocks[9][2].setPointerDegree(315-y, 135+y);
+		clocks[9][5].setPointerDegree(def+y, 45-y);
+		//ring#4
+		clocks[5][2].setPointerDegree(180, 45);
+		clocks[5][3].setPointerDegree(180, 0);
+		clocks[5][4].setPointerDegree(180, 0);
+		clocks[5][5].setPointerDegree(135, 0);
+		clocks[6][1].setPointerDegree(def, 90);
+		clocks[6][6].setPointerDegree(90, 315);
+		clocks[7][1].setPointerDegree(270, 90);
+		clocks[7][6].setPointerDegree(270, 90);
+		clocks[8][1].setPointerDegree(270, 90);
+		clocks[8][6].setPointerDegree(270, 90);
+		clocks[9][1].setPointerDegree(270, 135);
+		clocks[9][6].setPointerDegree(270, 45);
+		clocks[10][2].setPointerDegree(180, 315);
+		clocks[10][3].setPointerDegree(180, 0);
+		clocks[10][4].setPointerDegree(180, 0);
+		clocks[10][5].setPointerDegree(def, 0);
+		//ring#5
+		clocks[5][1].setPointerDegree(def-y, 45+y);
+		clocks[5][6].setPointerDegree(135-y, 315+y);
+		clocks[10][1].setPointerDegree(315-y, 135+y);
+		clocks[10][6].setPointerDegree(def+y, 45-y);
+		
+	}
+
+	public void animation4(int rows, int columns, Clock[][] clocks)
+	{
+		// TODO Auto-generated method stub
+		
+	}
 }
