@@ -29,7 +29,7 @@ public class Presentation implements Runnable{
 	{
 		this.panel = panel;
 	}
-	
+
 	
 	
 	

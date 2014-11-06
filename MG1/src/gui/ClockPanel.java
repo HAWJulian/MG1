@@ -57,6 +57,25 @@ public class ClockPanel extends JFrame implements Runnable
 	private void initPanel(int rows, int columns, int diameter)
 	{
 		
+		addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				System.out.println("typed");
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		setSize(columns * diameter + 10, rows * diameter + 40);
 		setTitle("ClockCeption");
 		setLocationRelativeTo(null);
@@ -83,26 +102,7 @@ public class ClockPanel extends JFrame implements Runnable
 		this.diameter = diameter;
 		this.loopbreaker =false;
 
-		this.addKeyListener(new KeyListener() {
-			
-			@Override
-			public void keyTyped(KeyEvent arg0) {
-				
-			}
-			
-			@Override
-			public void keyReleased(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void keyPressed(KeyEvent arg0) {
-				loopbreaker = true;
-				
-			}
-		});
-
+	
 	}
 
 
@@ -745,5 +745,6 @@ public class ClockPanel extends JFrame implements Runnable
 			e.printStackTrace();
 		}
 	}
+	
 
 }

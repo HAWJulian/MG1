@@ -16,8 +16,9 @@ public class TestKlasse{
 	private ClockPanel frame;
 	private Values values = new Values();
 	//Test
+	
+	
 	public static void main(String[] args) {
-		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -32,6 +33,7 @@ public class TestKlasse{
 					ClockPanel frame2 = new ClockPanel(8 , 16 ,120);
 
 					frame2.start(); */
+				//
 					Presentation presi = new Presentation(frame);
 					presi.run();
 					
