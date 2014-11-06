@@ -709,7 +709,7 @@ public class ClockPanel extends JFrame implements Runnable
 	private void playAnimation4()
 	{
 		values.startanimation4(rows, columns, clocks);
-		sleep(4000);
+		sleep(5000);
 		values.animation4(rows, columns, clocks);
 	}
 	private void sleep(int duration)
