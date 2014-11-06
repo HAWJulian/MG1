@@ -87,7 +87,7 @@ public class ClockPanel extends JFrame implements Runnable
 			
 			@Override
 			public void keyTyped(KeyEvent arg0) {
-				loopbreaker = true;
+				
 			}
 			
 			@Override
@@ -98,7 +98,7 @@ public class ClockPanel extends JFrame implements Runnable
 			
 			@Override
 			public void keyPressed(KeyEvent arg0) {
-				// TODO Auto-generated method stub
+				loopbreaker = true;
 				
 			}
 		});
