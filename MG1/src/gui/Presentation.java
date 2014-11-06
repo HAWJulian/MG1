@@ -9,7 +9,8 @@ public class Presentation implements Runnable{
 	public void run() {
 
 		panel.setDisplay('T');
-		panel.breakLoop();
+		panel.setDisplay('S');
+		panel.setDisplay('W');
 		
 	}
 	
