@@ -67,13 +67,13 @@ public class ClockPanel extends JFrame implements Runnable
 			@Override
 			public void keyReleased(KeyEvent arg0) {
 				// TODO Auto-generated method stub
-				
+				System.out.println("typed2");
 			}
 			
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				// TODO Auto-generated method stub
-				
+				System.out.println("typed3");
 			}
 		});
 		setSize(columns * diameter + 10, rows * diameter + 40);
