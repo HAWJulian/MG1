@@ -1,5 +1,8 @@
 package gui;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.JFrame;
 
 import Motor.MotorSteuerung;
@@ -80,6 +83,25 @@ public class ClockPanel extends JFrame implements Runnable
 		this.diameter = diameter;
 		this.loopbreaker =false;
 
+		this.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				loopbreaker = true;
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 
 	}
 
