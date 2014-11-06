@@ -58,7 +58,7 @@ public class MotorSteuerung {
 		}
 		String data = "" + degreeM + ", " + degreeH + ", " + dirM + ", " + dirH;
 		
-		System.out.println(data);
+		//System.out.println(data);
 	}
 	//Sende/Empfange Arduino Daten
 	private void ArduinoCommunication()
