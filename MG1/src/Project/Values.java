@@ -1560,12 +1560,12 @@ public class Values {
 	//only implemented for clockpanel size 16x8
 	public void startanimation4(int rows, int columns, Clock[][] clocks)
 	{
-		int y = 20;
+		int y = 0;
 		//ring#1
-		clocks[7][3].setPointerDegree(def-y, 45+y);
-		clocks[7][4].setPointerDegree(135-y, 315+y);
-		clocks[8][3].setPointerDegree(315-y, 135+y);
-		clocks[8][4].setPointerDegree(45-y, def+y);
+		clocks[7][3].setPointerDegree(def-20, 45+20);
+		clocks[7][4].setPointerDegree(135-20, 315+20);
+		clocks[8][3].setPointerDegree(315-20, 135+20);
+		clocks[8][4].setPointerDegree(45-20, def+20);
 		//ring#2
 		clocks[6][3].setPointerDegree(180, 45);
 		clocks[6][4].setPointerDegree(135, 0);
@@ -1580,7 +1580,6 @@ public class Values {
 		clocks[6][5].setPointerDegree(135-y,  315+y);
 		clocks[9][2].setPointerDegree(315-y, 135+y);
 		clocks[9][5].setPointerDegree(45-y, def+y);
-		//ring#4
 		clocks[5][3].setPointerDegree(180, 45);
 		clocks[5][4].setPointerDegree(135, 0);
 		clocks[7][1].setPointerDegree(def, 90);
@@ -1592,14 +1591,23 @@ public class Values {
 		
 		
 		//ring#4
-		clocks[5][2].setPointerDegree(180, 45);
-		clocks[5][5].setPointerDegree(135, 0);
-		clocks[6][1].setPointerDegree(def, 90);
-		clocks[6][6].setPointerDegree(90, 315);
-		clocks[9][1].setPointerDegree(270, 135);
-		clocks[9][6].setPointerDegree(45, 270);
-		clocks[10][2].setPointerDegree(180, 315);
-		clocks[10][5].setPointerDegree(def, 0);
+		clocks[4][3].setPointerDegree(180, 45);
+		clocks[4][4].setPointerDegree(0, 135);
+		clocks[5][2].setPointerDegree(225, 45);
+		clocks[5][5].setPointerDegree(135, 315);
+		clocks[6][1].setPointerDegree(def, 45);
+		clocks[6][6].setPointerDegree(135, 315);
+		clocks[7][0].setPointerDegree(90, 235);
+		clocks[7][7].setPointerDegree(90, 235);
+		clocks[8][0].setPointerDegree(135, 270);
+		clocks[8][7].setPointerDegree(135, 270);
+		clocks[9][1].setPointerDegree(315, 135);
+		clocks[9][6].setPointerDegree(45, 225);
+		clocks[10][2].setPointerDegree(135, 315);
+		clocks[10][5].setPointerDegree(def, 45);
+		clocks[11][3].setPointerDegree(180, 315);
+		clocks[11][4].setPointerDegree(0, 225);
+		
 		//ring#5
 		clocks[5][1].setPointerDegree(def-y, 45+y);
 		clocks[5][6].setPointerDegree(135-y, 315+y);
