@@ -14,31 +14,31 @@ public class ClockPanel extends JFrame implements Runnable
 {
 
 	
-	private Thread th;
+	protected Thread th;
 	// Hält den Frame der Uhren
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 4636687551480582977L;
+	protected static final long serialVersionUID = 4636687551480582977L;
 
 	// Hält alle Uhren
-	private Clock[][] clocks;
+	protected Clock[][] clocks;
 	
 	
 	// Eine Variable die benutzt wird um while true Schleifen zu brechen.
 	//Diese Variable auf true zu setzen beendet die aktuelle Schleife
-	private boolean loopbreaker;
+	protected boolean loopbreaker;
 
 	// Hält die Informationen über den Frame, Anzahl der Zeilen, Spalten und den
 	// Durchmesser einer Uhr
-	private int rows;
-	private int columns;
-	private int diameter;
-	private MotorSteuerung ms;
+	protected int rows;
+	protected int columns;
+	protected int diameter;
+	protected MotorSteuerung ms;
 	// Erzeugt ein Objekt vom Typ values, welches für die Übersetzung von
 	// darzustellenden Objekten in Gradzahl der Zeiger zuständig ist
-	private Values values = new Values();
+	protected Values values = new Values();
 
 
 	public Clock[][] getClocks()
@@ -54,7 +54,7 @@ public class ClockPanel extends JFrame implements Runnable
 		
 	}
 	
-	private void initPanel(int rows, int columns, int diameter)
+	protected void initPanel(int rows, int columns, int diameter)
 	{
 		
 		addKeyListener(new KeyListener() {
@@ -235,13 +235,13 @@ public class ClockPanel extends JFrame implements Runnable
 	}
 
 	// Setzt alle Zeiger auf "default Stellung" (180°)
-	private void clocksToDefault()
+	protected void clocksToDefault()
 	{
 		values.setdefault(clocks);
 	}
 
 	// Stellt die aktuelle Uhrzeit in großen Zahlen dar, Methode von Julian
-	private void displayTimeHuge()
+	protected void displayTimeHuge()
 	{
 		Time time = new Time();
 		displayTimeHugehelper(time);
@@ -272,7 +272,7 @@ public class ClockPanel extends JFrame implements Runnable
 		}
 	}
 
-	private void displayTimeHugehelper(Time time)
+	protected void displayTimeHugehelper(Time time)
 	{
 		values.displayCharacterhuge(String.valueOf(time.getHours0()).charAt(0),
 				0, 1, clocks);
@@ -285,7 +285,7 @@ public class ClockPanel extends JFrame implements Runnable
 	}
 
 	// Zeit in klein darstellen. Julian
-	private void displayTime()
+	protected void displayTime()
 	{
 		Time time = new Time();
 		values.displayCharacter(String.valueOf(time.getHours0()).charAt(0), 0,
@@ -333,7 +333,7 @@ public class ClockPanel extends JFrame implements Runnable
 	}
 
 	// Stellt das Wetter dar. Methode von Julian
-	private void displayWeather()
+	protected void displayWeather()
 	{
 		Weather w = new Weather();
 		// api call (get current weather of (city)
@@ -453,7 +453,7 @@ public class ClockPanel extends JFrame implements Runnable
 		// step#4 show wind speed/direction
 		// display w.getWinddir()/w.getWinddegrees()/w.getWindspeed()
 	}
-	private void displayTemperature(Weather w, int sleep)
+	protected void displayTemperature(Weather w, int sleep)
 	{
 		
 		values.displayCharacter('t', 0, 1, clocks);
@@ -537,7 +537,7 @@ public class ClockPanel extends JFrame implements Runnable
 		sleep(sleep);
 		values.setdefault(clocks);
 	}
-	private void displayHumidity(Weather w, int sleep)
+	protected void displayHumidity(Weather w, int sleep)
 	{
 		
 		values.displayCharacter('h', 0, 3, clocks);
@@ -579,7 +579,7 @@ public class ClockPanel extends JFrame implements Runnable
 
 		values.setdefault(clocks);
 	}
-	private void displayConditions(Weather w, int sleep)
+	protected void displayConditions(Weather w, int sleep)
 	{
 		
 		values.displayCharacter('w', 1, 3, clocks);
@@ -600,7 +600,7 @@ public class ClockPanel extends JFrame implements Runnable
 
 	}
 	// Only used for testing issues. Patrick
-	private void displayChars()
+	protected void displayChars()
 	{
 		// execute step by step with debugger, else make the thread sleep for
 		// ~2k ms after each call
@@ -650,7 +650,7 @@ public class ClockPanel extends JFrame implements Runnable
 	
 	
 	
-	private void playAnimation1()
+	protected void playAnimation1()
 	{
 		int y = 1000;
 		// step#1 move pointer in start position
@@ -664,7 +664,7 @@ public class ClockPanel extends JFrame implements Runnable
 		
 	}
 	
-	private void playAnimation2()
+	protected void playAnimation2()
 	{
 		int y = 100;
 		//start position
@@ -677,7 +677,7 @@ public class ClockPanel extends JFrame implements Runnable
 	}
 	// method to stop any display/animatioin to morph into display time huge, 
 	// stoping it column by column - waiting y ms after each column
-	private void stopAniCbyC(int y)
+	protected void stopAniCbyC(int y)
 	{
 		while(true)
 		{
@@ -721,20 +721,20 @@ public class ClockPanel extends JFrame implements Runnable
 		}
 	}
 	
-	private void playAnimation3()
+	protected void playAnimation3()
 	{
 		values.startanimation3(rows, columns, clocks);
 		sleep(3000);
 		values.animation3(rows, columns, clocks);
 	}
 	
-	private void playAnimation4()
+	protected void playAnimation4()
 	{
 		values.startanimation4(rows, columns, clocks);
 		sleep(5000);
 		values.animation4(rows, columns, clocks);
 	}
-	private void sleep(int duration)
+	protected void sleep(int duration)
 	{
 		try
 		{
