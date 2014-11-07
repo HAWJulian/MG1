@@ -20,7 +20,7 @@ public class TestKlassePatrick{
 	private Values values = new Values();
 	//Test
 	
-	
+	//NVM this
 	public static void main(String[] args) {
 		ThreadedPresentation presi = new ThreadedPresentation();
 		presi.run();

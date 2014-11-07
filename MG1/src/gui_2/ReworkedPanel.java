@@ -8,7 +8,7 @@ import java.awt.event.KeyListener;
 public class ReworkedPanel extends ClockPanel {
 
 	private boolean next;
-	
+	//Overworked panel with KeyListener
 	public ReworkedPanel(int rows, int columns, int diameter) {
 		super(rows, columns, diameter);
 		this.addKeyListener(new KeyListener() {

@@ -8,7 +8,7 @@ public class ThreadedPresentation implements Runnable{
 
 	private int actualEvent = 0;
 	private int amountOfEvents = 0;
-	
+	//Holods the frame
 	private ClockPanel frame;
 	
 	private int timeLeftTillEventChanges;

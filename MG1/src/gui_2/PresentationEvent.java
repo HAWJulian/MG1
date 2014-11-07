@@ -8,7 +8,7 @@ public class PresentationEvent {
 	private int rows;
 	private int diameter;
 	
-	
+	//Events while the presentation is running
 	public PresentationEvent(int duration, char selector)
 	{
 		this.duration = duration;

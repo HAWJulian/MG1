@@ -45,7 +45,7 @@ public class ClockPanel extends JFrame implements Runnable
 	{
 		return clocks;
 	}
-	//Vergrößert verkleinert das Panel
+	//Vergrößert verkleinert das panel
 	public void changeAmountOfClocks(int targetRows, int targetColumns, int targetDiameter)
 	{
 		th.stop();
