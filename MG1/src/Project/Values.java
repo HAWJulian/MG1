@@ -1560,13 +1560,15 @@ public class Values {
 	//only implemented for clockpanel size 16x8
 	public void startanimation4(int rows, int columns, Clock[][] clocks)
 	{
-		int y = 0;
+		int y = 20;
 		//ring#1
-		clocks[7][3].setPointerDegree(def-20, 45+20);
-		clocks[7][4].setPointerDegree(135-20, 315+20);
-		clocks[8][3].setPointerDegree(315-20, 135+20);
-		clocks[8][4].setPointerDegree(45-20, def+20);
+		clocks[7][3].setPointerDegree(def-y, 45+y);
+		clocks[7][4].setPointerDegree(135-y, 315+y);
+		clocks[8][3].setPointerDegree(315-y, 135+y);
+		clocks[8][4].setPointerDegree(45-y, def+y);
+		
 		//ring#2
+		
 		clocks[6][3].setPointerDegree(180, 45);
 		clocks[6][4].setPointerDegree(135, 0);
 		clocks[7][2].setPointerDegree(def, 90);
@@ -1576,50 +1578,54 @@ public class Values {
 		clocks[9][3].setPointerDegree(315, 180);
 		clocks[9][4].setPointerDegree(0, def);
 		//ring#3
+		
 		clocks[6][2].setPointerDegree(def-y,  45+y);
 		clocks[6][5].setPointerDegree(135-y,  315+y);
 		clocks[9][2].setPointerDegree(315-y, 135+y);
 		clocks[9][5].setPointerDegree(45-y, def+y);
-		clocks[5][3].setPointerDegree(180, 45);
-		clocks[5][4].setPointerDegree(135, 0);
-		clocks[7][1].setPointerDegree(def, 90);
-		clocks[7][6].setPointerDegree(90, 315);
-		clocks[8][1].setPointerDegree(270, 135);
-		clocks[8][6].setPointerDegree(45, 270);
-		clocks[10][3].setPointerDegree(315, 180);
-		clocks[10][4].setPointerDegree(0, def);
-		
-		
 		//ring#4
-		clocks[4][3].setPointerDegree(180, 45);
-		clocks[4][4].setPointerDegree(0, 135);
-		clocks[5][2].setPointerDegree(225, 45);
-		clocks[5][5].setPointerDegree(135, 315);
-		clocks[6][1].setPointerDegree(def, 45);
-		clocks[6][6].setPointerDegree(135, 315);
-		clocks[7][0].setPointerDegree(90, 235);
-		clocks[7][7].setPointerDegree(90, 235);
-		clocks[8][0].setPointerDegree(135, 270);
-		clocks[8][7].setPointerDegree(135, 270);
-		clocks[9][1].setPointerDegree(315, 135);
-		clocks[9][6].setPointerDegree(45, 225);
-		clocks[10][2].setPointerDegree(135, 315);
-		clocks[10][5].setPointerDegree(def, 45);
-		clocks[11][3].setPointerDegree(180, 315);
-		clocks[11][4].setPointerDegree(0, 225);
+		
+		clocks[5][3].setPointerDegree(180, 45-y/2);
+		clocks[5][4].setPointerDegree(135+y/2, 0);
+		clocks[7][1].setPointerDegree(def+y/2, 90);
+		clocks[7][6].setPointerDegree(90, 315-y/2);
+		clocks[8][1].setPointerDegree(270, 135-y/2);
+		clocks[8][6].setPointerDegree(45+y/2, 270);
+		clocks[10][3].setPointerDegree(315+y/2, 180);
+		clocks[10][4].setPointerDegree(0, def-y/2);
+		
 		
 		//ring#5
+		clocks[5][2].setPointerDegree(225-y, 45);
+		clocks[5][5].setPointerDegree(135, 315+y);
+		clocks[6][1].setPointerDegree(def, 45+y);
+		clocks[6][6].setPointerDegree(135-y, 315);
+		clocks[9][1].setPointerDegree(315-y, 135);
+		clocks[9][6].setPointerDegree(45, 225+y);
+		clocks[10][2].setPointerDegree(315, 135+y);
+		clocks[10][5].setPointerDegree(45-y, def);
+		//ring#6
+		clocks[4][3].setPointerDegree(180, 45-y);
+		clocks[4][4].setPointerDegree(135+y, 0);
+		clocks[7][0].setPointerDegree(225+y, 90);
+		clocks[7][7].setPointerDegree(90, 315-y);
+		clocks[8][0].setPointerDegree(270, 135-y);
+		clocks[8][7].setPointerDegree(45+y, 270);
+		clocks[11][3].setPointerDegree(315+y, 180);
+		clocks[11][4].setPointerDegree(0, 225-y);
 		clocks[5][1].setPointerDegree(def-y, 45+y);
 		clocks[5][6].setPointerDegree(135-y, 315+y);
 		clocks[10][1].setPointerDegree(315-y, 135+y);
-		clocks[10][6].setPointerDegree(def+y, 45-y);
+		clocks[10][6].setPointerDegree(45-y, def+y);
+		
+		//ring#7
 		
 	}
 
 	public void animation4(int rows, int columns, Clock[][] clocks)
 	{
 		// TODO Auto-generated method stub
-		int degree = 2000;
+		int degree = 2160;
 		int duration = 500;
 		clocks[7][3].rotateForMoreThan360Degrees(degree, degree, true, false);
 		clocks[7][4].rotateForMoreThan360Degrees(degree, degree, true, false);
@@ -1669,5 +1675,41 @@ public class Values {
 		clocks[8][6].rotateForMoreThan360Degrees(degree, degree, true, false);
 		clocks[10][3].rotateForMoreThan360Degrees(degree, degree, true, false);
 		clocks[10][4].rotateForMoreThan360Degrees(degree, degree, true, false);
+		try
+		{
+			Thread.sleep(duration);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		clocks[5][2].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[5][5].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[6][1].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[6][6].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[9][1].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[9][6].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[10][2].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[10][5].rotateForMoreThan360Degrees(degree, degree, true, false);
+		try
+		{
+			Thread.sleep(duration);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		clocks[4][3].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[4][4].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[7][0].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[7][7].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[8][0].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[8][7].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[11][3].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[11][4].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[5][1].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[5][6].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[10][1].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[10][6].rotateForMoreThan360Degrees(degree, degree, true, false);
 	}
 }
