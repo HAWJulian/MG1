@@ -1619,6 +1619,14 @@ public class Values {
 		clocks[10][6].setPointerDegree(45-y, def+y);
 		
 		//ring#7
+		clocks[6][7].setPointerDegree(135-y, 315);
+		clocks[9][7].setPointerDegree(45, 225+y);
+		clocks[11][5].setPointerDegree(45-y, def);
+		clocks[11][2].setPointerDegree(315, 135+y);
+		clocks[6][0].setPointerDegree(def, 45+y);
+		clocks[9][0].setPointerDegree(315-y, 135);
+		clocks[4][5].setPointerDegree(135, 315+y);
+		clocks[4][2].setPointerDegree(225-y, 45);
 		
 	}
 
@@ -1626,7 +1634,7 @@ public class Values {
 	{
 		// TODO Auto-generated method stub
 		int degree = 2160;
-		int duration = 500;
+		int duration = 300;
 		clocks[7][3].rotateForMoreThan360Degrees(degree, degree, true, false);
 		clocks[7][4].rotateForMoreThan360Degrees(degree, degree, true, false);
 		clocks[8][3].rotateForMoreThan360Degrees(degree, degree, true, false);
@@ -1711,5 +1719,21 @@ public class Values {
 		clocks[5][6].rotateForMoreThan360Degrees(degree, degree, true, false);
 		clocks[10][1].rotateForMoreThan360Degrees(degree, degree, true, false);
 		clocks[10][6].rotateForMoreThan360Degrees(degree, degree, true, false);
+		try
+		{
+			Thread.sleep(duration);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		clocks[6][7].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[9][7].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[11][5].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[11][2].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[6][0].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[9][0].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[4][5].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[4][2].rotateForMoreThan360Degrees(degree, degree, true, false);
 	}
 }
