@@ -5,8 +5,10 @@ import jssc.SerialPort;
 import jssc.SerialPortException;
 
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class MotorSteuerung {
+	
 	
 	static Scanner scanner = new Scanner(System.in);
 	
@@ -17,6 +19,7 @@ public class MotorSteuerung {
 	Clock[][] clocks2;
 	int dirM;
 	int dirH;
+	String data;
 	
 	public MotorSteuerung(Clock[][] clocks)
 	{
@@ -56,7 +59,8 @@ public class MotorSteuerung {
 		{
 			dirH = 0;
 		}
-		String data = "" + degreeM + ", " + degreeH + ", " + dirM + ", " + dirH;
+		//data = degreeM + ", " + degreeH + ", " + dirM + ", " + dirH;
+		data = degreeM + ", " + dirM;
 		
 		//System.out.println(data);
 	}
@@ -68,18 +72,25 @@ public class MotorSteuerung {
 		{
 			serialPort.openPort();// Open serial port
 			serialPort.setParams(9600, 8, 1, 0);// Set params.
-			System.out.println("eingabe [zahl, zahl]: ");
+			System.out.println("Serieller Port geöffnet");
 			while (true)
 			{
-				String buchstabe = scanner.nextLine();
+				//String buchstabe = scanner.nextLine();
 				// Write data to port
-				serialPort.writeBytes(buchstabe.getBytes());
+				serialPort.writeBytes(data.getBytes());
 				byte[] buffer = serialPort.readBytes();// Read bytes from serial
 														// port
 				if (buffer != null)
 				{
 					String text = new String(buffer);
 					System.out.println(text);
+				}
+				
+				try {
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 
