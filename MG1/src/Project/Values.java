@@ -1635,6 +1635,7 @@ public class Values {
 		// TODO Auto-generated method stub
 		int degree = 2160;
 		int duration = 300;
+		clocks[0][0].rotateForMoreThan360Degrees(360, 360, true, true);
 		clocks[7][3].rotateForMoreThan360Degrees(degree, degree, true, false);
 		clocks[7][4].rotateForMoreThan360Degrees(degree, degree, true, false);
 		clocks[8][3].rotateForMoreThan360Degrees(degree, degree, true, false);
