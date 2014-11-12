@@ -42,7 +42,7 @@ public class Clock extends JPanel implements Runnable{
 	
 	public int getRandomVariable1()
 	{
-		return randomVariable1;
+		return randomVariable1;//
 	}
 	public int getRandomVariable2()
 	{
