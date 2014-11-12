@@ -1628,7 +1628,30 @@ public class Values {
 		clocks[4][5].setPointerDegree(135, 315+y);
 		clocks[4][2].setPointerDegree(225-y, 45);
 		
-	}
+		//ring#8
+		clocks[5][7].setPointerDegree(135-y, 315);
+		clocks[4][6].setPointerDegree(135, 315+y);
+		clocks[3][3].setPointerDegree(180, 45-y);
+		clocks[3][4].setPointerDegree(135+y, 0);
+		clocks[4][1].setPointerDegree(225-y, 45);
+		clocks[5][0].setPointerDegree(def, 45+y);
+		clocks[10][7].setPointerDegree(45, 225+y);
+		clocks[11][6].setPointerDegree(45-y, def);
+		clocks[12][4].setPointerDegree(0, 225-y);
+		clocks[12][3].setPointerDegree(315+y, 180);
+		clocks[11][1].setPointerDegree(315, 135+y);
+		clocks[10][0].setPointerDegree(315-y, 135);
+		
+		//ring#9
+		clocks[11][0].setPointerDegree(305, 145);
+		clocks[12][2].setPointerDegree(335, 165);
+		clocks[12][5].setPointerDegree(15, 205);
+		clocks[11][7].setPointerDegree(35, 235);
+		clocks[4][7].setPointerDegree(125, 325);
+		clocks[3][5].setPointerDegree(155, 345);
+		clocks[3][2].setPointerDegree(195, 25);
+		clocks[4][0].setPointerDegree(215, 55);
+	} 
 
 	public void animation4(int rows, int columns, Clock[][] clocks)
 	{
@@ -1737,5 +1760,41 @@ public class Values {
 		clocks[9][0].rotateForMoreThan360Degrees(degree, degree, true, false);
 		clocks[4][5].rotateForMoreThan360Degrees(degree, degree, true, false);
 		clocks[4][2].rotateForMoreThan360Degrees(degree, degree, true, false);
+		try
+		{
+			Thread.sleep(duration);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		clocks[5][7].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[4][6].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[3][3].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[3][4].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[4][1].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[5][0].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[10][7].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[11][6].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[12][4].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[12][3].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[11][1].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[10][0].rotateForMoreThan360Degrees(degree, degree, true, false);
+		try
+		{
+			Thread.sleep(duration);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		clocks[11][0].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[12][2].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[12][5].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[11][7].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[4][7].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[3][5].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[3][2].rotateForMoreThan360Degrees(degree, degree, true, false);
+		clocks[4][0].rotateForMoreThan360Degrees(degree, degree, true, false);
 	}
 }
