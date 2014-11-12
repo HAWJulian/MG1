@@ -40,6 +40,14 @@ public class Clock extends JPanel implements Runnable{
 	
 	private int randomVariable1, randomVariable2;
 	
+	public int getRandomVariable1()
+	{
+		return randomVariable1;
+	}
+	public int getRandomVariable2()
+	{
+		return randomVariable2;
+	}
 	public boolean getIsMoving()
 	{
 		return isMoving;
