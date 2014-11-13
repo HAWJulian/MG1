@@ -11,34 +11,34 @@ import javax.swing.JPanel;
 public class Clock extends JPanel implements Runnable{
 	
 	//Variable die speichert wie viele ticks seit dem letzten render vergangen sind
-	private int ticks;
+	protected int ticks;
 	
 	//Speichert ab nach wie vielen ticks gerendert werden soll
-	private int tickrate;
+	protected int tickrate;
 	
 	//Speichert das Zentrum der Uhr (da sie quadratisch ist wird nur ein Wert gespeichert
-	private int center;
+	protected int center;
 	
 	//speichert die Uhr, exklusive der Zeiger
-	private Graphics clock;
+	protected Graphics clock;
 	
 	//aktuelle Gradzahl für die Position der Zeiger (H Stunde, M Minute)
-	private float degreeH , degreeM;
+	protected float degreeH , degreeM;
 	//Gibt an welche Gradzahl die Uhren erreichen sollen
-	private float targetDegreeH, targetDegreeM;
+	protected float targetDegreeH, targetDegreeM;
 	
 	//Gibt die Größe der zu erzeugenden Uhr an
-	private int diameter;
+	protected int diameter;
 	
-	private Image screen;
+	public Image screen;
 	
 	//Gibt an ob die Uhr dabei ist sich zu bewegen
-	private boolean isMoving;
+	protected boolean isMoving;
 	
 	//Gibt an ob die Zeiger sich mit oder gegen den Uhrzeigersinn drehen (H Stunde / M Minute) true = mit dem Uhrzeigersinn
-	private boolean directionH , directionM;
+	protected boolean directionH , directionM;
 	
-	private int randomVariable1, randomVariable2;
+	protected int randomVariable1, randomVariable2;
 	
 	public int getRandomVariable1()
 	{
@@ -80,7 +80,7 @@ public class Clock extends JPanel implements Runnable{
 	}
 	
 
-	private void calculateDirection()
+	protected void calculateDirection()
 	{
 		// 270 -> 10 clock ( -260)
 		// 10 -> 270 counter ( 260)
@@ -109,7 +109,7 @@ public class Clock extends JPanel implements Runnable{
 		
 	}
 	
-	private void calculatePointerPosition()
+	protected void calculatePointerPosition()
 	{
 		
 		//Wenn die Zeiger ihre Positionen erreicht haben wird die Bewegung der Uhren beendet
@@ -326,7 +326,7 @@ public class Clock extends JPanel implements Runnable{
 		th.start();
 	}
 	
-	private void render(Graphics g)
+	protected void render(Graphics g)
 	{
 		int i = 0;
 		// rendern der Uhr
