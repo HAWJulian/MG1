@@ -87,7 +87,7 @@ public class MotorSteuerung {
 		//data = degreeM + ", " + degreeH + ", " + dirM + ", " + dirH;
 		data = degreeM + ", " + dirM + ", " + turnMinute;
 		//this.ArduinoCommunication();
-		System.out.println(data);
+		//System.out.println(data);
 	}
 	//Sende/Empfange Arduino Daten
 	private void ArduinoCommunication()
