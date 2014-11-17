@@ -7,10 +7,6 @@ import java.awt.EventQueue;
 import java.awt.Frame;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
-import java.awt.image.BufferedImageFilter;
-import java.io.File;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;

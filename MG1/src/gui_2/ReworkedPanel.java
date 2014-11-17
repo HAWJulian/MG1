@@ -1,13 +1,7 @@
 package gui_2;
 
-import gui.Clock;
 
-import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Motor.MotorSteuerung;
@@ -17,38 +11,37 @@ import Project.Weather;
 
 public class ReworkedPanel extends JPanel implements Runnable
 {
-
+	//Speichert welche Operation momentan auf dem Panel läuft, bzhw welche als nächstes ablaufen soll. Siehe setDisplay()
 	private char selector;
-	private char lastTyped;
 	
-	protected Thread th;
 	// Hält den Frame der Uhren
-
+	protected Thread th;
+	
 	/**
 	 * 
 	 */
+	
 	protected static final long serialVersionUID = 4636687551480582977L;
 
 	// Hält alle Uhren
 	protected ReworkedClock[][] clocks;
 	
+	//Hält ein BIld, welches alle Uhren erhalten auf dem sie sich selbst zeichen können
 	private Image image;
 	
-	// Eine Variable die benutzt wird um while true Schleifen zu brechen.
-	//Diese Variable auf true zu setzen beendet die aktuelle Schleife
-	protected boolean loopbreaker;
-
+	
 	// Hält die Informationen über den Frame, Anzahl der Zeilen, Spalten und den
 	// Durchmesser einer Uhr
 	protected int rows;
 	protected int columns;
 	protected int diameter;
 	protected MotorSteuerung ms;
+	
 	// Erzeugt ein Objekt vom Typ values, welches für die Übersetzung von
 	// darzustellenden Objekten in Gradzahl der Zeiger zuständig ist
 	protected Values values = new Values();
 
-
+	//Getter Methode für die clocks
 	public ReworkedClock[][] getClocks()
 	{
 		return clocks;
@@ -62,6 +55,8 @@ public class ReworkedPanel extends JPanel implements Runnable
 		
 	}
 	
+	
+	//Initalisiert das Panel
 	protected void initPanel(int rows, int columns, int diameter)
 	{
 		
@@ -84,11 +79,13 @@ public class ReworkedPanel extends JPanel implements Runnable
 		this.rows = rows;
 		this.columns = columns;
 		this.diameter = diameter;
-		this.loopbreaker =false;
-
+		
 	
 	}
 	
+	//Konstruktor des Panel. Übergeben werden die Anzahl Zeilen/Spalten, sowie ein Bild auf dem gezeichnet werden kann
+	//und alle Uhren
+	@Deprecated
 	public ReworkedPanel (int rows, int columns, int diameter, Image im,
 			ReworkedClock[][] clock)
 	{
@@ -98,12 +95,13 @@ public class ReworkedPanel extends JPanel implements Runnable
 	}
 
 
+	//Zweiter Konstruktor der Uhr. Einziger Unterschied ist dass das Panel die Uhren hier selber erzeugt.
+	//Diesen Konstruktor benutzen!
 	public ReworkedPanel(int rows, int columns, int diameter, Image im)
 	{
 		this.image = im;
 		initPanel(rows, columns, diameter);
 		ms = new MotorSteuerung(this.getClocks());
-		lastTyped = 1;
 		
 	}
 
@@ -114,6 +112,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 		th.start();
 	}
 
+	//Run Methode des Panel
 	@Override
 	public void run()
 	{
@@ -124,16 +123,22 @@ public class ReworkedPanel extends JPanel implements Runnable
 		}
 	}
 	
+	/*
 	public ReworkedClock[][] safeClockData()
 	{
 		return this.clocks;
 	}
 	
+	*/
+	
+	//Setter für den Selector. wird vom KeyListener des Frames genutzt um Zugriff auf das Panel zu erhalten ohne sich selber
+	//in eine Dauerschleife zu versetzen
 	public void setSelector (char s)
 	{
 		this.selector = s;
 	}
 	
+	//Wird benutzt damit sich die Uhr an Position <x|y> schneller oder langsamer bewegt. 
 	public void setTickrate(int tickrate, int posX, int posY)
 	{
 		clocks[posX][posY].setTickrate(tickrate);
@@ -153,8 +158,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 
 	// Sagt dem Panel was es darstellen soll. Übergeben wird ein char welcher
 	// ein Kürzel ist.
-	//
-	public void setDisplay(char selector)
+	private void setDisplay(char selector)
 	{
 		System.out.println(selector);
 		switch (selector)
@@ -191,10 +195,6 @@ public class ReworkedPanel extends JPanel implements Runnable
 	}
 	
 	
-	public void breakLoop()
-	{
-		loopbreaker = true;
-	}
 	
 	//checkt ob alle uhren stehen
 	// true = alle uhren stehen
@@ -214,6 +214,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 		return true;
 	}
 	
+	//Überprüft ob sich die Ihren der Spalte x noch bewegen. true=Spalte steht
 	public boolean checkIfColumnXNotRotates(int x)
 	{
 		for(int i = 0; i < rows; i++)
@@ -236,6 +237,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 	// Stellt die aktuelle Uhrzeit in großen Zahlen dar, Methode von Julian
 	protected void displayTimeHuge()
 	{
+		values.setdefault(clocks);
 		Time time = new Time();
 		displayTimeHugehelper(time);
 		while (selector=='T')
@@ -254,6 +256,8 @@ public class ReworkedPanel extends JPanel implements Runnable
 			}
 	}
 
+	
+	//HElper methode zum Darstellen der Zeit
 	protected void displayTimeHugehelper(Time time)
 	{
 		values.displayCharacterhuge(String.valueOf(time.getHours0()).charAt(0),
@@ -313,6 +317,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 	// Stellt das Wetter dar. Methode von Julian
 	protected void displayWeather()
 	{
+		values.setdefault(clocks);
 		Weather w = new Weather();
 		// api call (get current weather of (city)
 		w.currentWeather("Hamburg");
@@ -320,11 +325,6 @@ public class ReworkedPanel extends JPanel implements Runnable
 		while (selector=='W')
 			
 		{
-			if (loopbreaker)
-			{
-				loopbreaker = false;
-				break;
-			}
 			int sleep = 4000;
 			// step#1 show conditions	
 			displayConditions(w, sleep);
@@ -431,6 +431,8 @@ public class ReworkedPanel extends JPanel implements Runnable
 		// step#4 show wind speed/direction
 		// display w.getWinddir()/w.getWinddegrees()/w.getWindspeed()
 	}
+	
+	//Methode die von displayWeather gecalled wird. Zeigt die Temperatur an
 	protected void displayTemperature(Weather w, int sleep)
 	{
 		
@@ -515,6 +517,8 @@ public class ReworkedPanel extends JPanel implements Runnable
 		letClocksTick(sleep/10);
 		values.setdefault(clocks);
 	}
+	
+	//Zeigt Feuchtigkeit
 	protected void displayHumidity(Weather w, int sleep)
 	{
 		
@@ -557,6 +561,8 @@ public class ReworkedPanel extends JPanel implements Runnable
 
 		values.setdefault(clocks);
 	}
+	
+	//Zeigt die Windrichtung
 	protected void displayConditions(Weather w, int sleep)
 	{
 		
@@ -623,7 +629,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 	
 	
 	
-	
+	//Spielt die erste Animation ab
 	protected void playAnimation1()
 	{
 		int y = 1000;
@@ -637,7 +643,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 		stopAniCbyC(y);
 		
 	}
-	
+	//Spielt die zweite Anomation ab
 	protected void playAnimation2()
 	{
 		int y = 100;
@@ -695,6 +701,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 		}
 	}
 	
+	//Spielt die Animation #3 ab
 	protected void playAnimation3()
 	{
 		values.startanimation3(rows, columns, clocks);
@@ -702,12 +709,15 @@ public class ReworkedPanel extends JPanel implements Runnable
 		values.animation3(rows, columns, clocks);
 	}
 	
+	//Spielt die Animation #4 ab
 	protected void playAnimation4()
 	{
 		values.startanimation4(rows, columns, clocks);
 		letClocksTick(500);
 		values.animation4(rows, columns, clocks);
 	}
+	
+	//MEthode zur Code-Redundanz. Legt den Thread für eine bestimmte Zeit schlafen
 	protected void sleep(int duration)
 	{
 		try
@@ -720,7 +730,9 @@ public class ReworkedPanel extends JPanel implements Runnable
 		}
 	}
 	
-	public void letClocksTick(int times)
+	//Wird vom Panel benutzt damit die Uhren ticken. Statt sleep() soll von jeder Display-Funktion des Panels letClocksTick
+	//benutzt werden, da sich die Uhr ansonsten nicht rendert!
+	private void letClocksTick(int times)
 	{
 		for (int i=0; i<times; i++)
 		{
