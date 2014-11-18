@@ -18,6 +18,15 @@ public class Values {
 		}
 	}
 	
+	public void setRowToDefault(Clock[][] clocks, int row)
+	{
+		for (int i=0; i<clocks.length; i++)
+		{
+			clocks[i][row].setPointerDegree(def, def);
+		}
+	}
+	
+	
 	public void rotateover360(int degreeH, int degreeM, boolean dirH, boolean dirM, Clock[][] clocks)
 	{
 		for (int i = 0; i < clocks.length; i++)
