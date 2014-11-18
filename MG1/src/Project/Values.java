@@ -1179,6 +1179,7 @@ public class Values {
 		case "leichter nebel":
 			break;
 		case "teils wolkig":
+		case "bedeckt":
 		case "wolkig":
 			drawcloud(startx, starty, clocks);
 			break;
