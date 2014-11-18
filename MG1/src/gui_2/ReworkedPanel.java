@@ -188,6 +188,8 @@ public class ReworkedPanel extends JPanel implements Runnable
 		case 'E':
 			playAnimation4();
 			break;
+		case 'N':
+			showNames();
 		default:
 			clocksToDefault();
 			break;
@@ -285,12 +287,6 @@ public class ReworkedPanel extends JPanel implements Runnable
 				6, 0, clocks);
 		while (selector=='S')
 		{
-			System.out.println("inside time");
-			if (selector!='S')
-			{
-				System.out.println("change");
-			}
-			
 			letClocksTick(100);
 			if (time.refreshTime())
 			{
@@ -627,6 +623,82 @@ public class ReworkedPanel extends JPanel implements Runnable
 		values.displayCharacter('z', 0, 0, clocks);
 	}
 	
+	//Zeigt nacheinenader unsere Namen und was wir gemacht haben
+	//Tastatur benutzen um zur nächsten Person zu kommen.
+	//Patrick => 1 drücken => Julian => Michael
+	protected void showNames()
+	{
+		while (selector == 'N')
+		{
+			values.displayCharacter('p', 0, 0, clocks);
+			values.displayCharacter('a', 2, 0, clocks);
+			values.displayCharacter('t', 4, 0, clocks);
+			values.displayCharacter('r', 6, 0, clocks);
+			values.displayCharacter('i', 8, 0, clocks);
+			values.displayCharacter('c', 10, 0, clocks);
+			values.displayCharacter('k', 12, 0, clocks);
+			letClocksTick(50);
+			
+			values.displayCharacter('d', 0, 3, clocks);
+			values.displayCharacter('e', 2, 3, clocks);
+			values.displayCharacter('s', 4, 3, clocks);
+			values.displayCharacter('i', 6, 3, clocks);
+			values.displayCharacter('g', 8, 3, clocks);
+			values.displayCharacter('n', 10, 3, clocks);
+		}
+		while (selector == '1')
+		{
+		
+		
+			values.displayCharacter('j', 0, 0, clocks);
+			values.displayCharacter('u', 2, 0, clocks);
+			values.displayCharacter('l', 4, 0, clocks);
+			values.displayCharacter('i', 6, 0, clocks);
+			values.displayCharacter('a', 8, 0, clocks);
+			values.displayCharacter('n', 10, 0, clocks);
+			letClocksTick(50);
+			
+
+			values.setRowToDefault(clocks, 3);
+			values.setRowToDefault(clocks, 4);
+			values.setRowToDefault(clocks, 5);
+			values.displayCharacter('a', 0, 3, clocks);
+			values.displayCharacter('n', 2, 3, clocks);
+			values.displayCharacter('i', 4, 3, clocks);
+			//values.displayCharacter('/', 6, 3, clocks);
+			values.displayCharacter('a', 8, 3, clocks);
+			values.displayCharacter('p', 10, 3, clocks);
+			values.displayCharacter('i', 12, 3, clocks);
+		}
+		
+		while (selector == '2')
+		{
+			
+			
+			values.displayCharacter('m', 0, 0, clocks);
+			values.displayCharacter('i', 2, 0, clocks);
+			values.displayCharacter('c', 4, 0, clocks);
+			values.displayCharacter('h', 6, 0, clocks);
+			values.displayCharacter('a', 8, 0, clocks);
+			values.displayCharacter('e', 10, 0, clocks);
+			values.displayCharacter('l', 12, 0, clocks);
+			letClocksTick(50);
+			
+			values.displayCharacter('h', 0, 3, clocks);
+			values.displayCharacter('a', 2, 3, clocks);
+			values.displayCharacter('r', 4, 3, clocks);
+			values.displayCharacter('d', 6, 3, clocks);
+			values.displayCharacter('w', 8, 3, clocks);
+			values.displayCharacter('a', 10, 3, clocks);
+			values.displayCharacter('r', 12, 3, clocks);
+			values.displayCharacter('e', 14, 3, clocks);
+			
+		}	
+			
+			
+			
+		
+	}
 	
 	
 	//Spielt die erste Animation ab
@@ -649,10 +721,11 @@ public class ReworkedPanel extends JPanel implements Runnable
 		int y = 100;
 		//start position
 		values.startanimation2(rows, columns, clocks);
-		letClocksTick(636);
+		letClocksTick(200);
 		//rotate (atm = 720°)
 		values.rotateClocks(rows, columns, clocks);
 		stopAniCbyC(y);
+		System.out.println("test");
 		
 	}
 	// method to stop any display/animatioin to morph into display time huge, 
@@ -669,28 +742,28 @@ public class ReworkedPanel extends JPanel implements Runnable
 				{
 					values.displayAnimationCharacter(time.getHours0(), i,
 							clocks);
-					sleep(y);
+					letClocksTick(y/10);
 				}
 				//display no#2
 				else if (i < 8)
 				{
 					values.displayAnimationCharacter(time.getHours1(), i,
 							clocks);
-					sleep(y);
+					letClocksTick(y/10);
 				}
 				//display no#3
 				else if (i < 12)
 				{
 					values.displayAnimationCharacter(time.getMinutes0(), i,
 							clocks);
-					sleep(y);
+					letClocksTick(y/10);
 				}
 				//display no#4
 				else
 				{
 					values.displayAnimationCharacter(time.getMinutes1(), i,
 							clocks);
-					sleep(y);
+					letClocksTick(y/10);
 				}
 	
 			}
@@ -715,19 +788,6 @@ public class ReworkedPanel extends JPanel implements Runnable
 		values.startanimation4(rows, columns, clocks);
 		letClocksTick(500);
 		values.animation4(rows, columns, clocks);
-	}
-	
-	//MEthode zur Code-Redundanz. Legt den Thread für eine bestimmte Zeit schlafen
-	protected void sleep(int duration)
-	{
-		try
-		{
-			Thread.sleep(duration);
-		}
-		catch (InterruptedException e)
-		{
-			e.printStackTrace();
-		}
 	}
 	
 	//Wird vom Panel benutzt damit die Uhren ticken. Statt sleep() soll von jeder Display-Funktion des Panels letClocksTick
