@@ -39,7 +39,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 	
 	// Erzeugt ein Objekt vom Typ values, welches für die Übersetzung von
 	// darzustellenden Objekten in Gradzahl der Zeiger zuständig ist
-	protected Values values = new Values();
+	protected ReworkedValues values = new ReworkedValues();
 
 	//Getter Methode für die clocks
 	public ReworkedClock[][] getClocks()
@@ -778,8 +778,12 @@ public class ReworkedPanel extends JPanel implements Runnable
 	protected void playAnimation3()
 	{
 		values.startanimation3(rows, columns, clocks);
+		System.out.println("1");
 		letClocksTick(300);
-		values.animation3(rows, columns, clocks);
+		System.out.println("2");
+		values.animation3(rows, columns, clocks, this);
+		System.out.println("3");
+		letClocksTick(300);
 	}
 	
 	//Spielt die Animation #4 ab
@@ -787,12 +791,13 @@ public class ReworkedPanel extends JPanel implements Runnable
 	{
 		values.startanimation4(rows, columns, clocks);
 		letClocksTick(500);
-		values.animation4(rows, columns, clocks);
+		values.animation4(rows, columns, clocks, this);
+		letClocksTick(500);
 	}
 	
 	//Wird vom Panel benutzt damit die Uhren ticken. Statt sleep() soll von jeder Display-Funktion des Panels letClocksTick
 	//benutzt werden, da sich die Uhr ansonsten nicht rendert!
-	private void letClocksTick(int times)
+	public void letClocksTick(int times)
 	{
 		for (int i=0; i<times; i++)
 		{
