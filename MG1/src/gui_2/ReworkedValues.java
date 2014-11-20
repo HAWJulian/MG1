@@ -1459,7 +1459,7 @@ public class ReworkedValues {
 	}
 	public void animation3(int rows, int columns, Clock[][] clocks, ReworkedPanel panel)
 	{
-		for(int x = 0; x < 100; x++)
+		for(int x = 0; x < 1; x++)
 		{
 			for(int j = 0; j < columns; j++)
 			{
@@ -1483,8 +1483,7 @@ public class ReworkedValues {
 					clocks[j][6].setPointerDegree(90, 45);
 				}
 			}
-			
-			panel.letClocksTick(500);
+			panel.letClocksTick(200);
 			for(int j = 0; j < columns; j++)
 			{
 				if(j%2 == 0)
@@ -1507,10 +1506,10 @@ public class ReworkedValues {
 					clocks[j][6].setPointerDegree(270, 45);
 				}
 			}
-			panel.letClocksTick(500);
+			panel.letClocksTick(200);
 		}
 	}
-	public void rotateClocks(int rows, int columns, Clock[][] clocks)
+	public void rotateClocks(int rows, int columns, Clock[][] clocks, ReworkedPanel panel)
 	{
 		for(int j = 0; j < columns; j++)
 		{
@@ -1518,14 +1517,7 @@ public class ReworkedValues {
 			{
 				clocks[j][i].rotateForMoreThan360Degrees(720, 720, true, true);
 			}
-			try
-			{
-				Thread.sleep(200);
-			}
-			catch (InterruptedException e)
-			{
-				e.printStackTrace();
-			}
+			panel.letClocksTick(20);
 		}
 		
 	}

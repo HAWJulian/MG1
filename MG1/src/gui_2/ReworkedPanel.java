@@ -21,6 +21,8 @@ public class ReworkedPanel extends JPanel implements Runnable
 	 * 
 	 */
 	
+	private boolean isAnimationCalled;
+	
 	protected static final long serialVersionUID = 4636687551480582977L;
 
 	// Hält alle Uhren
@@ -102,7 +104,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 		this.image = im;
 		initPanel(rows, columns, diameter);
 		ms = new MotorSteuerung(this.getClocks());
-		
+		isAnimationCalled = false;
 	}
 
 	// Startet das Clockpanel
@@ -136,6 +138,10 @@ public class ReworkedPanel extends JPanel implements Runnable
 	public void setSelector (char s)
 	{
 		this.selector = s;
+		if (selector == 'A')
+		{
+			isAnimationCalled = true;
+		}
 	}
 	
 	//Wird benutzt damit sich die Uhr an Position <x|y> schneller oder langsamer bewegt. 
@@ -233,7 +239,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 	protected void clocksToDefault()
 	{
 		values.setdefault(clocks);
-		letClocksTick(200);
+		letClocksTick(50);
 	}
 
 	// Stellt die aktuelle Uhrzeit in großen Zahlen dar, Methode von Julian
@@ -628,6 +634,8 @@ public class ReworkedPanel extends JPanel implements Runnable
 	//Patrick => 1 drücken => Julian => Michael
 	protected void showNames()
 	{
+		values.setdefault(clocks);
+		
 		while (selector == 'N')
 		{
 			values.displayCharacter('p', 0, 0, clocks);
@@ -705,13 +713,18 @@ public class ReworkedPanel extends JPanel implements Runnable
 	protected void playAnimation1()
 	{
 		int y = 1000;
-		// step#1 move pointer in start position
-		values.startanimation1(rows, columns, clocks);
-		letClocksTick(600);
-		// step#2 rotate pointer (for a set amount of degree)
-		values.rotateover360(20000, 20000, true, false, clocks);
-		letClocksTick(600);
-		// step#3 stop them column by column
+		
+		if (!isAnimationCalled)
+		{
+			isAnimationCalled=false;
+			// step#1 move pointer in start position
+			values.startanimation1(rows, columns, clocks);
+			letClocksTick(300);
+			// step#2 rotate pointer (for a set amount of degree)
+			values.rotateover360(5000, 5000, true, false, clocks);
+			letClocksTick(600);
+			// step#3 stop them column by column
+		}
 		stopAniCbyC(y);
 		
 	}
@@ -723,9 +736,8 @@ public class ReworkedPanel extends JPanel implements Runnable
 		values.startanimation2(rows, columns, clocks);
 		letClocksTick(200);
 		//rotate (atm = 720°)
-		values.rotateClocks(rows, columns, clocks);
+		values.rotateClocks(rows, columns, clocks, this);
 		stopAniCbyC(y);
-		System.out.println("test");
 		
 	}
 	// method to stop any display/animatioin to morph into display time huge, 
@@ -778,11 +790,8 @@ public class ReworkedPanel extends JPanel implements Runnable
 	protected void playAnimation3()
 	{
 		values.startanimation3(rows, columns, clocks);
-		System.out.println("1");
 		letClocksTick(300);
-		System.out.println("2");
 		values.animation3(rows, columns, clocks, this);
-		System.out.println("3");
 		letClocksTick(300);
 	}
 	

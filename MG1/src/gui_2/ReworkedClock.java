@@ -9,6 +9,11 @@ import gui.Clock;
 //in der Lage sind selber ein Bild zu malen, da sie in ein JPanel und einen Frame eingebettet sind
 public class ReworkedClock extends Clock{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ReworkedClock(int size, Image image) {
 		super(size);
 		this.screen = image;
