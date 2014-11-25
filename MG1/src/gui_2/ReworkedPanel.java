@@ -316,6 +316,8 @@ public class ReworkedPanel extends JPanel implements Runnable
 		}
 	}
 
+	
+	
 	// Stellt das Wetter dar. Methode von Julian
 	protected void displayWeather()
 	{
@@ -330,10 +332,25 @@ public class ReworkedPanel extends JPanel implements Runnable
 			int sleep = 4000;
 			// step#1 show conditions	
 			displayConditions(w, sleep);
+			if (selector!='W')
+			{
+				continue;
+			}
+			
 			// step#2 show temperature
 			displayTemperature(w, sleep);
+			
+			if (selector!='W')
+			{
+				continue;
+			}
 			// step#3 show humidity
 			displayHumidity(w, sleep);
+			
+			if (selector!='W')
+			{
+				continue;
+			}
 			
 			values.displayCharacter('w', 4, 3, clocks);
 			values.displayCharacter('i', 6, 3, clocks);
@@ -714,8 +731,9 @@ public class ReworkedPanel extends JPanel implements Runnable
 	{
 		int y = 1000;
 		
-		if (!isAnimationCalled)
+		if (isAnimationCalled)
 		{
+			System.out.println("test");
 			isAnimationCalled=false;
 			// step#1 move pointer in start position
 			values.startanimation1(rows, columns, clocks);
@@ -731,12 +749,13 @@ public class ReworkedPanel extends JPanel implements Runnable
 	//Spielt die zweite Anomation ab
 	protected void playAnimation2()
 	{
-		int y = 100;
+		int y = 200;
 		//start position
 		values.startanimation2(rows, columns, clocks);
 		letClocksTick(200);
 		//rotate (atm = 720°)
 		values.rotateClocks(rows, columns, clocks, this);
+		
 		stopAniCbyC(y);
 		
 	}
@@ -744,7 +763,9 @@ public class ReworkedPanel extends JPanel implements Runnable
 	// stoping it column by column - waiting y ms after each column
 	protected void stopAniCbyC(int y)
 	{
-		while(selector=='A' || selector=='B' || selector=='D' || selector=='E')
+		y= (int) (y);
+		
+		while(selector=='A' || selector=='B')
 		{
 			Time time = new Time();
 			for(int i = 0; i < columns; i ++)
