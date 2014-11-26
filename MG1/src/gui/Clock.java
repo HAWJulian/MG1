@@ -340,11 +340,11 @@ public class Clock extends JPanel implements Runnable{
 		
 		//Großen (gefüllten) schwarzen Kreis malen
 		clock.setColor(Color.BLACK);
-		clock.fillOval(0 , 0, diameter ,  diameter);
+		//clock.fillOval(0 , 0, diameter ,  diameter);
 		
 		//Weißen Kreis im schwarzen Zeichnen. So bleibt nur noch ein schwarzer Rand übrig
 		clock.setColor(Color.WHITE);
-		clock.fillOval(i+3, i+3, diameter-5, diameter-5);
+		//clock.fillOval(i+3, i+3, diameter-5, diameter-5);
 		
 		//Objekte des Typs "Graphics" besitzen nicht die Möglichkeit die Dicke (Stroke) zu ändern. Daher wird das Objekt clock auf ein Objekt vom Typ Grahics2D gecastet
 		Graphics2D clock2 = (Graphics2D) clock;
