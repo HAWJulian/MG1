@@ -12,8 +12,6 @@ public class MotorSteuerung {
 	
 	static Scanner scanner = new Scanner(System.in);
 	
-	int degreeM;
-	int degreeH;
 	boolean directionM;
 	boolean directionH;
 	Clock[][] clocks2;
@@ -21,17 +19,10 @@ public class MotorSteuerung {
 	int dirH;
 	String data;
 	SerialPort serialPort = new SerialPort("/dev/tty.usbmodem1421");
-	int turnMinute;
-	int turnHour;
-	/*
-	 * MotorSteuerung soll erhalten: Um wie viel grad soll sich der jeweilige Zeiger bewegen und in welche Richtung.
-	 * Sollte die Rotation > 360° sein, muss die Anzahl der Rotationen reingerechnet werden (2x360° = 720° als Übergabe)
-	 * Sollte eine Rotation nicht derterminstisch sein, wird eine extrem große Gradzahl zur Rotation verwendet und über das Programm gestoppt
-	 * Im Programm (in welchem auch immer) wird die aktuelle Position beider Zeiger gespeichert, damit bei einer nicht deterministischhen Rotations
-	 * die Restrotation auf die neue Position bestimmt werden kann.
-	 */
-	public MotorSteuerung(Clock[][] clocks)
-	{
+
+	//Initialisierung des seriellen Ports und clockArray Ã¼bernehmen
+	public MotorSteuerung(Clock[][] clocks) {
+		
 		clocks2 = clocks;
 		try
 		{
@@ -45,28 +36,16 @@ public class MotorSteuerung {
 		}
 	}
 	
-	private void setDegrees(Clock[][] clocks2) {
-		degreeM = (int) clocks2[1][1].getTargetDegreeM();
-		degreeH = (int) clocks2[1][1].getTargetDegreeH();
-	}
-	
+	//Richtung der jeweiligen Uhr Ã¼bernehmen
 	private void setDirection(Clock[][] clocks) {
+		
 		directionM = clocks2[1][1].getDirectionM();
 		directionH = clocks2[1][1].getDirectionH();
 	}
-	private void setTurn(Clock[][] clocks)
-	{
-		turnMinute = clocks2[1][1].getRandomVariable1();
-		turnHour = clocks2[1][1].getRandomVariable2();
-	}
 	
-	public void refresh(Clock[][] clocks2)
-	{
-		setDegrees(clocks2);
+	public void refresh(Clock[][] clocks2) {
+		
 		setDirection(clocks2);
-		setTurn(clocks2);
-		//System.out.println(degreeM);
-		//System.out.println(degreeH);
 		if(directionM)
 		{
 			dirM = 1;
@@ -84,10 +63,10 @@ public class MotorSteuerung {
 		{
 			dirH = 0;
 		}
-		//data = degreeM + ", " + degreeH + ", " + dirM + ", " + dirH;
-		data = degreeM + ", " + dirM + ", " + turnMinute;
-		//this.ArduinoCommunication();
-		//System.out.println(data);
+		
+		data = dirM + "," + dirH + ':';
+		this.ArduinoCommunication();
+		System.out.println(data + "-" + "-" + dirM + "-" + dirH);
 	}
 	//Sende/Empfange Arduino Daten
 	private void ArduinoCommunication()
