@@ -52,11 +52,11 @@ public class MotorSteuerung {
 		setDirection(clocks2);
 		if(directionM)
 		{
-			dirM = 1;
+			dirM = 0;
 		}
 		else
 		{
-			dirM = 0;
+			dirM = 1;
 		}
 		
 		if(directionH)
