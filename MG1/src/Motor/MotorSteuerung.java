@@ -11,7 +11,8 @@ public class MotorSteuerung {
 	
 	
 	static Scanner scanner = new Scanner(System.in);
-	
+	int var1 = 2;
+	int var2 = 1;
 	boolean directionM;
 	boolean directionH;
 	Clock[][] clocks2;
@@ -40,9 +41,9 @@ public class MotorSteuerung {
 	//Richtung der jeweiligen Uhr übernehmen
 	private boolean setDirection(Clock[][] clocks) {
 		
-		directionM = clocks2[1][1].getDirectionM();
-		directionH = clocks2[1][1].getDirectionH();
-		boolean moving = clocks2[1][1].getIsMoving();
+		directionM = clocks2[var1][var2].getDirectionM();
+		directionH = clocks2[var1][var2].getDirectionH();
+		boolean moving = clocks2[var1][var2].getIsMoving();
 		
 		return moving;
 	}
@@ -70,11 +71,33 @@ public class MotorSteuerung {
 		
 		data = dirM + "," + dirH + ':';
 		//Todo: nur ein zeiger bewegt sich
-		if(setDirection(clocks2))
+		if(clocks2[var1][var2].getIsMoving())
 		{
+			if(clocks2[var1][var2].isHMoving() && !(clocks2[var1][var2].isMMoving()))
+			{
+				dirM = 2;
+				System.out.println("test/////");
+			}
+			else if(clocks2[var1][var2].isMMoving() && !(clocks2[var1][var2].isHMoving()))
+			{
+				dirH = 2;
+				System.out.println("test2////");
+			}
 			this.ArduinoCommunication();
-			System.out.println(data + "-" + "-" + dirM + "-" + dirH);
+			try
+			{
+				Thread.sleep(15);
+			}
+			catch (InterruptedException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//System.out.println("is H moving: " + clocks2[var1][var2].isHMoving());
+			//System.out.println("is M moving: " + clocks2[var1][var2].isMMoving());
+			//System.out.println("java: " + data + "-" + "-" + dirM + "-" + dirH);
 		}
+		
 		
 	}
 	//Sende/Empfange Arduino Daten
