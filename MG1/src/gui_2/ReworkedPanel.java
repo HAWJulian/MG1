@@ -1,5 +1,5 @@
 package gui_2;
-
+//Julian ist toll.
 
 import java.awt.Image;
 import javax.swing.JPanel;
