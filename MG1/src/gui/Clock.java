@@ -48,6 +48,33 @@ public class Clock extends JPanel implements Runnable{
 	{
 		return randomVariable2;
 	}
+	
+	public boolean isHMoving()
+	{
+		if (targetDegreeH == degreeH) 
+		{
+			if (randomVariable1==0)
+			{
+				return false;	
+			}
+		}
+		return true;
+		
+	}
+	
+	public boolean isMMoving()
+	{
+		if (targetDegreeM == degreeM) 
+		{
+			if (randomVariable2==0)
+			{
+				return false;	
+			}
+		}
+		return true;
+		
+	}
+	
 	public boolean getIsMoving()
 	{
 		return isMoving;
