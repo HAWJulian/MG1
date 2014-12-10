@@ -18,8 +18,9 @@ public class MotorSteuerung {
 	int dirM;
 	int dirH;
 	String data;
-	SerialPort serialPort = new SerialPort("/dev/tty.usbmodem1421");
-
+	
+	//SerialPort serialPort = new SerialPort("/dev/tty.usbmodem1421");
+	SerialPort serialPort = new SerialPort("COM3");
 	//Initialisierung des seriellen Ports und clockArray übernehmen
 	public MotorSteuerung(Clock[][] clocks) {
 		
