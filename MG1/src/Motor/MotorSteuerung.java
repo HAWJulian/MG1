@@ -18,8 +18,9 @@ public class MotorSteuerung {
 	int dirM;
 	int dirH;
 	String data;
-	SerialPort serialPort = new SerialPort("/dev/tty.usbmodem1421");
-
+	
+	//SerialPort serialPort = new SerialPort("/dev/tty.usbmodem1421");
+	SerialPort serialPort = new SerialPort("COM3");
 	//Initialisierung des seriellen Ports und clockArray übernehmen
 	public MotorSteuerung(Clock[][] clocks) {
 		
@@ -37,10 +38,13 @@ public class MotorSteuerung {
 	}
 	
 	//Richtung der jeweiligen Uhr übernehmen
-	private void setDirection(Clock[][] clocks) {
+	private boolean setDirection(Clock[][] clocks) {
 		
 		directionM = clocks2[1][1].getDirectionM();
 		directionH = clocks2[1][1].getDirectionH();
+		boolean moving = clocks2[1][1].getIsMoving();
+		
+		return moving;
 	}
 	
 	public void refresh(Clock[][] clocks2) {
@@ -65,8 +69,13 @@ public class MotorSteuerung {
 		}
 		
 		data = dirM + "," + dirH + ':';
-		this.ArduinoCommunication();
-		System.out.println(data + "-" + "-" + dirM + "-" + dirH);
+		//Todo: nur ein zeiger bewegt sich
+		if(setDirection(clocks2))
+		{
+			this.ArduinoCommunication();
+			System.out.println(data + "-" + "-" + dirM + "-" + dirH);
+		}
+		
 	}
 	//Sende/Empfange Arduino Daten
 	private void ArduinoCommunication()
