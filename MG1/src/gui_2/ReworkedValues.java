@@ -1745,5 +1745,6 @@ public class ReworkedValues {
 		clocks[3][5].rotateForMoreThan360Degrees(degree, degree, true, false);
 		clocks[3][2].rotateForMoreThan360Degrees(degree, degree, true, false);
 		clocks[4][0].rotateForMoreThan360Degrees(degree, degree, true, false);
+		panel.letClocksTick(duration/5);
 	}
 }
