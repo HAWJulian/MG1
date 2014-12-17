@@ -2,6 +2,8 @@ package gui_2;
 //Julian ist toll.
 
 import java.awt.Image;
+
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Motor.MotorSteuerung;
@@ -22,6 +24,8 @@ public class ReworkedPanel extends JPanel implements Runnable
 	 */
 	
 	private boolean isAnimationCalled;
+	
+	private boolean motorCaller = false;
 	
 	protected static final long serialVersionUID = 4636687551480582977L;
 
@@ -105,6 +109,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 		initPanel(rows, columns, diameter);
 		ms = new MotorSteuerung(this.getClocks());
 		isAnimationCalled = false;
+		
 	}
 
 	// Startet das Clockpanel
@@ -196,6 +201,11 @@ public class ReworkedPanel extends JPanel implements Runnable
 			break;
 		case 'N':
 			showNames();
+			break;
+		case'M':
+			System.out.println("Motoranbindung aktiviert");
+			motorCaller = true;
+			clocksToDefault();
 		default:
 			clocksToDefault();
 			break;
@@ -653,8 +663,35 @@ public class ReworkedPanel extends JPanel implements Runnable
 	{
 		values.setdefault(clocks);
 		
-		while (selector == 'N')
+		while (selector =='N')
 		{
+			values.setRowToDefault(clocks, 0);
+			values.setRowToDefault(clocks, 1);
+			values.setRowToDefault(clocks, 2);
+			values.setRowToDefault(clocks, 3);
+			values.setRowToDefault(clocks, 4);
+			values.setRowToDefault(clocks, 5);
+			
+			values.displayCharacter('c', 0, 0, clocks);
+			values.displayCharacter('l', 2, 0, clocks);
+			values.displayCharacter('o', 4, 0, clocks);
+			values.displayCharacter('c', 6, 0, clocks);
+			values.displayCharacter('k', 8, 0, clocks);
+			values.displayCharacter('c', 0, 3, clocks);
+			values.displayCharacter('e', 2, 3, clocks);
+			values.displayCharacter('p', 4, 3, clocks);
+			values.displayCharacter('t', 6, 3, clocks);
+			values.displayCharacter('i', 8, 3, clocks);
+			values.displayCharacter('o', 10, 3, clocks);
+			values.displayCharacter('n', 12, 3, clocks);
+			letClocksTick(50);
+		}
+		
+		while (selector == '1')
+		{
+			values.setRowToDefault(clocks, 0);
+			values.setRowToDefault(clocks, 1);
+			values.setRowToDefault(clocks, 2);
 			values.displayCharacter('p', 0, 0, clocks);
 			values.displayCharacter('a', 2, 0, clocks);
 			values.displayCharacter('t', 4, 0, clocks);
@@ -664,6 +701,9 @@ public class ReworkedPanel extends JPanel implements Runnable
 			values.displayCharacter('k', 12, 0, clocks);
 			letClocksTick(50);
 			
+			values.setRowToDefault(clocks, 3);
+			values.setRowToDefault(clocks, 4);
+			values.setRowToDefault(clocks, 5);
 			values.displayCharacter('d', 0, 3, clocks);
 			values.displayCharacter('e', 2, 3, clocks);
 			values.displayCharacter('s', 4, 3, clocks);
@@ -671,9 +711,8 @@ public class ReworkedPanel extends JPanel implements Runnable
 			values.displayCharacter('g', 8, 3, clocks);
 			values.displayCharacter('n', 10, 3, clocks);
 		}
-		while (selector == '1')
+		while (selector == '2')
 		{
-		
 		
 			values.displayCharacter('j', 0, 0, clocks);
 			values.displayCharacter('u', 2, 0, clocks);
@@ -696,7 +735,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 			values.displayCharacter('i', 12, 3, clocks);
 		}
 		
-		while (selector == '2')
+		while (selector == '3')
 		{
 			
 			
@@ -831,7 +870,10 @@ public class ReworkedPanel extends JPanel implements Runnable
 	{
 		for (int i=0; i<times; i++)
 		{
-			ms.refresh(clocks);
+			if (motorCaller)
+			{
+				ms.refresh(clocks);	
+			}
 			for (int k = 0; k < columns; k++)
 			{
 				for (int j = 0; j < rows; j++)

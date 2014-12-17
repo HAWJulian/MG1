@@ -47,6 +47,11 @@ public class ReworkedFrame extends JFrame
 			@Override
 			public void keyReleased(KeyEvent arg0) {
 				char a = Character.toUpperCase(arg0.getKeyChar());
+				System.out.println(arg0.getKeyCode());
+				if (arg0.getKeyCode()==27)
+				{
+					System.exit(0);
+				}
 				if (a!=lastTyped)
 				{
 					System.out.println("key changed: "+a);
