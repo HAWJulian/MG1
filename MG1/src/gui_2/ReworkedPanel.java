@@ -672,11 +672,11 @@ public class ReworkedPanel extends JPanel implements Runnable
 			values.setRowToDefault(clocks, 4);
 			values.setRowToDefault(clocks, 5);
 			
-			values.displayCharacter('c', 0, 0, clocks);
-			values.displayCharacter('l', 2, 0, clocks);
-			values.displayCharacter('o', 4, 0, clocks);
-			values.displayCharacter('c', 6, 0, clocks);
-			values.displayCharacter('k', 8, 0, clocks);
+			values.displayCharacter('c', 2, 0, clocks);
+			values.displayCharacter('l',4, 0, clocks);
+			values.displayCharacter('o', 6, 0, clocks);
+			values.displayCharacter('c', 8, 0, clocks);
+			values.displayCharacter('k', 10, 0, clocks);
 			values.displayCharacter('c', 0, 3, clocks);
 			values.displayCharacter('e', 2, 3, clocks);
 			values.displayCharacter('p', 4, 3, clocks);
