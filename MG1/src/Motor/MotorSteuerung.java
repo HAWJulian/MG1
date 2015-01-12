@@ -11,8 +11,8 @@ public class MotorSteuerung {
 	
 	
 	static Scanner scanner = new Scanner(System.in);
-	int var1 = 2;
-	int var2 = 1;
+	int var1 = 3;
+	int var2 = 2;
 	boolean directionM;
 	boolean directionH;
 	Clock[][] clocks2;
@@ -20,8 +20,8 @@ public class MotorSteuerung {
 	int dirH;
 	String data;
 	
-	//SerialPort serialPort = new SerialPort("/dev/tty.usbmodem1421");
-	SerialPort serialPort = new SerialPort("COM3");
+	SerialPort serialPort = new SerialPort("/dev/tty.usbmodem1421");
+	//SerialPort serialPort = new SerialPort("COM3");
 	//Initialisierung des seriellen Ports und clockArray übernehmen
 	public MotorSteuerung(Clock[][] clocks) {
 		
@@ -53,11 +53,11 @@ public class MotorSteuerung {
 		setDirection(clocks2);
 		if(directionM)
 		{
-			dirM = 0;
+			dirM = 1;
 		}
 		else
 		{
-			dirM = 1;
+			dirM = 0;
 		}
 		
 		if(directionH)
@@ -84,18 +84,18 @@ public class MotorSteuerung {
 				System.out.println("test2////");
 			}
 			this.ArduinoCommunication();
-			try
+			/*try
 			{
-				Thread.sleep(15);
+				TODO: Thread.sleep(15);
 			}
 			catch (InterruptedException e)
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 			//System.out.println("is H moving: " + clocks2[var1][var2].isHMoving());
 			//System.out.println("is M moving: " + clocks2[var1][var2].isMMoving());
-			//System.out.println("java: " + data + "-" + "-" + dirM + "-" + dirH);
+			System.out.println("java: " + data + "-" + "-" + dirM + "-" + dirH);
 		}
 		
 		
@@ -127,4 +127,13 @@ public class MotorSteuerung {
 
 	// serialPort.closePort();//Close serial port
 
+	//setzt zeiger auf default
+	public void toDefault() {
+		dirM = -2;
+		dirH = -2;
+		
+		data = dirM + "," + dirH + ':';
+		
+		this.ArduinoCommunication();
+	}
 }
