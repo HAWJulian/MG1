@@ -40,7 +40,8 @@ public class Clock extends JPanel implements Runnable{
 	
 	protected int randomVariable1, randomVariable2;
 	
-	private boolean renderer = true;
+	protected boolean cirles = false;
+	protected boolean renderer = true;
 	
 	public int getRandomVariable1()
 	{
@@ -372,14 +373,17 @@ public class Clock extends JPanel implements Runnable{
 			int radius = diameter - 30;
 			
 			//Hintergrundfarbe des Panels auf weiß setzen
-			
+			if (cirles)
+			{
+				clock.setColor(Color.BLACK);
+				clock.fillOval(0 , 0, diameter ,  diameter);
+				
+				//Weißen Kreis im schwarzen Zeichnen. So bleibt nur noch ein schwarzer Rand übrig
+				clock.setColor(Color.WHITE);
+				clock.fillOval(i+3, i+3, diameter-5, diameter-5);
+				
+			}
 			//Großen (gefüllten) schwarzen Kreis malen
-			clock.setColor(Color.BLACK);
-			//clock.fillOval(0 , 0, diameter ,  diameter);
-			
-			//Weißen Kreis im schwarzen Zeichnen. So bleibt nur noch ein schwarzer Rand übrig
-			clock.setColor(Color.WHITE);
-			//clock.fillOval(i+3, i+3, diameter-5, diameter-5);
 			
 			//Objekte des Typs "Graphics" besitzen nicht die Möglichkeit die Dicke (Stroke) zu ändern. Daher wird das Objekt clock auf ein Objekt vom Typ Grahics2D gecastet
 			Graphics2D clock2 = (Graphics2D) clock;
@@ -431,6 +435,11 @@ public class Clock extends JPanel implements Runnable{
 	public void setRenderer(boolean render)
 	{
 		renderer= render;
+	}
+	
+	public void setCircles(boolean cirles)
+	{
+		this.cirles = cirles;
 	}
 
 }

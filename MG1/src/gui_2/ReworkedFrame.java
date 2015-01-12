@@ -53,11 +53,20 @@ public class ReworkedFrame extends JFrame
 				{
 					System.exit(0);
 				}
-				if (a!=lastTyped)
+				if (a=='-')
 				{
-					System.out.println("key changed: "+a);
-					lastTyped = a;
-					panel.setSelector(lastTyped);
+					panel.renderCircles();
+					System.out.println("changed Circle rendering");
+				}
+				else
+				{
+					if (a!=lastTyped)
+					{
+						System.out.println("key changed: "+a);
+						lastTyped = a;
+						panel.setSelector(lastTyped);
+				
+					}
 				}
 			}
 			

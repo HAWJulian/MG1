@@ -13,6 +13,8 @@ import Project.Weather;
 
 public class ReworkedPanel extends JPanel implements Runnable
 {
+	
+	private boolean cirles = false;
 	//Speichert welche Operation momentan auf dem Panel läuft, bzhw welche als nächstes ablaufen soll. Siehe setDisplay()
 	private char selector;
 	
@@ -171,8 +173,21 @@ public class ReworkedPanel extends JPanel implements Runnable
 				clocks[i][j].setRenderer(true);
 			}
 		}
-		clocksToDefault();
+		setSelector('N');
 		
+	}
+	
+	public void renderCircles()
+	{
+		cirles = !cirles;
+		
+		for (int i=0; i<columns; i++)
+		{
+			for (int j=0; j<rows; j++)
+			{
+				clocks[i][j].setCircles(cirles);
+			}
+		}
 	}
 	//Wird benutzt damit sich die Uhr an Position <x|y> schneller oder langsamer bewegt. 
 	public void setTickrate(int tickrate, int posX, int posY)
