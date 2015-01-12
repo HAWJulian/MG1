@@ -20,8 +20,8 @@ public class MotorSteuerung {
 	int dirH;
 	String data;
 	
-	SerialPort serialPort = new SerialPort("/dev/tty.usbmodem1421");
-	//SerialPort serialPort = new SerialPort("COM3");
+	//SerialPort serialPort = new SerialPort("/dev/tty.usbmodem1421");
+	SerialPort serialPort = new SerialPort("COM3");
 	//Initialisierung des seriellen Ports und clockArray übernehmen
 	public MotorSteuerung(Clock[][] clocks) {
 		
@@ -62,11 +62,11 @@ public class MotorSteuerung {
 		
 		if(directionH)
 		{
-			dirH = 1;
+			dirH = 0;
 		}
 		else
 		{
-			dirH = 0;
+			dirH = 1;
 		}
 		
 		data = dirM + "," + dirH + ':';
@@ -129,8 +129,8 @@ public class MotorSteuerung {
 
 	//setzt zeiger auf default
 	public void toDefault() {
-		dirM = -2;
-		dirH = -2;
+		dirM = 3;
+		dirH = 3;
 		
 		data = dirM + "," + dirH + ':';
 		
