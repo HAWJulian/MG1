@@ -149,6 +149,31 @@ public class ReworkedPanel extends JPanel implements Runnable
 		}
 	}
 	
+	private void renderOneClock()
+	{
+		for (int i=0; i<columns; i++)
+		{
+			for (int j=0; j<rows; j++)
+			{
+				clocks[i][j].setRenderer(false);
+			}
+		}
+		clocks[1][1].setRenderer(true);
+		values.rotateover360(360, 360, true, true, clocks);
+		letClocksTick(36);
+	}
+	private void renderAllClocks()
+	{
+		for (int i=0; i<columns; i++)
+		{
+			for (int j=0; j<rows; j++)
+			{
+				clocks[i][j].setRenderer(true);
+			}
+		}
+		clocksToDefault();
+		
+	}
 	//Wird benutzt damit sich die Uhr an Position <x|y> schneller oder langsamer bewegt. 
 	public void setTickrate(int tickrate, int posX, int posY)
 	{
@@ -174,6 +199,12 @@ public class ReworkedPanel extends JPanel implements Runnable
 		System.out.println(selector);
 		switch (selector)
 		{
+		case 'O':
+			renderAllClocks();
+			break;
+		case 'P':
+			renderOneClock();
+			break;
 		case 'T':
 			displayTimeHuge();
 			break;

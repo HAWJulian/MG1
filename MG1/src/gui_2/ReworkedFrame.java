@@ -33,6 +33,7 @@ public class ReworkedFrame extends JFrame
 		lastTyped = 1;
 		
 		panel = new ReworkedPanel(rows, columns, diameter, screen);
+		panel.setSelector('P');
 		add (panel);
 		panel.start();
 		addKeyListener(new KeyListener() {

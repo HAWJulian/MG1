@@ -40,6 +40,8 @@ public class Clock extends JPanel implements Runnable{
 	
 	protected int randomVariable1, randomVariable2;
 	
+	private boolean renderer = true;
+	
 	public int getRandomVariable1()
 	{
 		return randomVariable1;//
@@ -355,43 +357,55 @@ public class Clock extends JPanel implements Runnable{
 	
 	protected void render(Graphics g)
 	{
-		int i = 0;
-		// rendern der Uhr
+		screen = createVolatileImage(diameter, diameter);
+		screen = createImage(diameter, diameter);
+	
 		clock = screen.getGraphics();
-		
-		int radius = diameter - 30;
-		
-		//Hintergrundfarbe des Panels auf weiß setzen
 		clock.setColor(Color.WHITE);
 		clock.fillRect(0, 0, diameter, diameter);
-		
-		//Großen (gefüllten) schwarzen Kreis malen
-		clock.setColor(Color.BLACK);
-		//clock.fillOval(0 , 0, diameter ,  diameter);
-		
-		//Weißen Kreis im schwarzen Zeichnen. So bleibt nur noch ein schwarzer Rand übrig
-		clock.setColor(Color.WHITE);
-		//clock.fillOval(i+3, i+3, diameter-5, diameter-5);
-		
-		//Objekte des Typs "Graphics" besitzen nicht die Möglichkeit die Dicke (Stroke) zu ändern. Daher wird das Objekt clock auf ein Objekt vom Typ Grahics2D gecastet
-		Graphics2D clock2 = (Graphics2D) clock;
-		clock2.setStroke(new BasicStroke(10));
-		
-		//Minutenzeiger rendern
-		clock2.setColor(Color.BLACK);
-		int zeigerMx = (int) ((center) + (Math.sin(Math.toRadians(degreeM)) *radius /2)*1.20);
-		int zeigerMy = (int) ((center) - (Math.cos(Math.toRadians(degreeM)) *radius /2)*1.20);
-		clock2.drawLine(center, center, zeigerMx, zeigerMy);
-		
-		//Stundenzeiger rendern
-		clock2.setColor(Color.BLACK);
-		int zeigerHx = (int) ((center) + ((Math.sin(Math.toRadians(degreeH)) *radius /2))*1.20);
-		int zeigerHy = (int) ((center) - ((Math.cos(Math.toRadians(degreeH)) *radius /2))*1.20);
-		clock2.drawLine(center , center, zeigerHx, zeigerHy);
-		
-		//gerenderte Sachen auf dem Bildschirm zeichnen
-		clock = getGraphics();
-		clock.drawImage(screen , 0 , 0 ,null);
+
+		if (renderer)			
+		{
+			int i = 0;
+			// rendern der Uhr
+			
+			int radius = diameter - 30;
+			
+			//Hintergrundfarbe des Panels auf weiß setzen
+			
+			//Großen (gefüllten) schwarzen Kreis malen
+			clock.setColor(Color.BLACK);
+			//clock.fillOval(0 , 0, diameter ,  diameter);
+			
+			//Weißen Kreis im schwarzen Zeichnen. So bleibt nur noch ein schwarzer Rand übrig
+			clock.setColor(Color.WHITE);
+			//clock.fillOval(i+3, i+3, diameter-5, diameter-5);
+			
+			//Objekte des Typs "Graphics" besitzen nicht die Möglichkeit die Dicke (Stroke) zu ändern. Daher wird das Objekt clock auf ein Objekt vom Typ Grahics2D gecastet
+			Graphics2D clock2 = (Graphics2D) clock;
+			clock2.setStroke(new BasicStroke(10));
+			
+			//Minutenzeiger rendern
+			clock2.setColor(Color.BLACK);
+			int zeigerMx = (int) ((center) + (Math.sin(Math.toRadians(degreeM)) *radius /2)*1.20);
+			int zeigerMy = (int) ((center) - (Math.cos(Math.toRadians(degreeM)) *radius /2)*1.20);
+			clock2.drawLine(center, center, zeigerMx, zeigerMy);
+			
+			//Stundenzeiger rendern
+			clock2.setColor(Color.BLACK);
+			int zeigerHx = (int) ((center) + ((Math.sin(Math.toRadians(degreeH)) *radius /2))*1.20);
+			int zeigerHy = (int) ((center) - ((Math.cos(Math.toRadians(degreeH)) *radius /2))*1.20);
+			clock2.drawLine(center , center, zeigerHx, zeigerHy);
+			
+			//gerenderte Sachen auf dem Bildschirm zeichnen
+			clock = getGraphics();
+			clock.drawImage(screen , 0 , 0 ,null);
+		}
+		else
+		{
+			clock = getGraphics();
+			clock.drawImage(screen, 0, 0 ,null);
+		}
 	}	
 		
 	//Dauerschleife, Uhr rendern => neue Positionen für die Uhr berechen => 20ms schlafen legen => von vorne
@@ -412,6 +426,11 @@ public class Clock extends JPanel implements Runnable{
 		}
 		
 		
+	}
+	
+	public void setRenderer(boolean render)
+	{
+		renderer= render;
 	}
 
 }
