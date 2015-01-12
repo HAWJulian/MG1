@@ -34,7 +34,7 @@ public class MotorSteuerung {
 		}
 		catch(Exception e)
 		{
-			
+			System.out.println("failed to open port");
 		}
 	}
 	
