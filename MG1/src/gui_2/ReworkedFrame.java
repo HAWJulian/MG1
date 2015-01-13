@@ -51,12 +51,17 @@ public class ReworkedFrame extends JFrame
 				System.out.println(arg0.getKeyCode());
 				if (arg0.getKeyCode()==27)
 				{
+					panel.resetClock();
 					System.exit(0);
 				}
 				if (a=='-')
 				{
 					panel.renderCircles();
-					System.out.println("changed Circle rendering");
+				}
+				else if (a=='.')
+				{
+					panel.focusMotorClock();
+					System.out.println("motor");
 				}
 				else
 				{

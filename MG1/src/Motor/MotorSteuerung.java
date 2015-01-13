@@ -136,4 +136,9 @@ public class MotorSteuerung {
 		
 		this.ArduinoCommunication();
 	}
+	
+	public int[] getFocussedClock()
+	{
+		return new int[]{var1,var2};
+	}
 }

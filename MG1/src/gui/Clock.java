@@ -42,6 +42,12 @@ public class Clock extends JPanel implements Runnable{
 	
 	protected boolean cirles = false;
 	protected boolean renderer = true;
+	protected boolean isMotorClock = false;
+	
+	public void makeItFancy()
+	{
+		isMotorClock =!isMotorClock;
+	}
 	
 	public int getRandomVariable1()
 	{
@@ -390,13 +396,15 @@ public class Clock extends JPanel implements Runnable{
 			clock2.setStroke(new BasicStroke(10));
 			
 			//Minutenzeiger rendern
-			clock2.setColor(Color.BLACK);
+			if (isMotorClock) clock2.setColor(Color.RED);
+			else clock2.setColor(Color.BLACK);
+			
+			
 			int zeigerMx = (int) ((center) + (Math.sin(Math.toRadians(degreeM)) *radius /2)*1.20);
 			int zeigerMy = (int) ((center) - (Math.cos(Math.toRadians(degreeM)) *radius /2)*1.20);
 			clock2.drawLine(center, center, zeigerMx, zeigerMy);
 			
 			//Stundenzeiger rendern
-			clock2.setColor(Color.BLACK);
 			int zeigerHx = (int) ((center) + ((Math.sin(Math.toRadians(degreeH)) *radius /2))*1.20);
 			int zeigerHy = (int) ((center) - ((Math.cos(Math.toRadians(degreeH)) *radius /2))*1.20);
 			clock2.drawLine(center , center, zeigerHx, zeigerHy);

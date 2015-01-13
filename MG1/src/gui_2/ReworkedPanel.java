@@ -55,12 +55,18 @@ public class ReworkedPanel extends JPanel implements Runnable
 		return clocks;
 	}
 	//Vergrößert verkleinert das panel
+	@Deprecated
 	public void changeAmountOfClocks(int targetRows, int targetColumns, int targetDiameter)
 	{
 		th.stop();
 		initPanel(targetRows, targetColumns, targetDiameter);
 		start();
-		
+	}
+	
+	public void focusMotorClock()
+	{
+		int[] data = ms.getFocussedClock();
+		clocks[data[0]][data[1]].makeItFancy();
 	}
 	
 	
@@ -938,6 +944,11 @@ public class ReworkedPanel extends JPanel implements Runnable
 			}
 			
 		}
+	}
+	
+	public void resetClock()
+	{
+		ms.toDefault();
 	}
 	
 
