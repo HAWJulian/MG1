@@ -85,11 +85,6 @@ public class TestKlassePatrick{
 		});
 	}
 	
-	private static int ex()
-	{
-		stuff();
-		return 2;
-	}
 	
 	
 	

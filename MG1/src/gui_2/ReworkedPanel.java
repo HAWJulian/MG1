@@ -3,12 +3,10 @@ package gui_2;
 
 import java.awt.Image;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Motor.MotorSteuerung;
 import Project.Time;
-import Project.Values;
 import Project.Weather;
 
 public class ReworkedPanel extends JPanel implements Runnable

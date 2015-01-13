@@ -32,8 +32,6 @@ public class TestKlasse{
 
 					frame2.start(); */
 				//
-					Presentation presi = new Presentation(frame);
-					presi.run();
 					
 				
 				} catch (Exception e) {

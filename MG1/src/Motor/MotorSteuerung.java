@@ -5,7 +5,6 @@ import jssc.SerialPort;
 import jssc.SerialPortException;
 
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class MotorSteuerung {
 	

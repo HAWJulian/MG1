@@ -1,11 +1,8 @@
 package gui;
 
 import java.awt.EventQueue;
-import java.util.Scanner;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 import Project.Time;
 import Project.Values;
@@ -14,9 +11,7 @@ import Project.Weather;
 public class TestklasseJulian {
 	private Values values = new Values();
 	private Clock[][] arrayClock;
-	private Clock clock;
 	
-	private JPanel contentPane;
 	private JFrame frame;
 	int size;
 	int columns;
@@ -75,6 +70,7 @@ public class TestklasseJulian {
 	}
 	
 
+	@SuppressWarnings("unused")
 	private void displayTimeHuge()
 	{
 		Time time = new Time();
@@ -106,6 +102,7 @@ public class TestklasseJulian {
 			}
 		}
 	}
+	@SuppressWarnings("unused")
 	private void displayTime() 
 	{
 		Time time = new Time();
@@ -138,6 +135,7 @@ public class TestklasseJulian {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	private void playAnimation1()
 	{
 		//step#1 move pointer in start position
@@ -320,6 +318,7 @@ public class TestklasseJulian {
 	}
 	//testmethod
 	//displays every implemented character
+	@SuppressWarnings("unused")
 	private void displayChars()
 	{
 		//execute step by step with debugger, else make the thread sleep for ~2k ms after each call
