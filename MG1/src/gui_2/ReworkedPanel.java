@@ -1,6 +1,7 @@
 package gui_2;
 //Julian ist toll.
 
+import java.awt.Color;
 import java.awt.Image;
 
 import javax.swing.JPanel;
@@ -71,7 +72,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 	//Initalisiert das Panel
 	protected void initPanel(int rows, int columns, int diameter)
 	{
-		
+		setBackground(Color.WHITE);
 		setSize(columns * diameter + 10, rows * diameter + 40);
 		setVisible(true);
 		setLayout(null);
@@ -83,7 +84,7 @@ public class ReworkedPanel extends JPanel implements Runnable
 				clocks[i][j] = new ReworkedClock(diameter, image);
 				add(clocks[i][j]);
 
-				clocks[i][j].setBounds(diameter * i, diameter * j, diameter,
+				clocks[i][j].setBounds(diameter * i, diameter * j+30, diameter,
 						diameter);
 			}
 		}
@@ -341,6 +342,20 @@ public class ReworkedPanel extends JPanel implements Runnable
 	// Zeit in klein darstellen. Julian
 	protected void displayTime()
 	{
+		for (int i=0; i<columns; i++)
+		{
+			for (int j=0; j<rows; j++)
+			{
+				clocks[i][j].setRenderer(false);
+			}
+		}
+			for (int i=0; i<8; i++)
+		{
+			for (int j=0; j<4; j++)
+			{
+				clocks[i][j].setRenderer(true);
+			}
+		}
 		values.setdefault(clocks);
 		Time time = new Time();
 		values.displayCharacter(String.valueOf(time.getHours0()).charAt(0), 0,
@@ -722,18 +737,18 @@ public class ReworkedPanel extends JPanel implements Runnable
 			values.setRowToDefault(clocks, 4);
 			values.setRowToDefault(clocks, 5);
 			
-			values.displayCharacter('c', 2, 0, clocks);
-			values.displayCharacter('l',4, 0, clocks);
-			values.displayCharacter('o', 6, 0, clocks);
-			values.displayCharacter('c', 8, 0, clocks);
-			values.displayCharacter('k', 10, 0, clocks);
-			values.displayCharacter('c', 0, 3, clocks);
-			values.displayCharacter('e', 2, 3, clocks);
-			values.displayCharacter('p', 4, 3, clocks);
-			values.displayCharacter('t', 6, 3, clocks);
-			values.displayCharacter('i', 8, 3, clocks);
-			values.displayCharacter('o', 10, 3, clocks);
-			values.displayCharacter('n', 12, 3, clocks);
+			values.displayCharacter('c', 3, 0, clocks);
+			values.displayCharacter('l',5, 0, clocks);
+			values.displayCharacter('o', 7, 0, clocks);
+			values.displayCharacter('c', 9, 0, clocks);
+			values.displayCharacter('k', 11, 0, clocks);
+			values.displayCharacter('c', 1, 3, clocks);
+			values.displayCharacter('e', 3, 3, clocks);
+			values.displayCharacter('p', 5, 3, clocks);
+			values.displayCharacter('t', 7, 3, clocks);
+			values.displayCharacter('i', 9, 3, clocks);
+			values.displayCharacter('o', 11, 3, clocks);
+			values.displayCharacter('n', 13, 3, clocks);
 			letClocksTick(50);
 		}
 		

@@ -1,5 +1,7 @@
 package gui_2;
 
+import java.awt.Color;
+import java.awt.Frame;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -20,11 +22,16 @@ public class ReworkedFrame extends JFrame
 	public ReworkedFrame(int rows, int columns, int diameter)
 	{
 	
+		//setUndecorated(true);
+		//setExtendedState(Frame.MAXIMIZED_BOTH);
+		this.getContentPane().setBackground(Color.WHITE);
+		setUndecorated(true);
 		setTitle("ClockCeption");
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(columns * diameter + 10, rows * diameter + 40);
+		setSize(1920, 1080);
 		setVisible(true);
 		setLayout(null);
 		//setBounds(10, 10, columns * diameter + 10,  rows * diameter + 40);
