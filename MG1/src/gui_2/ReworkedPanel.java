@@ -779,6 +779,11 @@ public class ReworkedPanel extends JPanel implements Runnable
 		while (selector == '2')
 		{
 		
+			values.setRowToDefault(clocks, 0);
+			values.setRowToDefault(clocks, 1);
+			values.setRowToDefault(clocks, 2);
+		
+			
 			values.displayCharacter('j', 0, 0, clocks);
 			values.displayCharacter('u', 2, 0, clocks);
 			values.displayCharacter('l', 4, 0, clocks);
